@@ -1020,10 +1020,9 @@ footer {
 }
 .usuario .linha-input{
   position: absolute;
-  left: 47px;
-  top: 50%;
+  left: 61px;
+  top: 43%;
   transform: translateY(-50%);
-  rotate: 50px;
   font-size: 28px;
   background-color: #522318;
   width: 3px;
@@ -1032,9 +1031,17 @@ footer {
 }
 
 .usuario input {
+  width: 415px;
   background: #E3CFBC;
   border-radius: 15px;
-  padding: 19px 60px;/* Adicione espaço à esquerda para acomodar o ícone */
+  padding: 19px 84px;
+}
+
+.usuario input::placeholder{
+  font-family: 'Young-serif';
+  color: #835248bb;
+  font-size: 16px;
+  padding-top: 23px;
 }
 
 /* fim login.html */
