@@ -645,7 +645,7 @@ input::placeholder {
 
 .item .content .name {
   font-family: 'Poppins-Semi';
-  font-size: 32px;
+  font-size: 29px;
   color: #522318;
 }
 
@@ -739,11 +739,11 @@ input::placeholder {
   background-color: #b99b8d8b;
   height: 823px;
   display: flex;
- 
+
 
 }
 
-.tarja-tudo{
+.tarja-tudo {
   margin: 52px 0px 3px;
 }
 
@@ -754,21 +754,21 @@ input::placeholder {
   height: 137px;
 }
 
-.tarja p{
+.tarja p {
   color: #E3CFBC;
   padding: 16px 156px;
   font-size: 28px;
   font-family: 'Poppins-Semi';
 }
 
-.tarja p span{
+.tarja p span {
   font-size: 49px;
   font-family: 'Young-serif';
 }
 
-.linha-um{
-  margin: 10px 0px 0px 57px;
-  width: 1404.9px;
+.linha-um {
+  margin: 10px 0px 0px 156px;
+  width: 1202px;
   height: 2.5px;
 }
 
@@ -777,9 +777,9 @@ input::placeholder {
 
 }
 
-.linha-dois{
-  margin: 0px 0px 0px 59px;
-  width: 655px;
+.linha-dois {
+  margin: 0px 0px 0px 156px;
+  width: 1202px;
   height: 2.3px;
 }
 
@@ -796,11 +796,11 @@ input::placeholder {
   margin: 25px 0px;
 }
 
-.detalhes{
+.detalhes {
   margin: 0 0px 0 50px;
 }
 
-.detalhes-library{
+.detalhes-library {
   margin: 0 0px 0 41px;
 }
 
@@ -818,13 +818,14 @@ input::placeholder {
   font-size: 17px;
 }
 
-.botao-linha{
+.botao-linha {
   display: flex;
   justify-content: center;
+  margin: 0 0 0 195px;
 }
 
-.botao-linha a{
-  width:284px;
+.botao-linha a {
+  width: 284px;
   display: flex;
   padding: 11px 24px;
   border-radius: 15px;
@@ -837,7 +838,12 @@ input::placeholder {
   z-index: 1;
 }
 
-.linha-botao{
+.botao-linha a:hover {
+  background-color: #A27F77;
+  color: #3C2520;
+}
+
+.linha-botao {
   width: 655px;
   z-index: 0;
   background-color: #3c2520;
@@ -850,16 +856,17 @@ input::placeholder {
 
 /* scroll - fade */
 
-.texto-img{
+.texto-img {
   display: flex;
 }
 
-.div1, .div2{
+.div1,
+.div2 {
   display: grid;
   position: relative;
 }
 
-.div2{
+.div2 {
   top: -30px;
 }
 
@@ -869,19 +876,165 @@ input::placeholder {
   max-width: 1100px;
   width: 40%;
   margin: 20px auto;
- overflow-x: hidden;
- z-index: 3;
- position: relative;
- top: -217px;
- left: 46px;
+  overflow-x: hidden;
+  z-index: 3;
+  position: relative;
+  top: -217px;
+  left: 46px;
 }
 
-.scroll-img img{
+.scroll-img img {
   width: 205px;
-  height: 304px;
+  height: auto;
   margin: 50px 0px 0px;
-  border-radius: 15px;
+  border-radius: 12px;
+  box-shadow: 10px 10px 5px #52231845;
 }
+
 /* fim scroll */
 
 /* setor três - produtos - FIM */
+
+/* inicio footer */
+
+footer {
+  background-color: #3C2520;
+}
+
+.container-footer,
+.parte1,
+.part2,
+.logo-footer {
+  display: flex;
+}
+
+.container-footer {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 4% 6%;
+}
+
+.container-footer nav {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  font-family: 'Young-serif';
+  font-size: 22px;
+
+}
+
+.container-footer nav a {
+  margin: 12px 19px;
+  color: #E3CFBC;
+}
+
+.redes-sociais {
+  display: grid;
+  justify-items: center;
+}
+
+.redes-sociais img {
+  margin: 15px 0;
+}
+
+.logo-footer {
+  display: flex;
+  align-items: center;
+}
+
+.logo-footer img {
+  width: 137px;
+}
+
+.logo-footer h2 {
+  padding-left: 37px;
+  font-family: 'Young-serif';
+  font-size: 31.56px;
+  color: #E3CFBC;
+}
+
+/* fim footer */
+
+/* inicio login.html */
+
+.favoritos-login {
+  margin: 0 0 0 713px;
+}
+
+.container-login {
+  justify-content: space-between;
+  margin: 0 133.7px;
+}
+
+.botao-login a {
+  background-color: #3C2520;
+  color: #F8F1EE;
+}
+
+.botoes-login {
+  height: 36px;
+}
+
+.box{
+  display: flex;
+  justify-content: space-between;
+}
+
+.box h3{
+  font-size: 46px;
+  color: #522318;
+  font-family: 'Young-serif';
+
+}
+
+.box h3 span{
+  font-size: 46px;
+  color: #835248;
+  font-family: 'Young-serif';
+}
+
+.box img {
+  width: 612px;
+  height: 799px;
+}
+
+.campo{
+  display: grid;
+}
+
+.campo input{
+  margin: 0 0  10px 0;
+}
+
+.usuario {
+  position: relative;
+}
+
+.usuario i {
+  position: absolute;
+  left: 20px;
+  top: 42%;
+  transform: translateY(-50%);
+  font-size: 28px;
+}
+.usuario .linha-input{
+  position: absolute;
+  left: 47px;
+  top: 50%;
+  transform: translateY(-50%);
+  rotate: 50px;
+  font-size: 28px;
+  background-color: #522318;
+  width: 3px;
+  height: 33px;
+  border-radius: 20px;
+}
+
+.usuario input {
+  background: #E3CFBC;
+  border-radius: 15px;
+  padding: 19px 60px;/* Adicione espaço à esquerda para acomodar o ícone */
+}
+
+/* fim login.html */
