@@ -542,7 +542,7 @@ input::placeholder {
   left: 59%;
   top: 125%;
   background-color: #522318;
-  width: 526px;
+  width: 453px;
   height: 7px;
   border-radius: 11px;
 }
@@ -552,7 +552,7 @@ input::placeholder {
   left: 59%;
   top: 155%;
   background-color: #522318;
-  width: 526px;
+  width: 453px;
   height: 7px;
   border-radius: 11px;
 }
@@ -659,7 +659,7 @@ input::placeholder {
   font-family: 'Poppins-regular';
   font-size: 20px;
   color: #522318;
-  width: 520px;
+  width: 493px;
 }
 
 .name,
@@ -737,31 +737,55 @@ input::placeholder {
 
 #Produtos {
   background-color: #b99b8d8b;
-  height: 584px;
+  height: 823px;
   display: flex;
+ 
 
+}
+
+.tarja-tudo{
+  margin: 52px 0px 3px;
 }
 
 .tarja {
   width: 1518.9px;
   background-color: #3C2520;
   margin: 23px 0;
+  height: 137px;
+}
+
+.tarja p{
+  color: #E3CFBC;
+  padding: 16px 156px;
+  font-size: 28px;
+  font-family: 'Poppins-Semi';
+}
+
+.tarja p span{
+  font-size: 49px;
+  font-family: 'Young-serif';
 }
 
 .linha-um{
-  margin: 10px 0px 0px;
+  margin: 10px 0px 0px 57px;
+  width: 1404.9px;
+  height: 2.5px;
 }
 
 .linha {
-  width: 1518.9px;
-  height: 3px;
   background-color: #3C2520;
 
 }
 
+.linha-dois{
+  margin: 0px 0px 0px 59px;
+  width: 655px;
+  height: 2.3px;
+}
+
 .info-produtos {
-  width: 391px;
-  margin: 0 155px;
+  width: 446px;
+  margin: 0 0px 0 155px;
 }
 
 .texto {
@@ -772,18 +796,92 @@ input::placeholder {
   margin: 25px 0px;
 }
 
+.detalhes{
+  margin: 0 0px 0 50px;
+}
+
+.detalhes-library{
+  margin: 0 0px 0 41px;
+}
+
 .texto h3 {
   font-family: 'Young-serif';
   color: #522318;
-  margin: 0 28px;
+
+  font-size: 24px;
 }
 
 .texto p {
   font-family: 'Poppins-regular';
   color: #522318;
-  margin: 0 25px;
+
+  font-size: 17px;
+}
+
+.botao-linha{
+  display: flex;
+  justify-content: center;
+}
+
+.botao-linha a{
+  width:284px;
+  display: flex;
+  padding: 11px 24px;
+  border-radius: 15px;
+  font-size: 24px;
+  font-family: 'Young-serif';
+  color: #E3CFBC;
+  background: #3C2520;
+  text-decoration: none;
+  justify-content: center;
+  z-index: 1;
+}
+
+.linha-botao{
+  width: 655px;
+  z-index: 0;
+  background-color: #3c2520;
+  height: 2.5px;
+  position: absolute;
+  margin: 29px 0px 0px 21px;
 }
 
 
+
+/* scroll - fade */
+
+.texto-img{
+  display: flex;
+}
+
+.div1, .div2{
+  display: grid;
+  position: relative;
+}
+
+.div2{
+  top: -30px;
+}
+
+.scroll-img {
+  display: flex;
+  justify-content: space-evenly;
+  max-width: 1100px;
+  width: 40%;
+  margin: 20px auto;
+ overflow-x: hidden;
+ z-index: 3;
+ position: relative;
+ top: -217px;
+ left: 46px;
+}
+
+.scroll-img img{
+  width: 205px;
+  height: 304px;
+  margin: 50px 0px 0px;
+  border-radius: 15px;
+}
+/* fim scroll */
 
 /* setor três - produtos - FIM */

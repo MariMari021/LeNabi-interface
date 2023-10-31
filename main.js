@@ -266,3 +266,6 @@ document.getElementById('prev').onclick = function(){
 }
 
 //FIM LANÇAMENTOS
+
+//produtos
+AOS.init();
