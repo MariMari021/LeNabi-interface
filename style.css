@@ -555,17 +555,17 @@ input::placeholder {
   top: 125%;
   background-color: #522318;
   width: 453px;
-  height: 7px;
+  height: 4.3px;
   border-radius: 11px;
 }
 
 .divsaoDois {
   position: absolute;
   left: 59%;
-  top: 155%;
+  top: 156.3%;
   background-color: #522318;
   width: 453px;
-  height: 7px;
+  height: 4px;
   border-radius: 11px;
 }
 
@@ -639,18 +639,37 @@ input::placeholder {
 }
 
 .item .name {
+  margin: 23px 0 3px;
   opacity: 0;
   animation: showcontent 1s ease-in-out 1 forwards
 }
 
 .item .des {
-  margin: 15px 0;
+  margin: 7px 0;
   opacity: 0;
   animation: showcontent 1s ease-in-out 0.3s 1 forwards
 }
 
+.item .des a{
+  top: 18px;
+  position: relative;
+  margin: 27%;
+  background: #522318;
+  color: #fff;
+  padding: 9px 48px;
+  border-radius: 14px;
+  font-size: 18px;
+  font-family: 'Young-serif';
+}
+
+.item .des a:hover{
+  background-color: #B99B8D;
+  color: #3C2520;
+}
+
+
 .item .data {
-  margin: 15px 0;
+  margin: 7px 0;
   opacity: 0;
   animation: showcontent 1s ease-in-out 0.3s 1 forwards
 }
@@ -989,112 +1008,122 @@ input::placeholder {
 
 /* inicio sustentabilidade */
 
-#sustentabilidade{
-  height: 758px;
-}
-
 .sustentabilidade {
+  height: 606px;
   display: flex;
-  justify-content: space-evenly;
-  margin: 0 15.5%;
-  align-items: center;
-
+  justify-content: space-around;
 }
 
-.mao-terra {
-  height: 591px;
-  width: 409px;
-  margin-top: 99px;
-}
-
-.folheto {
-  display: grid;
-  z-index: 0;
-  position: relative;
-  height: 352.82px;
-  width: 260.21px;
-  border-radius: 26px;
-  background-image: url(img-interface/papel.svg);
-  background-size: cover;
-  background-repeat: no-repeat;
-  justify-items: center;
-  align-items: center;
-  font-family: 'Young-serif';
-  font-size: 25px;
-  color: #3C2520;
-  align-content: space-evenly;
-  padding: 8.3% 0;
-  bottom: 329px;
-  left: 174px;
-}
-
-.folheto img {
-  height: auto;
-  width: 169.83px;
-
-}
-
-.circleUm,
-.circleDois {
-  width: 306px;
-  height: 306px;
+.circle-um,
+.circle-dois {
+  width: 246px;
+  height: 246px;
   background-color: #3C2520;
   border-radius: 300px;
   position: absolute;
-  z-index: -1;
 }
 
-.circleUm {
-  margin-top: 253px;
-  left: 173px;
+.circle-um {
+  top: 3160px;
+  left: 285px;
 }
 
-.circleDois {
-  left: 216px;
-  margin-top: 454px;
+.circle-dois {
+  top: 3308px;
+  left: 326px;
 }
 
-.textoSustentavel{
-  /* margin: 0px 127px 184px; */
+.mao-terra {
+  width: auto;
+  height: 430px;
+  position: absolute;
+  left: 340px;
+  top: 3070px;
+}
+
+.papel {
+  width: 202px;
+  height: auto;
+  position: absolute;
+  top: 3256px;
+  left: 489px;
+  box-shadow: 5px 5px 5px #3c2520b3;
+  border-radius: 20px;
+}
+
+.logo-sustevel {
+  width: 134px;
+  position: absolute;
+  top: 3307px;
+  left: 523px;
+}
+
+.sustentavel-img h2 {
+  font-family: 'Young-serif';
+  color: #3C2520;
+  position: absolute;
+  top: 3455px;
+  left: 551px;
+}
+
+.textoSustentavel {
   text-align: center;
-  width: 443px;
+  margin-top: 210px;
 }
 
-.textoSustentavel h2{
+.textoSustentavel h1 {
   color: #6D5448;
   font-family: 'Poppins-bold';
-  font-size: 40px;
-  width: 492px;
-  
+  font-size: 36px;
+  line-height: 40px;
 }
 
-.textoSustentavel .e{
-  font-family: 'Young-serif';
-  font-size: 24px;
+.textoSustentavel h1 .e {
   color: #6D5448;
-}
-
-.textoSustentavel h2 span{
-  color: #3C2520;
-  font-family: 'Young-sefif';
-
-}
-
-.textoSustentavel p{
-  color: #522318;
-  font-family: 'Poppins-regular';
-  font-size:18.3px;
-
-}
-
-.textoSustentavel a{
-  background-color: #3C2520;
   font-family: 'Young-serif';
-  font-size: 18px;
-  color: #E3CFBC;
-  border-radius: 14px;
+  font-size: 23px;
 }
 
+.textoSustentavel h1 span {
+  color: #3C2520;
+  font-family: 'Young-serif';
+}
+
+.textoSustentavel p {
+  font-family: 'Poppins-regular';
+  width: 405px;
+  font-size: 18px;
+  margin: 25px 0;
+}
+
+.textoSustentavel a button {
+  background-color: #3C2520;
+  width: 175px;
+  height: 46px;
+  border-radius: 14px;
+  color: #E3CFBC;
+  font-family: 'Young-serif';
+  font-size: 19px;
+  margin-top: 7px;
+  cursor: pointer;
+}
+
+.textoSustentavel a button:hover {
+  background-color: #B99B8D;
+  color: #3C2520;
+}
+
+.linhaSeparacao {
+  height: 20px;
+  background-color: #3C2520;
+  height: 4px;
+  width: 1382px;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  margin: 6% 76px;
+  border-radius: 11px;
+}
 
 /* fim sustentabilidade */
 
