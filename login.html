@@ -30,32 +30,117 @@
         <nav>
             <div class="botoes botoes-login"></div>
         </nav>
-        <main>
-            <div class="box">
-                <div class="conteudo-login">
-                    <div class="titulo">
-                        <h3><span>Bem vindo</span><br>de volta!</h3>
-                        <div class="linha-titulo"></div>
-                    </div>
-                    <div class="campo">
-                        <div class="usuario">
-                            <i class="fa fa-user" style="color: #522318"></i>
-                            <div class="linha-input"></div>
-                            <input type="text" placeholder="Usuário ou e-mail">
-                        </div>
-                        <div class="senha">
-                            <i class="fa-solid fa-key" style="color: #522318"></i>
-                            <div class="linha-senha"></div>
-                            <input type="text" placeholder="Senha">
-                        </div>
-                    </div>
-                    <button></button>
-                </div>
-                <img src="img-interface/valentin-antonini-0eTLk6dA_Ds-unsplash 1.png" alt="">
-            </div>
-
-        </main>
     </header>
+    <main>
+        <div class="box">
+            <div class="conteudo-login">
+                <div class="titulo">
+                    <h3><span>Bem-vindo</span><br>de volta!</h3>
+                    <div class="linha-titulo"></div>
+                </div>
+                <div class="campo">
+                    <div class="usuario">
+                        <i class="fa fa-user" style="color: #522318"></i>
+                        <div class="linha-input"></div>
+                        <input type="text" id="userInput" placeholder="Usuário ou e-mail" required>
+                    </div>
+                    <div class="senha">
+                        <i class="fa-solid fa-key" style="color: #522318" id="iconSenha"></i>
+                        <div class="linha-senha"></div>
+                        <i class="fa-regular fa-eye-slash" style="color: #835248" id="iconOlho"></i>
+                        <input type="password" placeholder="Senha" required id="senhaInput">
+                    </div>
+                </div>
+                <div class="outros-registros">
+                    <button id="loginButton">Entrar</button>
+                    <p>Não tem conta? <a href="cadastro.html"><span>Registre-se!</span></a></p>
+                </div>
+                <div class="login-sociais">
+                    <div class="linha-sociais"></div>
+                    <p>ou</p>
+                    <div class="line-icons"></div>
+                    <div class="line-icons2"></div>
+                    <div class="icons">
+                        <img src="img-interface/Group 9.svg" alt="">
+                        <img src="img-interface/Group 10.svg" alt="">
+                        <img src="img-interface/Group 11.svg" alt="">
+                    </div>
+
+                </div>
+            </div>
+            <img class="img-login" src="img-interface/valentin-antonini-0eTLk6dA_Ds-unsplash 1.png" alt="">
+        </div>
+    </main>
+    <footer>
+        <div class="container-footer">
+            <nav>
+                <div class="parte1">
+                    <a href="#">Produtos</a>
+                    <a href="#">Lançamentos</a>
+                    <a href="#">Pré-venda</a>
+                </div>
+                <div class="parte2">
+                    <a href="#">Favoritos</a>
+                    <a href="#">Sustentabilidade</a>
+                    <a href="#">Sobre nós</a>
+                </div>
+            </nav>
+            <div class="redes-sociais">
+                <a href=""><img src="img-interface/carbon_email.svg" alt=""></a>
+                <a href=""><img src="img-interface/uil_instagram.svg" alt=""></a>
+                <a href=""><img src="img-interface/simple-icons_x.svg" alt=""></a>
+            </div>
+            <div class="logo-footer">
+                <img src="img-interface/lenabi 1.png" alt="">
+                <h2>LeNabi</h2>
+            </div>
+        </div>
+    </footer>
+    <script>
+        const iconSenha = document.getElementById("iconSenha");
+        const iconOlho = document.getElementById("iconOlho");
+        const senhaInput = document.getElementById("senhaInput");
+        const loginButton = document.getElementById("loginButton");
+        const userInput = document.getElementById("userInput");
+
+        // Adicionar um ouvinte de evento ao ícone de olho
+        iconOlho.addEventListener("click", () => {
+            if (senhaInput.type === "password") {
+                // Alterar o ícone e o tipo de entrada para "text"
+                senhaInput.type = "text";
+                iconOlho.classList.remove("fa-regular");
+                iconOlho.classList.remove("fa-eye-slash");
+                iconOlho.classList.add("fa-solid");
+                iconOlho.classList.add("fa-eye");
+            } else {
+                // Reverter o ícone e o tipo de entrada para "password"
+                senhaInput.type = "password";
+                iconOlho.classList.remove("fa-solid");
+                iconOlho.classList.remove("fa-eye");
+                iconOlho.classList.add("fa-regular");
+                iconOlho.classList.add("fa-eye-slash");
+            }
+        });
+
+        // Credenciais de login
+        const emailCorreto = "editoralenabi@gmail.com";
+        const usuarioCorreto = "editoraLenabi";
+        const senhaCorreta = "editoraLenabi";
+
+        // Adicionar um ouvinte de evento ao botão de login
+        loginButton.addEventListener("click", () => {
+            const emailUsuario = userInput.value;
+            const senha = senhaInput.value;
+            if ((emailUsuario === emailCorreto || emailUsuario === usuarioCorreto) && senha === senhaCorreta) {
+                alert("Login bem-sucedido!");
+                // Aqui você pode redirecionar o usuário para a página de login bem-sucedida
+                window.location.href = "index.html";
+            } else {
+                alert("Credenciais incorretas. Por favor, tente novamente.");
+            }
+        });
+
+    </script>
 
 </body>
 

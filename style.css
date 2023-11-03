@@ -29,6 +29,11 @@ body {
   src: url(font/Poppins-Medium.ttf);
 }
 
+@font-face {
+  font-family: 'Poppins-bold';
+  src: url(font/Poppins-Bold.ttf);
+}
+
 /* INICIO HEADER */
 
 .logo {
@@ -737,7 +742,7 @@ input::placeholder {
 
 #Produtos {
   background-color: #b99b8d8b;
-  height: 823px;
+  height: 855px;
   display: flex;
 
 
@@ -895,6 +900,199 @@ input::placeholder {
 
 /* setor três - produtos - FIM */
 
+/* ScrollTrigger */
+
+.divisoria {
+  background-color: #3C2520;
+  height: 4px;
+  width: 1382px;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  margin: 6% 76px;
+  border-radius: 11px;
+}
+
+.container-scroll .primeiro,
+.container-scroll .segundo,
+.container-scroll .terceiro {
+  font-family: 'Poppins-Semi';
+  font-size: 35px;
+  color: white;
+}
+
+.container-scroll .young {
+  font-family: 'Young-serif';
+  font-size: 50px;
+  color: white;
+  letter-spacing: 3px;
+}
+
+.container-scroll input {
+  background-color: #3C2520;
+  color: white;
+  width: 555px;
+  height: 45px;
+  border-radius: 15px;
+  font-family: 'Poppins-Semi';
+  padding-left: 25px;
+  font-size: 16px;
+  box-shadow: 7px 7px 5px #E3CFBC;
+  margin-right: 20px;
+}
+
+.container-scroll button {
+  background-color: #3C2520;
+  width: 125px;
+  height: 45px;
+  border-radius: 15px;
+  color: white;
+  font-family: 'Young-serif';
+  font-size: 16px;
+  box-shadow: 7px 7px 5px #E3CFBC;
+  cursor: pointer;
+}
+
+.container-scroll button:hover {
+  background-color: #B99B8D;
+  color: #3C2520;
+}
+
+.container-scroll {
+  background-image: url(img-interface/banner\ scroll.svg);
+  height: 550px;
+  text-align: center;
+  padding-top: 170px;
+  align-items: center;
+  /* margin-bottom: 100px; */
+}
+
+.container-scroll span {
+  color: white;
+  font-size: 50px;
+}
+
+.segundo,
+.terceiro {
+  display: none;
+}
+
+/* fim ScrollTrigger */
+
+
+/* inicio sustentabilidade */
+
+#sustentabilidade{
+  height: 758px;
+}
+
+.sustentabilidade {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 0 15.5%;
+  align-items: center;
+
+}
+
+.mao-terra {
+  height: 591px;
+  width: 409px;
+  margin-top: 99px;
+}
+
+.folheto {
+  display: grid;
+  z-index: 0;
+  position: relative;
+  height: 352.82px;
+  width: 260.21px;
+  border-radius: 26px;
+  background-image: url(img-interface/papel.svg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  justify-items: center;
+  align-items: center;
+  font-family: 'Young-serif';
+  font-size: 25px;
+  color: #3C2520;
+  align-content: space-evenly;
+  padding: 8.3% 0;
+  bottom: 329px;
+  left: 174px;
+}
+
+.folheto img {
+  height: auto;
+  width: 169.83px;
+
+}
+
+.circleUm,
+.circleDois {
+  width: 306px;
+  height: 306px;
+  background-color: #3C2520;
+  border-radius: 300px;
+  position: absolute;
+  z-index: -1;
+}
+
+.circleUm {
+  margin-top: 253px;
+  left: 173px;
+}
+
+.circleDois {
+  left: 216px;
+  margin-top: 454px;
+}
+
+.textoSustentavel{
+  /* margin: 0px 127px 184px; */
+  text-align: center;
+  width: 443px;
+}
+
+.textoSustentavel h2{
+  color: #6D5448;
+  font-family: 'Poppins-bold';
+  font-size: 40px;
+  width: 492px;
+  
+}
+
+.textoSustentavel .e{
+  font-family: 'Young-serif';
+  font-size: 24px;
+  color: #6D5448;
+}
+
+.textoSustentavel h2 span{
+  color: #3C2520;
+  font-family: 'Young-sefif';
+
+}
+
+.textoSustentavel p{
+  color: #522318;
+  font-family: 'Poppins-regular';
+  font-size:18.3px;
+
+}
+
+.textoSustentavel a{
+  background-color: #3C2520;
+  font-family: 'Young-serif';
+  font-size: 18px;
+  color: #E3CFBC;
+  border-radius: 14px;
+}
+
+
+/* fim sustentabilidade */
+
+
+
 /* inicio footer */
 
 footer {
@@ -976,52 +1174,69 @@ footer {
   height: 36px;
 }
 
-.box{
+.box {
+  margin-top: 28px;
   display: flex;
   justify-content: space-between;
 }
 
-.box h3{
+.box h3 {
   font-size: 46px;
   color: #522318;
   font-family: 'Young-serif';
 
 }
 
-.box h3 span{
+.box h3 span {
   font-size: 46px;
   color: #835248;
   font-family: 'Young-serif';
 }
 
-.box img {
-  width: 612px;
-  height: 799px;
+.box .img-login {
+  width: 634px;
+  height: 834px;
 }
 
-.campo{
+.conteudo-login {
+  margin: 98px 232px 0;
+}
+
+.linha-titulo {
+  margin: 0 0 43px;
+  border-radius: 8px;
+  width: 414px;
+  background: #522318;
+  height: 3px;
+}
+
+.campo {
   display: grid;
 }
 
-.campo input{
-  margin: 0 0  10px 0;
+.campo input {
+  margin: 0 0 41px 0;
 }
 
-.usuario {
+.usuario,
+.nome,
+.email,
+.telefone {
   position: relative;
 }
 
 .usuario i {
   position: absolute;
   left: 20px;
-  top: 42%;
+  top: 28%;
   transform: translateY(-50%);
   font-size: 28px;
 }
-.usuario .linha-input{
+
+.usuario .linha-input {
   position: absolute;
   left: 61px;
-  top: 43%;
+  top: 29%;
   transform: translateY(-50%);
   font-size: 28px;
   background-color: #522318;
@@ -1037,11 +1252,296 @@ footer {
   padding: 19px 84px;
 }
 
-.usuario input::placeholder{
+.usuario input::placeholder {
   font-family: 'Young-serif';
   color: #835248bb;
   font-size: 16px;
   padding-top: 23px;
 }
 
+.senha {
+  position: relative;
+}
+
+.senha .fa-key {
+  position: absolute;
+  left: 20px;
+  top: 28%;
+  transform: translateY(-50%);
+  font-size: 28px;
+}
+
+.fa-eye {
+  position: absolute;
+  left: 361px;
+  top: 29%;
+  transform: translateY(-50%);
+  font-size: 22px;
+  cursor: pointer;
+}
+
+
+
+.senha .fa-regular {
+  position: absolute;
+  left: 361px;
+  top: 29%;
+  transform: translateY(-50%);
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.senha .linha-senha {
+  position: absolute;
+  left: 61px;
+  top: 29%;
+  transform: translateY(-50%);
+  font-size: 28px;
+  background-color: #522318;
+  width: 3px;
+  height: 33px;
+  border-radius: 20px;
+}
+
+.senha input {
+  width: 415px;
+  background: #E3CFBC;
+  border-radius: 15px;
+  padding: 19px 84px;
+}
+
+.senha input::placeholder {
+  font-family: 'Young-serif';
+  color: #835248bb;
+  font-size: 16px;
+  padding-top: 23px;
+}
+
+.icons {
+  display: flex;
+  justify-content: center;
+}
+
+
+.icons img {
+  margin: 4% 4% 34% 4%;
+  width: 45px;
+  height: auto;
+  z-index: 1;
+}
+
+.outros-registros input {
+  background: #4F250D;
+  width: 413px;
+  height: 51px;
+  border-radius: 15px;
+  font-family: 'Young-serif';
+  font-size: 22px;
+  color: #fff;
+}
+
+.outros-registros button {
+  background: #4F250D;
+  width: 413px;
+  height: 51px;
+  border-radius: 15px;
+  font-family: 'Young-serif';
+  font-size: 22px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.outros-registros p {
+  color: #A27F77;
+  font-size: 14.8px;
+  font-family: 'Young-serif';
+  padding: 2.5% 3% 11.5%;
+}
+
+.outros-registros span {
+  color: #835248;
+}
+
+.login-sociais p {
+  width: 50px;
+  left: 43.7%;
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  font-size: 22px;
+  font-family: 'Young-serif';
+  color: #522318;
+  background-color: #F8F1EE;
+}
+
+.linha-sociais {
+  top: 19px;
+  z-index: 0;
+  width: 408px;
+  height: 3px;
+  background: #522318;
+  position: relative;
+  left: 2px;
+  border-radius: 10px;
+}
+
+
+
+.linha-icons {
+  background: #522318;
+  height: 1.5px;
+  width: 25px;
+  position: relative;
+  left: 234px;
+  top: 40px;
+  z-index: 0;
+}
+
+.linha-icons2 {
+  background: #522318;
+  height: 2px;
+  width: 25px;
+  position: relative;
+  left: 156px;
+  top: 40px;
+  z-index: 0;
+}
+
+.line-icons {
+  background: #522318;
+  height: 1.9px;
+  width: 25px;
+  position: absolute;
+  left: 389px;
+  top: 822px;
+  z-index: 0;
+}
+
+.line-icons2 {
+  background: #522318;
+  height: 1.5px;
+  width: 25px;
+  position: relative;
+  left: 234px;
+  top: 40px;
+  z-index: 0;
+}
+
 /* fim login.html */
+
+
+/* inicio cadastro */
+
+.nome .pencil {
+  width: 25px;
+  height: auto;
+}
+
+.nome .pencil {
+  position: absolute;
+  left: 20px;
+  top: 28%;
+  transform: translateY(-50%);
+  font-size: 28px;
+}
+
+.nome .linha-nome {
+  position: absolute;
+  left: 61px;
+  top: 29%;
+  transform: translateY(-50%);
+  font-size: 28px;
+  background-color: #522318;
+  width: 3px;
+  height: 33px;
+  border-radius: 20px;
+}
+
+.nome input {
+  width: 415px;
+  background: #E3CFBC;
+  border-radius: 15px;
+  padding: 19px 84px;
+}
+
+.nome input::placeholder {
+  font-family: 'Young-serif';
+  color: #835248bb;
+  font-size: 16px;
+  padding-top: 23px;
+}
+
+.email i {
+  position: absolute;
+  left: 18px;
+  top: 28%;
+  transform: translateY(-50%);
+  font-size: 28px;
+}
+
+.email .linha-email {
+  position: absolute;
+  left: 61px;
+  top: 29%;
+  transform: translateY(-50%);
+  font-size: 28px;
+  background-color: #522318;
+  width: 3px;
+  height: 33px;
+  border-radius: 20px;
+}
+
+.email input {
+  width: 415px;
+  background: #E3CFBC;
+  border-radius: 15px;
+  padding: 19px 84px;
+}
+
+.email input::placeholder {
+  font-family: 'Young-serif';
+  color: #835248bb;
+  font-size: 16px;
+  padding-top: 23px;
+}
+
+.telefone i {
+  position: absolute;
+  left: 17px;
+  top: 28%;
+  transform: translateY(-50%);
+  font-size: 28px;
+}
+
+.telefone .linha-tel {
+  position: absolute;
+  left: 61px;
+  top: 29%;
+  transform: translateY(-50%);
+  font-size: 28px;
+  background-color: #522318;
+  width: 3px;
+  height: 33px;
+  border-radius: 20px;
+}
+
+.telefone input {
+  width: 415px;
+  background: #E3CFBC;
+  border-radius: 15px;
+  padding: 19px 84px;
+}
+
+.telefone input::placeholder {
+  font-family: 'Young-serif';
+  color: #835248bb;
+  font-size: 16px;
+  padding-top: 23px;
+}
+
+.img-cadastro {
+  width: 634px;
+  height: 1124px;
+}
+
+/* fim cadastro */
