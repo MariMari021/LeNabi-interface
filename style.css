@@ -5,6 +5,8 @@
   box-sizing: border-box;
 }
 
+
+
 body {
   background-color: #F8F1EE;
 }
@@ -117,6 +119,11 @@ input::placeholder {
   border-radius: 11px;
   font-family: 'Young-serif';
   font-size: 15px;
+}
+
+.login a:hover{
+  background-color: #3C2520;
+  color: #F8F1EE;
 }
 
 #favoritos {
@@ -1216,6 +1223,8 @@ footer {
 
 .campo input {
   margin: 0 0 41px 0;
+  font-family: 'Young-serif';
+  font-size:17px;
 }
 
 .usuario,
@@ -1250,6 +1259,7 @@ footer {
   background: #E3CFBC;
   border-radius: 15px;
   padding: 19px 84px;
+  
 }
 
 .usuario input::placeholder {
