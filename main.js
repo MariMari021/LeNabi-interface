@@ -1,3 +1,18 @@
+//BOTAO
+
+var btn = document.querySelector(".button")
+
+btn.onmousemove = function(e) {
+	var x = e.pageX - btn.offsetLeft
+	var y = e.pageY - btn.offsetTop
+
+	btn.style.setProperty('--x', x + 'px')
+	btn.style.setProperty('--y', y + 'px')
+}
+
+//FIMM BOTAO
+
+//BANNER
 console.clear();
 
 const { gsap, imagesLoaded } = window;
@@ -253,6 +268,8 @@ const waitForImages = () => {
 };
 
 waitForImages();
+
+//FIM BANNER
 
 // LANÇAMENTOS 
 

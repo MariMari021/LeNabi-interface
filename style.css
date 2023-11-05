@@ -5,8 +5,6 @@
   box-sizing: border-box;
 }
 
-
-
 body {
   background-color: #F8F1EE;
 }
@@ -79,10 +77,15 @@ a {
   justify-content: space-evenly;
 }
 
-.botoes a {
+.botoes a , .botoes button {
   color: white;
   font-family: 'Poppins-regular';
   font-size: 17px;
+}
+
+.botoes button{
+  background-color: #3C2520;
+  cursor: pointer;
 }
 
 #buscar {
@@ -111,7 +114,7 @@ input::placeholder {
   color: #3C2520;
 }
 
-.login a {
+.button {
   text-decoration: none;
   border: 3px #3C2520 solid;
   padding: 10px 17px;
@@ -119,10 +122,34 @@ input::placeholder {
   border-radius: 11px;
   font-family: 'Young-serif';
   font-size: 15px;
+  position: relative;
+  overflow: hidden;
 }
 
-.login a:hover{
+.button span {
+  position: relative;
+  z-index: 99999;
+}
+
+.button::before {
+  content: '';
   background-color: #3C2520;
+  width: 0;
+  height: 0;
+  position: absolute;
+  top: var(--y);
+  left: var(--x);
+  border-radius: 50%; 
+  transform: translate(-50%, -50%);
+  transition: width .5s, height .5s;
+}
+
+.button:hover::before {
+  width: 1000px;
+  height: 1000px;
+}
+
+.button:hover span {
   color: #F8F1EE;
 }
 
@@ -651,9 +678,9 @@ input::placeholder {
 }
 
 .item .des a{
-  top: 18px;
+  top: 22px;
   position: relative;
-  margin: 27%;
+  margin: 29%;
   background: #522318;
   color: #fff;
   padding: 9px 48px;
@@ -690,7 +717,8 @@ input::placeholder {
   font-family: 'Poppins-regular';
   font-size: 20px;
   color: #522318;
-  width: 493px;
+  width: 442px;
+  text-align: justify;
 }
 
 .name,
@@ -759,7 +787,7 @@ input::placeholder {
 
 #lancamentos {
   background-color: #F8F1EE;
-  height: 616px;
+  height: 606px;
 }
 
 /* FIM LANÇAMENTOS */
@@ -768,28 +796,27 @@ input::placeholder {
 
 #Produtos {
   background-color: #b99b8d8b;
-  height: 855px;
+  height: 775px;
   display: flex;
-
-
 }
 
 .tarja-tudo {
-  margin: 52px 0px 3px;
+  margin: 52px 0px 0px;
 }
 
 .tarja {
   width: 1518.9px;
   background-color: #3C2520;
   margin: 23px 0;
-  height: 137px;
+  height: 127px;
 }
 
 .tarja p {
   color: #E3CFBC;
-  padding: 16px 156px;
+  padding: 18px 156px;
   font-size: 28px;
   font-family: 'Poppins-Semi';
+  line-height: 45px;
 }
 
 .tarja p span {
@@ -816,7 +843,7 @@ input::placeholder {
 
 .info-produtos {
   width: 446px;
-  margin: 0 0px 0 155px;
+  margin: 0px 0px 0 155px;
 }
 
 .texto {
@@ -835,6 +862,11 @@ input::placeholder {
   margin: 0 0px 0 41px;
 }
 
+.colecao h3, .colecao p{
+  margin-left: 9px;
+}
+
+
 .texto h3 {
   font-family: 'Young-serif';
   color: #522318;
@@ -845,8 +877,12 @@ input::placeholder {
 .texto p {
   font-family: 'Poppins-regular';
   color: #522318;
-
   font-size: 17px;
+  width: 387px;
+}
+
+.texto img {
+  width: 70px;
 }
 
 .botao-linha {
@@ -856,7 +892,8 @@ input::placeholder {
 }
 
 .botao-linha a {
-  width: 284px;
+  width: 200px;
+  height: 49px;
   display: flex;
   padding: 11px 24px;
   border-radius: 15px;
@@ -867,6 +904,7 @@ input::placeholder {
   text-decoration: none;
   justify-content: center;
   z-index: 1;
+  align-items: center;
 }
 
 .botao-linha a:hover {
@@ -910,12 +948,12 @@ input::placeholder {
   overflow-x: hidden;
   z-index: 3;
   position: relative;
-  top: -217px;
+  top: -202px;
   left: 46px;
 }
 
 .scroll-img img {
-  width: 205px;
+  width: 183px;
   height: auto;
   margin: 50px 0px 0px;
   border-radius: 12px;
@@ -1009,7 +1047,7 @@ input::placeholder {
 /* inicio sustentabilidade */
 
 .sustentabilidade {
-  height: 606px;
+  height: 610px;
   display: flex;
   justify-content: space-around;
 }
@@ -1024,13 +1062,13 @@ input::placeholder {
 }
 
 .circle-um {
-  top: 3160px;
-  left: 285px;
+  top: 3232px;
+  left: 326px;
 }
 
 .circle-dois {
-  top: 3308px;
-  left: 326px;
+  top: 3093px;
+  left: 289px;
 }
 
 .mao-terra {
@@ -1038,23 +1076,23 @@ input::placeholder {
   height: 430px;
   position: absolute;
   left: 340px;
-  top: 3070px;
+  top: 3000px;
 }
 
 .papel {
   width: 202px;
   height: auto;
   position: absolute;
-  top: 3256px;
+  top: 3206px;
   left: 489px;
-  box-shadow: 5px 5px 5px #3c2520b3;
+  box-shadow: 5px 5px 5px #56332b63;
   border-radius: 20px;
 }
 
 .logo-sustevel {
   width: 134px;
   position: absolute;
-  top: 3307px;
+  top: 3264px;
   left: 523px;
 }
 
@@ -1062,20 +1100,19 @@ input::placeholder {
   font-family: 'Young-serif';
   color: #3C2520;
   position: absolute;
-  top: 3455px;
+  top: 3406px;
   left: 551px;
 }
 
 .textoSustentavel {
   text-align: center;
-  margin-top: 210px;
+  margin-top: 187px;
 }
 
 .textoSustentavel h1 {
   color: #6D5448;
   font-family: 'Poppins-bold';
   font-size: 36px;
-  line-height: 40px;
 }
 
 .textoSustentavel h1 .e {
@@ -1121,7 +1158,7 @@ input::placeholder {
   text-align: center;
   align-items: center;
   justify-content: center;
-  margin: 6% 76px;
+  margin: 7% 76px;
   border-radius: 11px;
 }
 
@@ -1231,7 +1268,7 @@ footer {
 
 .box .img-login {
   width: 634px;
-  height: 834px;
+  height: 848px;
 }
 
 .conteudo-login {
@@ -1452,7 +1489,7 @@ footer {
   width: 25px;
   position: absolute;
   left: 389px;
-  top: 822px;
+  top: 838px;
   z-index: 0;
 }
 

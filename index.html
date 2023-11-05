@@ -11,16 +11,20 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.1/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <link rel="shortcut icon" href="img-interface/lenabi 1.png" type="image/x-icon">
+    <link rel="stylesheet" href="produto.css">
 </head>
 
 <body>
     <header id="header">
         <div class="container">
-            <a href="index.html"><div class="logo">
-                <img src="img-interface/lenabi 1.png" alt="borboleta voando dentro de um livro">
-                <h2>LeNabi</h2>
-            </div></a>
+            <a href="index.html">
+                <div class="logo">
+                    <img src="img-interface/lenabi 1.png" alt="borboleta voando dentro de um livro">
+                    <h2>LeNabi</h2>
+                </div>
+            </a>
             <div class="buscar">
                 <input type="text" id="buscar" placeholder="Buscar livro" oninput="buscarProduto()">
             </div>
@@ -31,21 +35,19 @@
                 </div>
                 <span id="cont-favoritos">0</span>
             </div>
-            <div class="login">
-                <a href="login.html">Fazer Login</a>
-            </div>
+            <a href="login.html" class="button"><span>Fazer login</span></a>
         </div>
         <nav>
             <div class="botoes">
-                <a href="#">Pré-Venda</a>
+                <a href="#" id="carregarConteudo">Pré-Venda</a>
                 <a href="#">Lançamentos</a>
-                <a href="#">Produtos</a>
+                <button id="loadContentButton">Produtos</button>
                 <a href="#">Sustentabilidade</a>
 
             </div>
         </nav>
     </header>
-    <main>
+    <main id="main">
         <section id="banner">
             <div class="app">
 
@@ -154,20 +156,20 @@
                     <div class="item" id="img1" style="background-image: url(img-interface/hoje\ depois\ amanha.webp);">
                         <div class="content">
                             <div class="name">Hoje, depois, amanhã</div>
-                            <div class="data">00/00/00</div>
-                            <div class="des">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                                tempor incididunt ut labore. 
+                            <div class="data">17/04/23</div>
+                            <div class="des">Comédia romântica entre dois nerds no último dia do ensino médio. Descobrem
+                                que podem não se odiar.
                                 <br>
-                            <a href="">Ver Mais</a>
+                                <a href="">Ver Mais</a>
                             </div>
                         </div>
                     </div>
                     <div class="item" id="img2" style="background-image: url(img-interface/irmaos\ Hawthorne.webp);">
                         <div class="content">
                             <div class="name">Os irmãos Hawthorne</div>
-                            <div class="data">00/00/00</div>
-                            <div class="des">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                                tempor incididunt ut labore. 
+                            <div class="data">05/09/23</div>
+                            <div class="des">Herdeiro bilionário ensinado a priorizar a família age para proteger
+                                meias-irmãs sem se envolver emocionalmente.
                                 <br>
                                 <a href="">Ver Mais</a>
                             </div>
@@ -176,9 +178,9 @@
                     <div class="item" id="img3" style="background-image: url(img-interface/ventos\ uivantes.webp);">
                         <div class="content">
                             <div class="name">O morro dos ventos uivantes</div>
-                            <div class="data">00/00/00</div>
-                            <div class="des">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                                tempor incididunt ut labore. 
+                            <div class="data">14/07/16</div>
+                            <div class="des">Uma trágica história de amor e obsessão entre Catherine Earnshaw e seu
+                                irmão adotivo, Heathcliff.
                                 <br>
                                 <a href="">Ver Mais</a>
                             </div>
@@ -187,9 +189,9 @@
                     <div class="item" id="img1" style="background-image: url(img-interface/hoje\ depois\ amanha.webp);">
                         <div class="content">
                             <div class="name">Hoje, depois, amanhã</div>
-                            <div class="data">00/00/00</div>
-                            <div class="des">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                                tempor incididunt ut labore. 
+                            <div class="data">17/04/23</div>
+                            <div class="des">Comédia romântica entre dois nerds no último dia do ensino médio. Descobrem
+                                que podem não se odiar.
                                 <br>
                                 <a href="">Ver Mais</a>
                             </div>
@@ -198,9 +200,9 @@
                     <div class="item" id="img2" style="background-image: url(img-interface/irmaos\ Hawthorne.webp);">
                         <div class="content">
                             <div class="name">Os irmãos Hawthorne</div>
-                            <div class="data">00/00/00</div>
-                            <div class="des">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                                tempor incididunt ut labore. 
+                            <div class="data">05/09/23</div>
+                            <div class="des">Herdeiro bilionário ensinado a priorizar a família age para proteger
+                                meias-irmãs sem se envolver emocionalmente.
                                 <br>
                                 <a href="">Ver Mais</a>
                             </div>
@@ -209,9 +211,9 @@
                     <div class="item" id="img3" style="background-image: url(img-interface/ventos\ uivantes.webp);">
                         <div class="content">
                             <div class="name">O morro dos ventos uivantes</div>
-                            <div class="data">00/00/00</div>
-                            <div class="des">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                                tempor incididunt ut labore. 
+                            <div class="data">14/07/16</div>
+                            <div class="des">Uma trágica história de amor e obsessão entre Catherine Earnshaw e seu
+                                irmão adotivo, Heathcliff.
                                 <br>
                                 <a href="">Ver Mais</a>
                             </div>
@@ -227,7 +229,6 @@
             </div>
 
         </section>
-
         <section id="Produtos">
             <div class="conteudo">
                 <div class="tarja-tudo">
@@ -250,7 +251,7 @@
                         </div>
                         <div class="texto">
                             <img src="img-interface/ion_library-outline.svg" alt="">
-                            <div class="detalhes-library">
+                            <div class="detalhes-library colecao">
                                 <h3>Nossas Coleções</h3>
                                 <p>Descubra as novas coleções de livros, com histórias envolventes, que cativarão
                                     leitores de todas as idades. </p>
@@ -326,7 +327,8 @@
                 </div>
                 <div class="textoSustentavel">
                     <h1>conheça nosso projeto<br><span class="e">&</span><span> ajude o mundo!</span></h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt. Lorem ipsum dolor sit amet, tempor incididunt ut labore.</p>
+                    <p>Através das palavras, contribuímos para um mundo melhor. Junte-se a nós nessa jornada literária e
+                        sustentável e faça parte da nossa história em constante progresso.</p>
                     <a href="#"><button>Ver mais</button></a>
                 </div>
             </div>
@@ -348,9 +350,12 @@
                 </div>
             </nav>
             <div class="redes-sociais">
-                <a href=""><img src="img-interface/carbon_email.svg" alt=""></a>
-                <a href=""><img src="img-interface/uil_instagram.svg" alt=""></a>
-                <a href=""><img src="img-interface/simple-icons_x.svg" alt=""></a>
+                <a href="mailto:editoralenabi@gmail.com" target="_blank"><img src="img-interface/carbon_email.svg"
+                        alt=""></a>
+                <a href="https://www.instagram.com/editoralenabi/?igshid=YTQwZjQ0NmI0OA%3D%3D" target="_blank"><img
+                        src="img-interface/uil_instagram.svg" alt=""></a>
+                <a href="https://x.com/LeNabiEditora?t=-ry8Op0ZSihvYuzXTeuZ8w&s=09" target="_blank"><img
+                        src="img-interface/simple-icons_x.svg" alt=""></a>
             </div>
             <div class="logo-footer">
                 <img src="img-interface/lenabi 1.png" alt="">
@@ -369,5 +374,59 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.0.3/swiper-bundle.min.js"></script>
     <script src="main.js"></script>
 </body>
+<script>
+    //inicio carregar #conteudo do produto.html no main do index.html
+    document.getElementById("loadContentButton").addEventListener("click", function () {
+        // Carrega o conteúdo de produto.html no elemento "main"
+        fetch("produto.html")
+            .then(response => response.text())
+            .then(data => {
+                // Define o conteúdo do elemento "main"
+                document.getElementById("main").innerHTML = data;
+
+                // Atualiza o histórico do navegador para manter a posição no "conteudo"
+                history.pushState(null, "", "#conteudo");
+            })
+            .catch(error => {
+                console.error("Erro ao carregar conteúdo:", error);
+            });
+    });
+
+    // Verifica se há uma âncora na URL ao carregar a página
+    window.addEventListener("load", function () {
+        if (window.location.hash === "#conteudo") {
+            // Carrega o conteúdo de produto.html no elemento "main"
+            fetch("produto.html")
+                .then(response => response.text())
+                .then(data => {
+                    // Define o conteúdo do elemento "main"
+                    document.getElementById("main").innerHTML = data;
+                })
+                .catch(error => {
+                    console.error("Erro ao carregar conteúdo:", error);
+                });
+        }
+    });
+
+    //fim carregar #conteudo do produto.html no main do index.html
+
+    //inicio link ahref no index.html que deve carregar o #conteudo produto.html no main do index.htm e depois fazer o scroll para o #pre-venda
+    
+    $(document).ready(function () {
+            $("#carregarConteudo").click(function (e) {
+                e.preventDefault();
+                // Carregue o conteúdo #conteudo de produto.html no main
+                $("#main").load("produto.html #conteudo", function () {
+                    // Faça o scroll para a âncora #pre-venda após o carregamento
+                    $("html, body").animate({
+                        scrollTop: $("#pre-venda").offset().top
+                    }, 1000);
+                });
+            });
+        });
+
+     //fim link ahref no index.html que deve carregar o #conteudo produto.html no main do index.htm e depois fazer o scroll para o #pre-venda
+
+</script>
 
 </html>
