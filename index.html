@@ -411,21 +411,21 @@
     //fim carregar #conteudo do produto.html no main do index.html
 
     //inicio link ahref no index.html que deve carregar o #conteudo produto.html no main do index.htm e depois fazer o scroll para o #pre-venda
-    
+
     $(document).ready(function () {
-            $("#carregarConteudo").click(function (e) {
-                e.preventDefault();
-                // Carregue o conteúdo #conteudo de produto.html no main
-                $("#main").load("produto.html #conteudo", function () {
-                    // Faça o scroll para a âncora #pre-venda após o carregamento
-                    $("html, body").animate({
-                        scrollTop: $("#pre-venda").offset().top
-                    }, 1000);
-                });
+        $("#carregarConteudo").click(function (e) {
+            e.preventDefault();
+            // Carregue o conteúdo #conteudo de produto.html no main
+            $("#main").load("produto.html #conteudo", function () {
+                // Faça o scroll para a âncora #pre-venda após o carregamento
+                $("html, body").animate({
+                    scrollTop: $("#pre-venda").offset().top
+                }, 1000);
             });
         });
+    });
 
-     //fim link ahref no index.html que deve carregar o #conteudo produto.html no main do index.htm e depois fazer o scroll para o #pre-venda
+    //fim link ahref no index.html que deve carregar o #conteudo produto.html no main do index.htm e depois fazer o scroll para o #pre-venda
 
 </script>
 
