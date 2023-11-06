@@ -40,7 +40,7 @@
         <nav>
             <div class="botoes">
                 <a href="#" id="carregarConteudo">Pré-Venda</a>
-                <a href="#">Lançamentos</a>
+                <a href="#" id="carregarLancamentos">Lançamentos</a>
                 <button id="loadContentButton">Produtos</button>
                 <a href="#">Sustentabilidade</a>
 
@@ -426,6 +426,24 @@
     });
 
     //fim link ahref no index.html que deve carregar o #conteudo produto.html no main do index.htm e depois fazer o scroll para o #pre-venda
+
+    //inicio link ahref no index.html que deve carregar o #conteudo produto.html no main do index.htm e depois fazer o scroll para o #pre-venda
+
+    $(document).ready(function () {
+        $("#carregarLancamentos").click(function (e) {
+            e.preventDefault();
+            // Carregue o conteúdo #conteudo de produto.html no main
+            $("#main").load("produto.html #conteudo", function () {
+                // Faça o scroll para a âncora #lancamentos-page após o carregamento
+                $("html, body").animate({
+                    scrollTop: $("#lancamentos-page").offset().top
+                }, 1000);
+            });
+        });
+    });
+
+    //fim link ahref no index.html que deve carregar o #conteudo produto.html no main do index.htm e depois fazer o scroll para o #lancamentos-page
+
 
 </script>
 
