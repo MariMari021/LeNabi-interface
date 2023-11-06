@@ -117,12 +117,12 @@ body {
 }
 
 .realFundo {
-  height: 579px;
+  height: 506px;
   background-color: #6D5448;
 }
 
 .realFundo2{
-  height: 503px;
+  height: 438px;
   background-color: #6D5448;
 }
 
@@ -139,10 +139,11 @@ body {
   padding: 2% 0;
   border-radius: 14px;
   display: grid;
-  width: 272px;
-  height: 425px;
+  width: 236px;
+  height: 350px;
   background-color: #FFEFDF;
   justify-items: center;
+  text-align: center;
 }
 
 .livros2{
@@ -152,40 +153,35 @@ body {
 .livros img {
   margin: 0 8.5%;
   border-radius: 3px;
-  height: 272px;
-  width: 184px;
+  height: auto;
+  width: 148px;
   box-shadow: 7px 7px #B99B8D;
 }
 
 .livros h2 {
   font-family: 'Young-serif';
-  font-size: 27px;
+  font-size: 23px;
   color: #3C2520;
 }
 
 .livros p {
   font-family: 'Poppins-regular';
-  font-size: 16px;
+  font-size: 15px;
   padding-bottom: 3.5%;
 }
 
 .buttonPreco {
-  display: flex;
-  width: 226px;
-  height: 55px;
-  background-color: #3C2520;
-  position: relative;
-  font-family: 'Poppins-bold';
-  color: #F8F1EE;
-  font-size: 23px;
-  border-radius: 6px;
-  align-items: center;
   left: 43px;
-  bottom: 19px;
+  bottom: 30px;
+}
+
+.preco2 {
+  bottom: 40px;
 }
 
 .buttonPreco h3 {
   padding-left: 7%;
+  font-size: 22px;
 }
 
 .l-dois {
@@ -199,19 +195,17 @@ body {
 
 .buttonPreco {
   display: flex;
-  width: 226px;
-  height: 55px;
+  width: 191px;
+  height: 47px;
   background-color: #3C2520;
   position: relative;
   font-family: 'Poppins-bold';
   color: #F8F1EE;
-  font-size: 23px;
+  font-size: 20px;
   border-radius: 6px;
   align-items: center;
   overflow: hidden;
-  /* Para esconder o conteúdo que extrapola as dimensões do botão */
   transition: transform 0.2s;
-  /* Adiciona uma transição suave */
   cursor: pointer;
 }
 
@@ -241,4 +235,3 @@ body {
   opacity: 3; /* Torna o elemento "hover" visível quando o botão é hover */
   background-color:  #3C2520; /* Muda a cor de fundo quando hover */
 }
-

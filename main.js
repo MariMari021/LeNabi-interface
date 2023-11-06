@@ -288,7 +288,7 @@ document.getElementById('prev').onclick = function(){
 AOS.init();
 //fim produtos
 
-//ScrollTrigger
+// original ScrollTrigger
 const container = document.getElementById('scroll-container');
 const spans = container.querySelectorAll('span');
 let currentIndex = 0;
@@ -311,3 +311,46 @@ container.addEventListener('wheel', (e) => {
   });
 });
 //fim ScrollTrigger
+
+
+    // Função para buscar produtos
+    function buscarProduto() {
+        const termoDeBusca = document.getElementById("buscar").value.toLowerCase();
+        const main = document.getElementById("main");
+        main.innerHTML = ""; // Limpa o conteúdo atual
+
+        // Realiza a busca nos elementos com a classe "livros" no arquivo "produto.html"
+        fetch("produto.html")
+            .then(response => response.text())
+            .then(data => {
+                // Crie um elemento temporário para analisar o conteúdo do produto.html
+                const tempElement = document.createElement("div");
+                tempElement.innerHTML = data;
+
+                // Encontra os elementos com a classe "livros" e verifica se o título contém o termo de busca
+                const livros = tempElement.querySelectorAll(".livros");
+                livros.forEach(livro => {
+                    const titulo = livro.querySelector("img").alt.toLowerCase();
+                    if (titulo.includes(termoDeBusca)) {
+                        // Se o título corresponder, adicione-o ao "main" para exibição
+                        main.appendChild(livro.cloneNode(true));
+                    }
+                });
+
+                // Se nenhum resultado for encontrado, exiba uma mensagem
+                if (main.children.length === 0) {
+                    main.innerHTML = "Nenhum resultado encontrado.";
+                }
+            })
+            .catch(error => {
+                console.error("Erro ao buscar produtos:", error);
+            });
+    }
+
+
+
+
+
+
+
+

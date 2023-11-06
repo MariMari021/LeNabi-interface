@@ -53,9 +53,10 @@ body {
   /* font: 500 'Young-serif' 31.56px; */
 }
 
-#header {
+#header, #header-login{
   background-color: #B99B8D;
   height: 127px;
+
 }
 
 .container {
@@ -63,7 +64,24 @@ body {
   justify-content: space-around;
   align-items: center;
   margin: 0 94px;
+  background-color: #B99B8D;
 }
+
+.container-fundo {
+  z-index: 999;
+  width: 100%;
+  position: fixed;
+  background-color: #B99B8D;
+}
+
+#header nav {
+  top: 119px;
+  width: 100%;
+  position: relative;
+}
+
+
+
 
 a {
   text-decoration: none;
@@ -77,13 +95,14 @@ a {
   justify-content: space-evenly;
 }
 
-.botoes a , .botoes button {
+.botoes a,
+.botoes button {
   color: white;
   font-family: 'Poppins-regular';
   font-size: 17px;
 }
 
-.botoes button{
+.botoes button {
   background-color: #3C2520;
   cursor: pointer;
 }
@@ -139,7 +158,7 @@ input::placeholder {
   position: absolute;
   top: var(--y);
   left: var(--x);
-  border-radius: 50%; 
+  border-radius: 50%;
   transform: translate(-50%, -50%);
   transition: width .5s, height .5s;
 }
@@ -677,7 +696,7 @@ input::placeholder {
   animation: showcontent 1s ease-in-out 0.3s 1 forwards
 }
 
-.item .des a{
+.item .des a {
   top: 22px;
   position: relative;
   margin: 29%;
@@ -689,7 +708,7 @@ input::placeholder {
   font-family: 'Young-serif';
 }
 
-.item .des a:hover{
+.item .des a:hover {
   background-color: #B99B8D;
   color: #3C2520;
 }
@@ -862,7 +881,8 @@ input::placeholder {
   margin: 0 0px 0 41px;
 }
 
-.colecao h3, .colecao p{
+.colecao h3,
+.colecao p {
   margin-left: 9px;
 }
 
@@ -1021,6 +1041,8 @@ input::placeholder {
   background-color: #B99B8D;
   color: #3C2520;
 }
+
+
 
 .container-scroll {
   background-image: url(img-interface/banner\ scroll.svg);
@@ -1290,7 +1312,7 @@ footer {
 .campo input {
   margin: 0 0 41px 0;
   font-family: 'Young-serif';
-  font-size:17px;
+  font-size: 17px;
 }
 
 .usuario,
@@ -1325,7 +1347,7 @@ footer {
   background: #E3CFBC;
   border-radius: 15px;
   padding: 19px 84px;
-  
+
 }
 
 .usuario input::placeholder {
@@ -1617,7 +1639,7 @@ footer {
 
 .img-cadastro {
   width: 634px;
-  height: 1124px;
+  height: 1160px;
 }
 
 /* fim cadastro */
