@@ -9,7 +9,7 @@
     <script src="https://kit.fontawesome.com/a2288264db.js" crossorigin="anonymous"></script>
 </head>
 
-<body>
+<body id="cadastro-page">
     <header id="header-login">
         <div class="container container-login">
            <a href="index.html"> <div class="logo">
@@ -50,7 +50,7 @@
                     <div class="telefone">
                         <i class="fa-solid fa-phone" style="color: #522318"></i>
                         <div class="linha-tel"></div>
-                        <input type="tel" placeholder="Telefone" required>
+                        <input type="number" placeholder="Telefone" required>
                     </div>
                     <div class="usuario">
                         <i class="fa fa-user" style="color: #522318"></i>
@@ -98,7 +98,7 @@
                 <div class="parte2">
                     <a href="#">Favoritos</a>
                     <a href="#">Sustentabilidade</a>
-                    <a href="#">Sobre nós</a>
+                    <a href="#" id="sobre-nosButton">Sobre nós</a>
                 </div>
             </nav>
             <div class="redes-sociais">
@@ -150,6 +150,87 @@
                 window.location.href = "index.html";
             }
         });
+
+        // faz ir para o sobre-nos
+
+document.getElementById("sobre-nosButton").addEventListener("click", function () {
+    fetch("index.html")
+        .then(response => response.text())
+        .then(data => {
+            // Atualiza o conteúdo do body#cadastro-page no cadastro.html
+            const cadastroPage = document.getElementById("cadastro-page");
+            cadastroPage.innerHTML = data;
+
+            // Atualiza o histórico do navegador para manter a posição em "#sobre-nos"
+            history.pushState(null, "", "#sobre-nos");
+
+            // Carrega o conteúdo do sobre-nos.html no main#sobre-nos
+            fetch("sobre-nos.html")
+                .then(response => response.text())
+                .then(data => {
+                    const parser = new DOMParser();
+                    const sobreNosDoc = parser.parseFromString(data, 'text/html');
+                    const mainSobreNos = sobreNosDoc.querySelector("main#sobre-nos");
+
+                    if (mainSobreNos) {
+                        const main = document.querySelector("main");
+                        main.innerHTML = mainSobreNos.innerHTML;
+
+                        // Adiciona margin-top: 6% à classe container-sobreNos
+                        const containerSobreNos = main.querySelector(".container-sobreNos");
+                        if (containerSobreNos) {
+                            containerSobreNos.style.marginTop = "6%";
+                        }
+                    } else {
+                        console.error("Erro: Conteúdo não encontrado em sobre-nos.html.");
+                    }
+                })
+                .catch(error => {
+                    console.error("Erro ao carregar conteúdo:", error);
+                });
+        })
+        .catch(error => {
+            console.error("Erro ao carregar conteúdo:", error);
+        });
+});
+
+// Verifica se há uma âncora na URL ao carregar a página
+window.addEventListener("load", function () {
+    if (window.location.hash === "#sobre-nos") {
+        // Carrega o conteúdo do sobre-nos.html no main#sobre-nos
+        fetch("sobre-nos.html")
+            .then(response => response.text())
+            .then(data => {
+                const parser = new DOMParser();
+                const sobreNosDoc = parser.parseFromString(data, 'text/html');
+                const mainSobreNos = sobreNosDoc.querySelector("main#sobre-nos");
+
+                if (mainSobreNos) {
+                    const main = document.querySelector("main");
+                    main.innerHTML = mainSobreNos.innerHTML;
+
+                    // Adiciona margin-top: 6% à classe container-sobreNos
+                    const containerSobreNos = main.querySelector(".container-sobreNos");
+                    if (containerSobreNos) {
+                        containerSobreNos.style.marginTop = "6%";
+                    }
+                } else {
+                    console.error("Erro: Conteúdo não encontrado em sobre-nos.html.");
+                }
+            })
+            .catch(error => {
+                console.error("Erro ao carregar conteúdo:", error);
+            });
+    }
+});
+
+
+
+
+
+    
+
+
                 
 
    </script>

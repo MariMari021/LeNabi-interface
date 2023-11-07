@@ -146,6 +146,31 @@ body {
   text-align: center;
 }
 
+/* Estilo para a área de busca */
+.area-de-busca {
+  display: flex;
+  width: 80%;
+  margin: 0 10%;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 5%;
+  margin-bottom: 20px;
+  font-size: 20px;
+  font-family: 'Poppins-Semi';
+  color: #9a594b;
+  border-radius: 17px;
+}
+
+.area-de-busca .livros2 {
+  margin: 3% 0;
+  margin-bottom: 5%;
+}
+
+.area-de-busca .livros {
+  margin: 3% 3%;
+
+}
+
 .livros2{
   margin: 0;
 }

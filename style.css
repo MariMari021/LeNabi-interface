@@ -1612,6 +1612,11 @@ footer {
   font-size: 28px;
 }
 
+input::-webkit-outer-spin-button, input::-webkit-inner-spin-button{
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 .telefone .linha-tel {
   position: absolute;
   left: 61px;
@@ -1648,7 +1653,7 @@ footer {
 /* inicio sobre nós */
 
 #sobre-nos {
-  margin-top: 8.5%;
+  margin-top: 5.3%;
 }
 
 .titulo-sobre {
@@ -1702,6 +1707,10 @@ footer {
   width: 970px;
   color: #3C2520;
   font-size: 17.5px;
+}
+
+.nossaHistoria p span{
+  padding-left: 3%;
 }
 
 .frase-sobre{

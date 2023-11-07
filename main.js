@@ -314,41 +314,177 @@ container.addEventListener('wheel', (e) => {
 
 
     // Função para buscar produtos
-    function buscarProduto() {
-        const termoDeBusca = document.getElementById("buscar").value.toLowerCase();
-        const main = document.getElementById("main");
-        main.innerHTML = ""; // Limpa o conteúdo atual
+function buscarProduto() {
+    const termoDeBusca = document.getElementById("buscar").value.toLowerCase();
+    const main = document.getElementById("main");
+    main.innerHTML = ""; // Limpa o conteúdo atual
 
-        // Realiza a busca nos elementos com a classe "livros" no arquivo "produto.html"
-        fetch("produto.html")
-            .then(response => response.text())
-            .then(data => {
-                // Crie um elemento temporário para analisar o conteúdo do produto.html
-                const tempElement = document.createElement("div");
-                tempElement.innerHTML = data;
+    // Realiza a busca nos elementos com a classe "livros" no arquivo "produto.html"
+    fetch("produto.html")
+        .then(response => response.text())
+        .then(data => {
+            // Crie um elemento temporário para analisar o conteúdo do produto.html
+            const tempElement = document.createElement("div");
+            tempElement.innerHTML = data;
 
-                // Encontra os elementos com a classe "livros" e verifica se o título contém o termo de busca
-                const livros = tempElement.querySelectorAll(".livros");
-                livros.forEach(livro => {
-                    const titulo = livro.querySelector("img").alt.toLowerCase();
-                    if (titulo.includes(termoDeBusca)) {
-                        // Se o título corresponder, adicione-o ao "main" para exibição
-                        main.appendChild(livro.cloneNode(true));
-                    }
-                });
+            // Encontra os elementos com a classe "livros" e verifica se o título contém o termo de busca
+            const livros = tempElement.querySelectorAll(".livros");
+            livros.forEach(livro => {
+                const titulo = livro.querySelector("img").alt.toLowerCase();
 
-                // Se nenhum resultado for encontrado, exiba uma mensagem
-                if (main.children.length === 0) {
-                    main.innerHTML = "Nenhum resultado encontrado.";
+                if (titulo.includes(termoDeBusca)) {
+                    main.appendChild(livro.cloneNode(true));
                 }
-            })
-            .catch(error => {
-                console.error("Erro ao buscar produtos:", error);
             });
-    }
+
+            // Adicione a classe "area-de-busca" a main para aplicar os estilos
+            main.classList.add("area-de-busca");
+
+            // Verifique se há filhos na área de busca
+            if (main.children.length === 0) {
+                main.innerHTML = "Nenhum resultado encontrado.";
+                main.style.marginBottom = "158px";
+                main.style.backgroundColor = "#F8F1EE"; // Cor de fundo quando nenhum resultado é encontrado
+            } else {
+                main.style.backgroundColor = "#6D5448"; // Cor de fundo padrão para a área de busca
+            }
+        })
+        .catch(error => {
+            console.error("Erro ao buscar produtos:", error);
+        });
+}
+//FIM BARRA DE PESQUISA
+
+   //inicio carregar #conteudo do produto.html no main do index.html
+   document.getElementById("loadContentButton").addEventListener("click", function () {
+	// Carrega o conteúdo de produto.html no elemento "main"
+	fetch("produto.html")
+		.then(response => response.text())
+		.then(data => {
+			// Define o conteúdo do elemento "main"
+			document.getElementById("main").innerHTML = data;
+
+			// Atualiza o histórico do navegador para manter a posição no "conteudo"
+			history.pushState(null, "", "#conteudo");
+		})
+		.catch(error => {
+			console.error("Erro ao carregar conteúdo:", error);
+		});
+});
+
+// Verifica se há uma âncora na URL ao carregar a página
+window.addEventListener("load", function () {
+	if (window.location.hash === "#conteudo") {
+		// Carrega o conteúdo de produto.html no elemento "main"
+		fetch("produto.html")
+			.then(response => response.text())
+			.then(data => {
+				// Define o conteúdo do elemento "main"
+				document.getElementById("main").innerHTML = data;
+			})
+			.catch(error => {
+				console.error("Erro ao carregar conteúdo:", error);
+			});
+	}
+});
+
+//fim carregar #conteudo do produto.html no main do index.html
+
+//inicio link ahref no index.html que deve carregar o #conteudo produto.html no main do index.htm e depois fazer o scroll para o #pre-venda
+document.getElementById("carregarConteudo").addEventListener("click", function () {
+	// Carrega o conteúdo de produto.html no elemento "main"
+	fetch("produto.html")
+		.then(response => response.text())
+		.then(data => {
+			// Define o conteúdo do elemento "main"
+			document.getElementById("main").innerHTML = data;
+
+			// Faz o scroll para a âncora #pre-venda após o carregamento
+			const preVendaElement = document.getElementById("pre-venda");
+			if (preVendaElement) {
+				preVendaElement.scrollIntoView();
+			}
+
+			// Atualiza o histórico do navegador para manter a posição no "conteudo"
+			history.pushState(null, "", "#conteudo");
+		})
+		.catch(error => {
+			console.error("Erro ao carregar conteúdo:", error);
+		});
+});
+
+// Verificar se há uma âncora na URL ao carregar a página
+window.addEventListener("load", function () {
+	if (window.location.hash === "#conteudo") {
+		// Carrega o conteúdo de produto.html no elemento "main"
+		fetch("produto.html")
+			.then(response => response.text())
+			.then(data => {
+				// Define o conteúdo do elemento "main"
+				document.getElementById("main").innerHTML = data;
+
+				// Faz o scroll para a âncora #pre-venda após o carregamento
+				const preVendaElement = document.getElementById("pre-venda");
+				if (preVendaElement) {
+					preVendaElement.scrollIntoView();
+				}
+			})
+			.catch(error => {
+				console.error("Erro ao carregar conteúdo:", error);
+			});
+	}
+});
+
+// //fim link ahref no index.html que deve carregar o #conteudo produto.html no main do index.htm e depois fazer o scroll para o #pre-venda
 
 
 
+// //inicio link ahref no index.html que deve carregar o #conteudo produto.html no main do index.htm e depois fazer o scroll para o #lancamentos-page
+
+document.getElementById("carregarLancamentos").addEventListener("click", function () {
+	// Carrega o conteúdo de produto.html no elemento "main"
+	fetch("produto.html")
+		.then(response => response.text())
+		.then(data => {
+			// Define o conteúdo do elemento "main"
+			document.getElementById("main").innerHTML = data;
+
+			// Faz o scroll para a âncora #pre-venda após o carregamento
+			const lancamentosElement = document.getElementById("lancamentos-page");
+			if (lancamentosElement) {
+				lancamentosElement.scrollIntoView();
+			}
+
+			// Atualiza o histórico do navegador para manter a posição no "conteudo"
+			history.pushState(null, "", "#conteudo");
+		})
+		.catch(error => {
+			console.error("Erro ao carregar conteúdo:", error);
+		});
+});
+
+// Verificar se há uma âncora na URL ao carregar a página
+window.addEventListener("load", function () {
+	if (window.location.hash === "#conteudo") {
+		// Carrega o conteúdo de produto.html no elemento "main"
+		fetch("produto.html")
+			.then(response => response.text())
+			.then(data => {
+				// Define o conteúdo do elemento "main"
+				document.getElementById("main").innerHTML = data;
+
+				// Faz o scroll para a âncora #pre-venda após o carregamento
+				const lancamentosElement = document.getElementById("lancamentos-page");
+				if (lancamentosElement) {
+					lancamentosElement.scrollIntoView();
+				}
+			})
+			.catch(error => {
+				console.error("Erro ao carregar conteúdo:", error);
+			});
+	}
+});
+//fim link ahref no index.html que deve carregar o #conteudo produto.html no main do index.htm e depois fazer o scroll para o #lancamentos-page
 
 
 
