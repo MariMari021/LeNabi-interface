@@ -343,7 +343,7 @@ function buscarProduto() {
             // Verifique se há filhos na área de busca
             if (main.children.length === 0) {
                 main.innerHTML = "Nenhum resultado encontrado.";
-                main.style.marginBottom = "158px";
+                main.style.marginBottom = "30px";
                 main.style.backgroundColor = "#F8F1EE"; // Cor de fundo quando nenhum resultado é encontrado
             } else {
                 main.style.backgroundColor = "#6D5448"; // Cor de fundo padrão para a área de busca
@@ -355,138 +355,7 @@ function buscarProduto() {
 }
 //FIM BARRA DE PESQUISA
 
-   //inicio carregar #conteudo do produto.html no main do index.html
-   document.getElementById("loadContentButton").addEventListener("click", function () {
-	// Carrega o conteúdo de produto.html no elemento "main"
-	fetch("produto.html")
-		.then(response => response.text())
-		.then(data => {
-			// Define o conteúdo do elemento "main"
-			document.getElementById("main").innerHTML = data;
-
-			// Atualiza o histórico do navegador para manter a posição no "conteudo"
-			history.pushState(null, "", "#conteudo");
-		})
-		.catch(error => {
-			console.error("Erro ao carregar conteúdo:", error);
-		});
-});
-
-// Verifica se há uma âncora na URL ao carregar a página
-window.addEventListener("load", function () {
-	if (window.location.hash === "#conteudo") {
-		// Carrega o conteúdo de produto.html no elemento "main"
-		fetch("produto.html")
-			.then(response => response.text())
-			.then(data => {
-				// Define o conteúdo do elemento "main"
-				document.getElementById("main").innerHTML = data;
-			})
-			.catch(error => {
-				console.error("Erro ao carregar conteúdo:", error);
-			});
-	}
-});
-
-//fim carregar #conteudo do produto.html no main do index.html
-
-//inicio link ahref no index.html que deve carregar o #conteudo produto.html no main do index.htm e depois fazer o scroll para o #pre-venda
-document.getElementById("carregarConteudo").addEventListener("click", function () {
-	// Carrega o conteúdo de produto.html no elemento "main"
-	fetch("produto.html")
-		.then(response => response.text())
-		.then(data => {
-			// Define o conteúdo do elemento "main"
-			document.getElementById("main").innerHTML = data;
-
-			// Faz o scroll para a âncora #pre-venda após o carregamento
-			const preVendaElement = document.getElementById("pre-venda");
-			if (preVendaElement) {
-				preVendaElement.scrollIntoView();
-			}
-
-			// Atualiza o histórico do navegador para manter a posição no "conteudo"
-			history.pushState(null, "", "#conteudo");
-		})
-		.catch(error => {
-			console.error("Erro ao carregar conteúdo:", error);
-		});
-});
-
-// Verificar se há uma âncora na URL ao carregar a página
-window.addEventListener("load", function () {
-	if (window.location.hash === "#conteudo") {
-		// Carrega o conteúdo de produto.html no elemento "main"
-		fetch("produto.html")
-			.then(response => response.text())
-			.then(data => {
-				// Define o conteúdo do elemento "main"
-				document.getElementById("main").innerHTML = data;
-
-				// Faz o scroll para a âncora #pre-venda após o carregamento
-				const preVendaElement = document.getElementById("pre-venda");
-				if (preVendaElement) {
-					preVendaElement.scrollIntoView();
-				}
-			})
-			.catch(error => {
-				console.error("Erro ao carregar conteúdo:", error);
-			});
-	}
-});
-
-// //fim link ahref no index.html que deve carregar o #conteudo produto.html no main do index.htm e depois fazer o scroll para o #pre-venda
-
-
-
-// //inicio link ahref no index.html que deve carregar o #conteudo produto.html no main do index.htm e depois fazer o scroll para o #lancamentos-page
-
-document.getElementById("carregarLancamentos").addEventListener("click", function () {
-	// Carrega o conteúdo de produto.html no elemento "main"
-	fetch("produto.html")
-		.then(response => response.text())
-		.then(data => {
-			// Define o conteúdo do elemento "main"
-			document.getElementById("main").innerHTML = data;
-
-			// Faz o scroll para a âncora #pre-venda após o carregamento
-			const lancamentosElement = document.getElementById("lancamentos-page");
-			if (lancamentosElement) {
-				lancamentosElement.scrollIntoView();
-			}
-
-			// Atualiza o histórico do navegador para manter a posição no "conteudo"
-			history.pushState(null, "", "#conteudo");
-		})
-		.catch(error => {
-			console.error("Erro ao carregar conteúdo:", error);
-		});
-});
-
-// Verificar se há uma âncora na URL ao carregar a página
-window.addEventListener("load", function () {
-	if (window.location.hash === "#conteudo") {
-		// Carrega o conteúdo de produto.html no elemento "main"
-		fetch("produto.html")
-			.then(response => response.text())
-			.then(data => {
-				// Define o conteúdo do elemento "main"
-				document.getElementById("main").innerHTML = data;
-
-				// Faz o scroll para a âncora #pre-venda após o carregamento
-				const lancamentosElement = document.getElementById("lancamentos-page");
-				if (lancamentosElement) {
-					lancamentosElement.scrollIntoView();
-				}
-			})
-			.catch(error => {
-				console.error("Erro ao carregar conteúdo:", error);
-			});
-	}
-});
-//fim link ahref no index.html que deve carregar o #conteudo produto.html no main do index.htm e depois fazer o scroll para o #lancamentos-page
-
-
+   
 
 
 

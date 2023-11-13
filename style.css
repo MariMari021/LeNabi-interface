@@ -5,6 +5,10 @@
   box-sizing: border-box;
 }
 
+html{
+  scroll-behavior: smooth;
+}
+
 body {
   background-color: #F8F1EE;
 }
@@ -1612,7 +1616,8 @@ footer {
   font-size: 28px;
 }
 
-input::-webkit-outer-spin-button, input::-webkit-inner-spin-button{
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
@@ -1688,19 +1693,19 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button{
   margin: 5% 13.3%;
 }
 
-.nossaHistoria{
+.nossaHistoria {
   display: grid;
   justify-content: center;
 }
 
-.nossaHistoria h3{
+.nossaHistoria h3 {
   font-family: 'Young-serif';
   font-size: 31.5px;
   text-align: center;
-  color: #3C2520; 
+  color: #3C2520;
 }
 
-.nossaHistoria p{
+.nossaHistoria p {
   margin: 2% 0;
   text-align: justify;
   font-family: 'Poppins-regular';
@@ -1709,22 +1714,22 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button{
   font-size: 17.5px;
 }
 
-.nossaHistoria p span{
+.nossaHistoria p span {
   padding-left: 3%;
 }
 
-.frase-sobre{
+.frase-sobre {
   margin: 6.5% 0;
   text-align: center;
   display: grid;
   justify-items: center;
 }
 
-.frase-sobre img{
+.frase-sobre img {
   width: 334px;
 }
 
-.frase-sobre p{
+.frase-sobre p {
   width: 759px;
   font-family: 'Young-serif';
   font-size: 26px;
@@ -1733,3 +1738,230 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button{
 }
 
 /* fim sobre nós */
+
+/* SUSTENTABILIDADE */
+
+#main-sus{
+  margin-top: 72px;
+}
+
+.center-sus {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.stack-area-sus {
+  width: 100%;
+  height: 300vh;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.right-sus,
+.left-sus {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: sticky;
+  top: 0;
+  box-sizing: border-box;
+  flex-basis: 50%;
+}
+
+.cards-sus {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  margin-right: 130px;
+}
+
+.card-sus {
+  width: 350px;
+  height: 350px;
+  box-sizing: border-box;
+  padding: 35px;
+  border-radius: 6mm;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  position: absolute;
+  top: 50%;
+  left: 60%;
+  transition: 0.5s ease-in-out;
+  align-content: stretch;
+  align-items: center;
+  text-align: center;
+}
+
+.card-sus:nth-child(1) {
+  background: #3C2520;
+  z-index: 4;
+}
+
+.card-sus:nth-child(2) {
+  background: #6D5448;
+  z-index: 3;
+}
+
+.card-sus:nth-child(3) {
+  background: #B99B8D;
+  z-index: 2;
+}
+
+.card-sus:nth-child(4) {
+  background: #3C2520;
+  z-index: 1;
+}
+
+.sub-sus {
+  font-family: 'Young-serif';
+  color: white;
+  font-size: 43px;
+  /* font-weight: 700; */
+}
+
+.content-sus {
+  font-family: 'Poppins-regular';
+  color: white;
+  font-size: 20px;
+}
+
+.card-sus.active {
+  transform-origin: bottom left;
+}
+
+.left-sus {
+  align-items: center;
+  flex-direction: column;
+  margin-left: 48px;
+}
+
+.titulo-sus {
+  width: 420px;
+  font-size: 54px;
+  font-family: 'Young-serif';
+  color: #3C2520;
+  font-weight: 500;
+}
+
+.sub-titulo-sus {
+  width: 594px;
+  font-family: 'Poppins-regular';
+  font-size: 19px;
+  margin-top: 19px;
+  margin-left: 130px;
+  padding-left: 23px;
+}
+
+.linha-sus {
+  background-color: #522318;
+  width: 80%;
+  height: 4.3px;
+  border-radius: 11px;
+  margin-bottom: 54px;
+}
+
+.saibaProjeto {
+  background-image: url(img-interface/plano\ de\ fundo\ -\ papel.svg);
+  background-size: cover;
+  background-attachment: fixed;
+  background-size: 100vw;
+  padding: 70px 0;
+  margin-bottom: 10%;
+}
+
+.conteudo-sus {
+  display: grid;
+  width: 100%;
+  justify-items: center;
+}
+
+.conteudo-sus h1 {
+  font-family: 'Poppins-bold';
+  font-size: 43px;
+  color: #3C2520;
+  width: 339px;
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.conteudo-sus h1 span {
+  font-family: 'Young-serif';
+}
+
+.biodegradaveis img,
+.planeta img {
+  width: 263px;
+  height: auto;
+}
+
+.biodegradaveis,
+.planeta {
+  display: flex;
+  /* margin: 20px 0; */
+  align-items: center;
+}
+
+.biodegradaveis h2,
+.planeta h2 {
+  font-family: 'Young-serif';
+  font-size: 36px;
+  font-weight: 500;
+  line-height: 70px;
+  color: #3C2520;
+}
+
+.biodegradaveis p,
+.planeta p {
+  font-family: 'Poppins-regular';
+  font-size: 19px;
+  color: #522318;
+  width: 777px;
+}
+
+.biodegradaveis p{
+  padding: 0 53px 0 0px;
+}
+
+.planeta p{
+  padding: 0 0 0 36px;
+}
+
+.biodegradavel-texto {
+  padding-left: 40px;
+}
+
+.planeta-texto {
+  padding-right: 40px;
+}
+
+.planeta-texto h2,
+.planeta-texto p {
+  text-align: right;
+}
+
+.divBranca {
+  background-color: #F8F1EE;
+  height: 414px;
+  position: absolute;
+  top: 3201px;
+  width: 100%;
+}
+
+.linha-sus-dois {
+  background-color: #522318;
+  width: 80%;
+  height: 4.3px;
+  border-radius: 11px;
+  position: relative;
+  top: 149px;
+  margin-left: 175px;
+}
+
+/* FIM SUSTENTABILIDADE */

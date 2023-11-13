@@ -9,6 +9,7 @@
     <script src="https://kit.fontawesome.com/a2288264db.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="produto.css">
 </head>
 
 <body>
@@ -36,10 +37,10 @@
         </div>
         <nav>
             <div class="botoes">
-                <a href="#" id="carregarConteudo">Pré-Venda</a>
-                <a href="#" id="carregarLancamentos">Lançamentos</a>
-                <button id="loadContentButton">Produtos</button>
-                <a href="#">Sustentabilidade</a>
+                <a href="produto.html#pre-venda">Pré-Venda</a>
+                <a href="produto.html#lancamentos-page">Lançamentos</a>
+                <a href="produto.html">Produtos</a>
+                <a href="sustentabilidade.html">Sustentabilidade</a>
 
             </div>
         </nav>
@@ -104,211 +105,45 @@
     </footer>
 
     <script>
-        //  function buscarProduto() {
-        //     const termoDeBusca = document.getElementById("buscar").value.toLowerCase();
-        //     const mainSobreNos = document.getElementById("sobre-nos");
-        //     mainSobreNos.innerHTML = ""; // Limpa o conteúdo atual em main#sobre-nos
+      function buscarProduto() {
+    const termoDeBusca = document.getElementById("buscar").value.toLowerCase();
+    const main = document.getElementById("sobre-nos");
+    main.innerHTML = ""; // Limpa o conteúdo atual
 
-        //     // Realiza a busca nos elementos com a classe "livros" no arquivo "produto.html"
-        //     fetch("produto.html")
-        //         .then(response => response.text())
-        //         .then(data => {
-        //             // Crie um elemento temporário para analisar o conteúdo do produto.html
-        //             const tempElement = document.createElement("div");
-        //             tempElement.innerHTML = data;
+    // Realiza a busca nos elementos com a classe "livros" no arquivo "produto.html"
+    fetch("produto.html")
+        .then(response => response.text())
+        .then(data => {
+            // Crie um elemento temporário para analisar o conteúdo do produto.html
+            const tempElement = document.createElement("div");
+            tempElement.innerHTML = data;
 
-        //             // Encontra os elementos com a classe "livros" e verifica se o título ou autor contém o termo de busca
-        //             const livros = tempElement.querySelectorAll(".livros");
-        //             livros.forEach(livro => {
-        //                 const titulo = livro.querySelector("h2").textContent.toLowerCase();
-        //                 const autor = livro.querySelector("p").textContent.toLowerCase();
+            // Encontra os elementos com a classe "livros" e verifica se o título contém o termo de busca
+            const livros = tempElement.querySelectorAll(".livros");
+            livros.forEach(livro => {
+                const titulo = livro.querySelector("img").alt.toLowerCase();
 
-        //                 if (titulo.includes(termoDeBusca) || autor.includes(termoDeBusca)) {
-        //                     mainSobreNos.appendChild(livro.cloneNode(true));
-        //                 }
-        //             });
+                if (titulo.includes(termoDeBusca)) {
+                    main.appendChild(livro.cloneNode(true));
+                }
+            });
 
-        //             // Importe o arquivo de estilos "produto.css" para aplicar os estilos aos elementos inseridos
-        //             const style = document.createElement("link");
-        //             style.rel = "stylesheet";
-        //             style.href = "produto.css"; // Substitua com o caminho correto para o seu arquivo "produto.css"
-        //             document.head.appendChild(style);
+            // Adicione a classe "area-de-busca" a main para aplicar os estilos
+            main.classList.add("area-de-busca");
 
-        //             // Verifique se há filhos na área de busca
-        //             if (mainSobreNos.children.length === 0) {
-        //                 mainSobreNos.innerHTML = "Nenhum resultado encontrado.";
-        //             }
-        //         })
-        //         .catch(error => {
-        //             console.error("Erro ao buscar produtos:", error);
-        //         });
-        // }
-
-        // function buscarProduto() {
-        //     const termoDeBusca = document.getElementById("buscar").value.toLowerCase();
-        //     const mainSobreNos = document.getElementById("sobre-nos");
-        //     mainSobreNos.innerHTML = ""; // Limpa o conteúdo atual em main#sobre-nos
-
-        //     // Realiza a busca nos elementos com a classe "livros" no arquivo "produto.html"
-        //     fetch("produto.html")
-        //         .then(response => response.text())
-        //         .then(data => {
-        //             // Crie um elemento temporário para analisar o conteúdo do produto.html
-        //             const tempElement = document.createElement("div");
-        //             tempElement.innerHTML = data;
-
-        //             // Crie a div "area-de-busca" para os resultados
-        //             const areaDeBusca = document.createElement("div");
-        //             areaDeBusca.classList.add("area-de-busca");
-
-        //             // Encontra os elementos com a classe "livros" e verifica se o título ou autor contém o termo de busca
-        //             const livros = tempElement.querySelectorAll(".livros");
-        //             livros.forEach(livro => {
-        //                 const titulo = livro.querySelector("h2").textContent.toLowerCase();
-        //                 const autor = livro.querySelector("p").textContent.toLowerCase();
-
-        //                 if (titulo.includes(termoDeBusca) || autor.includes(termoDeBusca)) {
-        //                     // Crie uma cópia do elemento e adicione à "area-de-busca"
-        //                     const livroResultado = livro.cloneNode(true);
-        //                     livroResultado.classList.add("livros2");
-        //                     areaDeBusca.appendChild(livroResultado);
-        //                 }
-        //             });
-
-        //             // Importe o arquivo de estilos "produto.css" para aplicar os estilos aos elementos inseridos
-        //             const style = document.createElement("link");
-        //             style.rel = "stylesheet";
-        //             style.href = "produto.css"; // Substitua com o caminho correto para o seu arquivo "produto.css"
-        //             document.head.appendChild(style);
-
-        //             // Adicione a "area-de-busca" à main#sobre-nos
-        //             mainSobreNos.appendChild(areaDeBusca);
-
-        //             // Verifique se há filhos na área de busca
-        //             if (areaDeBusca.children.length === 0) {
-        //                 const nenhumResultado = document.createElement("div");
-        //                 nenhumResultado.textContent = "Nenhum resultado encontrado.";
-        //                 areaDeBusca.appendChild(nenhumResultado);
-        //             }
-        //         })
-        //         .catch(error => {
-        //             console.error("Erro ao buscar produtos:", error);
-        //         });
-        // }
-
-
-        // function buscarProduto() {
-        //     const termoDeBusca = document.getElementById("buscar").value.toLowerCase();
-        //     const mainSobreNos = document.getElementById("sobre-nos");
-        //     mainSobreNos.innerHTML = ""; // Limpa o conteúdo atual em main#sobre-nos
-
-        //     // Realiza a busca nos elementos com a classe "livros" no arquivo "produto.html"
-        //     fetch("produto.html")
-        //         .then(response => response.text())
-        //         .then(data => {
-        //             // Crie a div "area-de-busca" para os resultados
-        //             const areaDeBusca = document.createElement("div");
-        //             areaDeBusca.classList.add("area-de-busca");
-
-        //             // Encontra os elementos com a classe "livros" e verifica se o título ou autor contém o termo de busca
-        //             const livros = tempElement.querySelectorAll(".livros");
-        //             livros.forEach(livro => {
-        //                 const titulo = livro.querySelector("h2").textContent.toLowerCase();
-        //                 const autor = livro.querySelector("p").textContent.toLowerCase();
-
-        //                 if (titulo.includes(termoDeBusca) || autor.includes(termoDeBusca)) {
-        //                     // Crie uma cópia do elemento e adicione à "area-de-busca"
-        //                     const livroResultado = livro.cloneNode(true);
-        //                     livroResultado.classList.add("livros2");
-        //                     areaDeBusca.appendChild(livroResultado);
-        //                 }
-        //             });
-
-        //             // Importe o arquivo de estilos "produto.css" para aplicar os estilos aos elementos inseridos
-        //             const style = document.createElement("link");
-        //             style.rel = "stylesheet";
-        //             style.href = "produto.css"; // Substitua com o caminho correto para o seu arquivo "produto.css"
-        //             document.head.appendChild(style);
-
-        //             // Adicione a "area-de-busca" à main#sobre-nos
-        //             mainSobreNos.appendChild(areaDeBusca);
-
-        //             // Verifique se há filhos na área de busca
-        //             if (areaDeBusca.children.length === 0) {
-        //                 const nenhumResultado = document.createElement("div");
-        //                 nenhumResultado.textContent = "Nenhum resultado encontrado.";
-        //                 areaDeBusca.appendChild(nenhumResultado);
-        //             } else {
-        //                 // Adicione o estilo de fundo quando a "area-de-busca" aparecer
-        //                 areaDeBusca.style.backgroundColor = "#6D5448";
-        //             }
-        //         })
-        //         .catch(error => {
-        //             console.error("Erro ao buscar produtos:", error);
-        //         });
-        // }
-
-
-        function buscarProduto() {
-            const termoDeBusca = document.getElementById("buscar").value.toLowerCase();
-            const mainSobreNos = document.getElementById("sobre-nos");
-            mainSobreNos.innerHTML = ""; // Limpa o conteúdo atual em main#sobre-nos
-
-            // Realiza a busca nos elementos com a classe "livros" no arquivo "produto.html"
-            fetch("produto.html")
-                .then(response => response.text())
-                .then(data => {
-                    // Crie um elemento temporário para analisar o conteúdo do produto.html
-                    const tempElement = document.createElement("div");
-                    tempElement.innerHTML = data;
-
-                    // Crie a div "area-de-busca" para os resultados
-                    const areaDeBusca = document.createElement("div");
-                    areaDeBusca.classList.add("area-de-busca");
-
-                    // Encontra os elementos com a classe "livros" e verifica se o título ou autor contém o termo de busca
-                    const livros = tempElement.querySelectorAll(".livros");
-                    livros.forEach(livro => {
-                        const titulo = livro.querySelector("h2").textContent.toLowerCase();
-                        const autor = livro.querySelector("p").textContent.toLowerCase();
-
-                        if (titulo.includes(termoDeBusca) || autor.includes(termoDeBusca)) {
-                            // Crie uma cópia do elemento e adicione à "area-de-busca"
-                            const livroResultado = livro.cloneNode(true);
-                            livroResultado.classList.add("livros2");
-                            areaDeBusca.appendChild(livroResultado);
-                        }
-                    });
-
-                    // Importe o arquivo de estilos "produto.css" para aplicar os estilos aos elementos inseridos
-                    const style = document.createElement("link");
-                    style.rel = "stylesheet";
-                    style.href = "produto.css"; // Substitua com o caminho correto para o seu arquivo "produto.css"
-                    document.head.appendChild(style);
-
-                    // Adicione a "area-de-busca" à main#sobre-nos
-                    mainSobreNos.appendChild(areaDeBusca);
-
-                    // Verifique se há filhos na área de busca
-                    // Verifique se há filhos na área de busca
-                    if (areaDeBusca.children.length === 0) {
-                        const nenhumResultado = document.createElement("div");
-                        nenhumResultado.textContent = "Nenhum resultado encontrado.";
-                        nenhumResultado.style.marginBottom = "101.5px"; // Adicione o estilo de margin-bottom
-                        areaDeBusca.appendChild(nenhumResultado);
-                    } else {
-                        // Adicione o estilo de fundo quando a "area-de-busca" aparecer
-                        areaDeBusca.style.backgroundColor = "#6D5448";
-                    }
-
-                })
-                .catch(error => {
-                    console.error("Erro ao buscar produtos:", error);
-                });
-        }
-
-
-
+            // Verifique se há filhos na área de busca
+            if (main.children.length === 0) {
+                main.innerHTML = "Nenhum resultado encontrado.";
+                main.style.marginBottom = "158px";
+                main.style.backgroundColor = "#F8F1EE"; // Cor de fundo quando nenhum resultado é encontrado
+            } else {
+                main.style.backgroundColor = "#6D5448"; // Cor de fundo padrão para a área de busca
+            }
+        })
+        .catch(error => {
+            console.error("Erro ao buscar produtos:", error);
+        });
+}
 
         //FIM BARRA DE PESQUISA
     </script>

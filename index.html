@@ -14,6 +14,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <link rel="shortcut icon" href="img-interface/lenabi 1.png" type="image/x-icon">
     <link rel="stylesheet" href="produto.css">
+    <script src="user.js"></script>
 </head>
 
 <body>
@@ -36,15 +37,23 @@
                     </div>
                     <span id="cont-favoritos">0</span>
                 </div>
-                <a href="login.html" class="button"><span>Fazer login</span></a>
+                <!-- Dentro da div do usuário logado -->
+                <div class="usuario-logado" id="userHeader">
+                    <i class="fa-solid fa-user" style="color: #522318;"></i>
+                    <span id="nomeUsuario"></span>
+                    <i id="logoutButton" class="fa-solid fa-arrow-right-from-bracket" onclick="logout()"></i>
+                </div>
+
+
+                <a href="login.html" class="button" id="loginButton"><span>Fazer login</span></a>
             </div>
         </div>
         <nav>
             <div class="botoes">
-                <a href="#" id="carregarConteudo">Pré-Venda</a>
-                <a href="#" id="carregarLancamentos">Lançamentos</a>
-                <button id="loadContentButton">Produtos</button>
-                <a href="#">Sustentabilidade</a>
+                <a href="produto.html#pre-venda">Pré-Venda</a>
+                <a href="produto.html#lancamentos-page">Lançamentos</a>
+                <a href="produto.html">Produtos</a>
+                <a href="sustentabilidade.html">Sustentabilidade</a>
 
             </div>
         </nav>
@@ -375,176 +384,15 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.0.3/swiper-bundle.min.js"></script>
     <script src="main.js"></script>
+    <script src="user.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            renderizarCabecalho();
+        });
+    </script>
+
+
 </body>
-<!-- <script>
-      //inicio carregar #conteudo do produto.html no main do index.html
-    document.getElementById("loadContentButton").addEventListener("click", function () {
-        // Carrega o conteúdo de produto.html no elemento "main"
-        fetch("produto.html")
-            .then(response => response.text())
-            .then(data => {
-                // Define o conteúdo do elemento "main"
-                document.getElementById("main").innerHTML = data;
-
-                // Atualiza o histórico do navegador para manter a posição no "conteudo"
-                history.pushState(null, "", "#conteudo");
-            })
-            .catch(error => {
-                console.error("Erro ao carregar conteúdo:", error);
-            });
-    });
-
-    // Verifica se há uma âncora na URL ao carregar a página
-    window.addEventListener("load", function () {
-        if (window.location.hash === "#conteudo") {
-            // Carrega o conteúdo de produto.html no elemento "main"
-            fetch("produto.html")
-                .then(response => response.text())
-                .then(data => {
-                    // Define o conteúdo do elemento "main"
-                    document.getElementById("main").innerHTML = data;
-                })
-                .catch(error => {
-                    console.error("Erro ao carregar conteúdo:", error);
-                });
-        }
-    });
-
-    //fim carregar #conteudo do produto.html no main do index.html
-
-      //inicio carregar #conteudo do produto.html no main do index.html
-      document.getElementById("sobre-nosButton").addEventListener("click", function () {
-        // Carrega o conteúdo de produto.html no elemento "main"
-        fetch("sobre-nos.html")
-            .then(response => response.text())
-            .then(data => {
-                // Define o conteúdo do elemento "main"
-                document.getElementById("main").innerHTML = data;
-
-                // Atualiza o histórico do navegador para manter a posição no "conteudo"
-                history.pushState(null, "", "#sobre-nos");
-            })
-            .catch(error => {
-                console.error("Erro ao carregar conteúdo:", error);
-            });
-    });
-
-    // Verifica se há uma âncora na URL ao carregar a página
-    window.addEventListener("load", function () {
-        if (window.location.hash === "#sobre-nos") {
-            // Carrega o conteúdo de produto.html no elemento "main"
-            fetch("sobre-nos.html")
-                .then(response => response.text())
-                .then(data => {
-                    // Define o conteúdo do elemento "main"
-                    document.getElementById("main").innerHTML = data;
-                })
-                .catch(error => {
-                    console.error("Erro ao carregar conteúdo:", error);
-                });
-        }
-    });
-
-    //fim carregar #conteudo do produto.html no main do index.html
-
-    //inicio link ahref no index.html que deve carregar o #conteudo produto.html no main do index.htm e depois fazer o scroll para o #pre-venda
-    document.getElementById("carregarConteudo").addEventListener("click", function () {
-        // Carrega o conteúdo de produto.html no elemento "main"
-        fetch("produto.html")
-            .then(response => response.text())
-            .then(data => {
-                // Define o conteúdo do elemento "main"
-                document.getElementById("main").innerHTML = data;
-
-                // Faz o scroll para a âncora #pre-venda após o carregamento
-                const preVendaElement = document.getElementById("pre-venda");
-                if (preVendaElement) {
-                    preVendaElement.scrollIntoView();
-                }
-
-                // Atualiza o histórico do navegador para manter a posição no "conteudo"
-                history.pushState(null, "", "#conteudo");
-            })
-            .catch(error => {
-                console.error("Erro ao carregar conteúdo:", error);
-            });
-    });
-
-    // Verificar se há uma âncora na URL ao carregar a página
-    window.addEventListener("load", function () {
-        if (window.location.hash === "#conteudo") {
-            // Carrega o conteúdo de produto.html no elemento "main"
-            fetch("produto.html")
-                .then(response => response.text())
-                .then(data => {
-                    // Define o conteúdo do elemento "main"
-                    document.getElementById("main").innerHTML = data;
-
-                    // Faz o scroll para a âncora #pre-venda após o carregamento
-                    const preVendaElement = document.getElementById("pre-venda");
-                    if (preVendaElement) {
-                        preVendaElement.scrollIntoView();
-                    }
-                })
-                .catch(error => {
-                    console.error("Erro ao carregar conteúdo:", error);
-                });
-        }
-    });
-
-    // //fim link ahref no index.html que deve carregar o #conteudo produto.html no main do index.htm e depois fazer o scroll para o #pre-venda
-
-
-
-    // //inicio link ahref no index.html que deve carregar o #conteudo produto.html no main do index.htm e depois fazer o scroll para o #lancamentos-page
-
-    document.getElementById("carregarLancamentos").addEventListener("click", function () {
-        // Carrega o conteúdo de produto.html no elemento "main"
-        fetch("produto.html")
-            .then(response => response.text())
-            .then(data => {
-                // Define o conteúdo do elemento "main"
-                document.getElementById("main").innerHTML = data;
-
-                // Faz o scroll para a âncora #pre-venda após o carregamento
-                const lancamentosElement = document.getElementById("lancamentos-page");
-                if (lancamentosElement) {
-                    lancamentosElement.scrollIntoView();
-                }
-
-                // Atualiza o histórico do navegador para manter a posição no "conteudo"
-                history.pushState(null, "", "#conteudo");
-            })
-            .catch(error => {
-                console.error("Erro ao carregar conteúdo:", error);
-            });
-    });
-
-    // Verificar se há uma âncora na URL ao carregar a página
-    window.addEventListener("load", function () {
-        if (window.location.hash === "#conteudo") {
-            // Carrega o conteúdo de produto.html no elemento "main"
-            fetch("produto.html")
-                .then(response => response.text())
-                .then(data => {
-                    // Define o conteúdo do elemento "main"
-                    document.getElementById("main").innerHTML = data;
-
-                    // Faz o scroll para a âncora #pre-venda após o carregamento
-                    const lancamentosElement = document.getElementById("lancamentos-page");
-                    if (lancamentosElement) {
-                        lancamentosElement.scrollIntoView();
-                    }
-                })
-                .catch(error => {
-                    console.error("Erro ao carregar conteúdo:", error);
-                });
-        }
-    });
-    //fim link ahref no index.html que deve carregar o #conteudo produto.html no main do index.htm e depois fazer o scroll para o #lancamentos-page
-
-
-
-</script> -->
 
 </html>

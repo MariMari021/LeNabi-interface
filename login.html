@@ -12,10 +12,12 @@
 <body>
     <header id="header-login">
         <div class="container container-login">
-           <a href="index.html"> <div class="logo">
-                <img src="img-interface/lenabi 1.png" alt="borboleta voando dentro de um livro">
-                <h2>LeNabi</h2>
-            </div></a>
+            <a href="index.html">
+                <div class="logo">
+                    <img src="img-interface/lenabi 1.png" alt="borboleta voando dentro de um livro">
+                    <h2>LeNabi</h2>
+                </div>
+            </a>
 
             <div id="favoritos" class="favoritos-login" onclick="toggleFavoritos()">
                 <div class="imagem">
@@ -95,48 +97,125 @@
         </div>
     </footer>
     <script>
-        const iconSenha = document.getElementById("iconSenha");
-        const iconOlho = document.getElementById("iconOlho");
-        const senhaInput = document.getElementById("senhaInput");
-        const loginButton = document.getElementById("loginButton");
-        const userInput = document.getElementById("userInput");
+        // const iconSenha = document.getElementById("iconSenha");
+        // const iconOlho = document.getElementById("iconOlho");
+        // const senhaInput = document.getElementById("senhaInput");
+        // const loginButton = document.getElementById("loginButton");
+        // const userInput = document.getElementById("userInput");
 
-        // Adicionar um ouvinte de evento ao ícone de olho
-        iconOlho.addEventListener("click", () => {
-            if (senhaInput.type === "password") {
-                // Alterar o ícone e o tipo de entrada para "text"
-                senhaInput.type = "text";
-                iconOlho.classList.remove("fa-regular");
-                iconOlho.classList.remove("fa-eye-slash");
-                iconOlho.classList.add("fa-solid");
-                iconOlho.classList.add("fa-eye");
-            } else {
-                // Reverter o ícone e o tipo de entrada para "password"
-                senhaInput.type = "password";
-                iconOlho.classList.remove("fa-solid");
-                iconOlho.classList.remove("fa-eye");
-                iconOlho.classList.add("fa-regular");
-                iconOlho.classList.add("fa-eye-slash");
-            }
+        // // Adicionar um ouvinte de evento ao ícone de olho
+        // iconOlho.addEventListener("click", () => {
+        //     if (senhaInput.type === "password") {
+        //         // Alterar o ícone e o tipo de entrada para "text"
+        //         senhaInput.type = "text";
+        //         iconOlho.classList.remove("fa-regular");
+        //         iconOlho.classList.remove("fa-eye-slash");
+        //         iconOlho.classList.add("fa-solid");
+        //         iconOlho.classList.add("fa-eye");
+        //     } else {
+        //         // Reverter o ícone e o tipo de entrada para "password"
+        //         senhaInput.type = "password";
+        //         iconOlho.classList.remove("fa-solid");
+        //         iconOlho.classList.remove("fa-eye");
+        //         iconOlho.classList.add("fa-regular");
+        //         iconOlho.classList.add("fa-eye-slash");
+        //     }
+        // });
+
+        // // Credenciais de login
+        // const emailCorreto = "editoralenabi@gmail.com";
+        // const usuarioCorreto = "editoraLenabi";
+        // const senhaCorreta = "editoraLenabi";
+
+        // // Adicionar um ouvinte de evento ao botão de login
+        // loginButton.addEventListener("click", () => {
+        //     const emailUsuario = userInput.value;
+        //     const senha = senhaInput.value;
+        //     if ((emailUsuario === emailCorreto || emailUsuario === usuarioCorreto) && senha === senhaCorreta) {
+        //         alert("Login bem-sucedido!");
+        //         // Aqui você pode redirecionar o usuário para a página de login bem-sucedida
+        //         window.location.href = "index.html";
+        //     } else {
+        //         alert("Credenciais incorretas. Por favor, tente novamente.");
+        //     }
+        // });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const iconOlho = document.getElementById("iconOlho");
+            const senhaInput = document.getElementById("senhaInput");
+            const loginButton = document.getElementById("loginButton");
+            const userInput = document.getElementById("userInput");
+
+            iconOlho.addEventListener("click", () => {
+                if (senhaInput.type === "password") {
+                    senhaInput.type = "text";
+                    iconOlho.classList.remove("fa-regular");
+                    iconOlho.classList.remove("fa-eye-slash");
+                    iconOlho.classList.add("fa-solid");
+                    iconOlho.classList.add("fa-eye");
+                } else {
+                    senhaInput.type = "password";
+                    iconOlho.classList.remove("fa-solid");
+                    iconOlho.classList.remove("fa-eye");
+                    iconOlho.classList.add("fa-regular");
+                    iconOlho.classList.add("fa-eye-slash");
+                }
+            })
         });
 
-        // Credenciais de login
-        const emailCorreto = "editoralenabi@gmail.com";
-        const usuarioCorreto = "editoraLenabi";
-        const senhaCorreta = "editoraLenabi";
+    
+//         loginButton.addEventListener("click", () => {
+//     const storedUserData = JSON.parse(localStorage.getItem('userData'));
+//     const emailUsuario = userInput.value;
+//     const senha = senhaInput.value;
 
-        // Adicionar um ouvinte de evento ao botão de login
-        loginButton.addEventListener("click", () => {
-            const emailUsuario = userInput.value;
-            const senha = senhaInput.value;
-            if ((emailUsuario === emailCorreto || emailUsuario === usuarioCorreto) && senha === senhaCorreta) {
-                alert("Login bem-sucedido!");
-                // Aqui você pode redirecionar o usuário para a página de login bem-sucedida
-                window.location.href = "index.html";
-            } else {
-                alert("Credenciais incorretas. Por favor, tente novamente.");
-            }
-        });
+//     if (storedUserData && (emailUsuario === storedUserData.userInput || emailUsuario === storedUserData.email) && senha === storedUserData.senhaInput) {
+
+//         // Suponha que você obtenha o número do usuário durante o login
+//         const numeroUsuario = storedUserData.numero; // Substitua por sua lógica real
+
+//         // Transforme o número do usuário em um nome fictício (substitua por sua lógica real)
+//         const nomeUsuario = "NomeRealDoUsuario" + numeroUsuario;
+
+//         localStorage.setItem('nomeUsuario', nomeUsuario);
+
+//         alert("Login bem-sucedido!");
+
+//         // Imprima os dados no console para verificar
+//         console.log('Dados do usuário:', storedUserData);
+//         console.log('Nome do usuário:', nomeUsuario);
+
+//         // Redireciona para a página principal
+//         window.location.href = "index.html";
+//     } else {
+//         alert("Credenciais incorretas. Por favor, tente novamente.");
+//     }
+// });
+
+
+loginButton.addEventListener("click", () => {
+    const storedUserData = JSON.parse(localStorage.getItem('userData'));
+    const emailUsuario = userInput.value;
+    const senha = senhaInput.value;
+
+    if (storedUserData && (emailUsuario === storedUserData.userInput || emailUsuario === storedUserData.email) && senha === storedUserData.senhaInput) {
+        // Adicione o nome do usuário diretamente ao localStorage
+        localStorage.setItem('nomeUsuario', 'NomeRealDoUsuario');
+
+        alert("Login bem-sucedido!");
+        window.location.href = "index.html";
+    } else {
+        alert("Credenciais incorretas. Por favor, tente novamente.");
+    }
+});
+
+
+
+
+
+
+
+
 
     </script>
 
