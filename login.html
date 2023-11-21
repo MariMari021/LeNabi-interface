@@ -123,7 +123,7 @@
         });
 
 
-      
+
         document.addEventListener('DOMContentLoaded', function () {
             const loginButton = document.getElementById("loginButton");
 
@@ -155,6 +155,53 @@
                 }
             }
         });
+
+//         document.addEventListener('DOMContentLoaded', function () {
+//     const loginButton = document.getElementById("loginButton");
+
+//     if (loginButton) {
+//         loginButton.addEventListener("click", realizarLogin);
+//     } else {
+//         console.error("Elemento 'loginButton' não encontrado. Verifique os IDs no HTML.");
+//     }
+
+//     function realizarLogin() {
+//         const storedUserData = JSON.parse(localStorage.getItem('userData'));
+//         const emailUsuario = document.getElementById("nomeUsuario").value; // Certifique-se de que este ID corresponde ao HTML
+//         const senha = document.getElementById("senhaInput").value;
+
+//         if (storedUserData && (
+//             (emailUsuario === storedUserData.userInput || emailUsuario === storedUserData.email) &&
+//             senha === storedUserData.senhaInput
+//         )) {
+//             // Obtém o nome do usuário do objeto storedUserData
+//             const nomeUsuario = storedUserData.nomeUsuario || storedUserData.nome || 'NomeRealDoUsuario';
+
+//             // Adiciona o nome do usuário ao localStorage
+//             localStorage.setItem('nomeUsuario', nomeUsuario);
+
+//             // Recupera os itens do carrinho do localStorage
+//             const itensCarrinhoArmazenados = JSON.parse(localStorage.getItem('itensCarrinho')) || {};
+
+//             // Atualiza a variável 'itensCarrinho' com os itens do localStorage
+//             for (let itemNome in itensCarrinhoArmazenados) {
+//                 const item = itensCarrinhoArmazenados[itemNome];
+//                 if (!itensCarrinho[itemNome]) {
+//                     itensCarrinho[itemNome] = item;
+//                 }
+//             }
+
+//             // Atualiza a exibição do carrinho
+//             updateCarrinho();
+
+//             alert("Login bem-sucedido!");
+//             window.location.href = "index.html";
+//         } else {
+//             alert("Credenciais incorretas. Por favor, tente novamente.");
+//         }
+//     }
+// });
+
 
     </script>
 

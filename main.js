@@ -355,6 +355,6 @@ function buscarProduto() {
 //FIM BARRA DE PESQUISA
 
 
-
+//FAVORITOS
 
 

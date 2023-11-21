@@ -5,7 +5,7 @@
   box-sizing: border-box;
 }
 
-html{
+html {
   scroll-behavior: smooth;
 }
 
@@ -38,7 +38,100 @@ body {
   src: url(font/Poppins-Bold.ttf);
 }
 
+
 /* INICIO HEADER */
+
+#carrinho-itens {
+  position: absolute;
+  left: 72%;
+  top: 14.8%;
+  height: 250px;
+  width: 400px;
+  padding-top: 10px;
+  background-color: #3C2520;
+  padding: 18px 30px;
+  border-radius: 15px;
+  /* transition: 1s linear; */
+  animation: descer 0.6s;
+  box-shadow: 2px 5px 4px #3c25208d;
+  top: 87px;
+}
+
+.remove {
+  background-color: #6D5448;
+  padding: 2px 14px;
+  border-radius: 12px;
+  color: #FFEFDF;
+  margin: 5px 5px;
+  font-family: 'Poppins-regular';
+  font-weight: 600;
+}
+
+.add {
+  background-color: #6D5448;
+  padding: 2px 14px;
+  border-radius: 12px;
+  margin: 5px 5px;
+  color: #FFEFDF;
+  font-family: 'Poppins-regular';
+  font-weight: 600;
+}
+
+.car {
+  padding: 10px 116px;
+  border-radius: 18px;
+  color: #fff;
+  font-family: 'Poppins-regular';
+  background-color: #710505;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.car:hover {
+  background-color: #ca0202;
+  cursor: pointer;
+  transition: 0.4s ease-in-out;
+}
+
+.preco-total {
+  font-family: 'Poppins-Semi';
+  color: #fff;
+  /* width: 10px; */
+  font-size: 22px;
+}
+
+#preco-total {
+  margin-top: 5px;
+  display: flex;
+  font-family: 'Poppins-regular';
+  color: #fff;
+  font-weight: 200;
+}
+
+@keyframes descer {
+  0% {
+    opacity: 25%;
+    transform: translateY(-30px);
+  }
+
+  100% {
+    opacity: 100%;
+    transform: translateY(0);
+  }
+}
+
+.usuario-logado i {
+  padding-left: 20px;
+  font-size: 26px;
+  color: #522318;
+}
+
+.usuario-logado span{
+  font-size: 18px;
+  font-family: 'Poppins-medium';
+  color: #522318;
+  padding-left: 10px;
+}
 
 .logo {
   display: flex;
@@ -1267,6 +1360,7 @@ footer {
 .container-login {
   justify-content: space-between;
   margin: 0 133.7px;
+  padding-bottom: 1%;
 }
 
 .botao-login a {
@@ -1745,7 +1839,7 @@ input::-webkit-inner-spin-button {
 
 /* SUSTENTABILIDADE */
 
-#main-sus{
+#main-sus {
   margin-top: 72px;
 }
 
@@ -1929,11 +2023,11 @@ input::-webkit-inner-spin-button {
   width: 777px;
 }
 
-.biodegradaveis p{
+.biodegradaveis p {
   padding: 0 53px 0 0px;
 }
 
-.planeta p{
+.planeta p {
   padding: 0 0 0 36px;
 }
 
