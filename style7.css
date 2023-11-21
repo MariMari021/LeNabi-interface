@@ -36,155 +36,6 @@ body {
 
 /* INICIO HEADER */
 
-.logo {
-  display: flex;
-  align-items: center;
-}
-
-.logo img {
-  width: 137px;
-}
-
-.logo h2 {
-  color: #3C2520;
-  padding-left: 15px;
-  font-family: 'Young-serif';
-  font-size: 31.56px;
-  /* font: 500 'Young-serif' 31.56px; */
-}
-
-#header,
-#header-login {
-  background-color: #B99B8D;
-  height: 127px;
-
-}
-
-.container {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  margin: 0 94px;
-  background-color: #B99B8D;
-}
-
-.container-fundo {
-  width: 100%;
-  position: fixed;
-  background-color: #B99B8D;
-  z-index: 1000;
-}
-
-#header nav {
-  width: 100%;
-  position: relative;
-  padding-top: 120px;
-}
-
-
-
-
-a {
-  text-decoration: none;
-}
-
-.botoes {
-  display: flex;
-  background-color: #3C2520;
-  height: 52px;
-  align-items: center;
-  justify-content: space-evenly;
-  z-index: 1050;
-  /* Ajuste o valor conforme necessário */
-}
-
-.botoes a,
-.botoes button {
-  color: white;
-  font-family: 'Poppins-regular';
-  font-size: 17px;
-}
-
-.botoes button {
-  background-color: #3C2520;
-  cursor: pointer;
-}
-
-#buscar {
-  padding: 13px 15px;
-  background-color: #3C2520;
-  border-radius: 30px;
-  width: 581px;
-  color: white;
-  font-family: 'Poppins-regular';
-  font-size: 15px;
-  cursor: pointer;
-}
-
-#buscar:hover {
-  background-color: #6D5448;
-}
-
-input::placeholder {
-  color: #F8F1EE;
-  font-family: 'Poppins-regular';
-
-}
-
-.fa-regular {
-  font-size: 31px;
-  color: #3C2520;
-}
-
-.button {
-  text-decoration: none;
-  border: 3px #3C2520 solid;
-  padding: 10px 17px;
-  color: #3C2520;
-  border-radius: 11px;
-  font-family: 'Young-serif';
-  font-size: 15px;
-  position: relative;
-  overflow: hidden;
-}
-
-.button span {
-  position: relative;
-}
-
-.button::before {
-  content: '';
-  background-color: #3C2520;
-  width: 0;
-  height: 0;
-  position: absolute;
-  top: var(--y);
-  left: var(--x);
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-  transition: width .5s, height .5s;
-}
-
-.button:hover::before {
-  width: 1000px;
-  height: 1000px;
-}
-
-.button:hover span {
-  color: #F8F1EE;
-}
-
-#favoritos {
-  display: flex;
-  align-items: baseline;
-}
-
-#cont-favoritos {
-  text-align: center;
-  font-family: 'Poppins-regular';
-  color: #3C2520;
-}
-
 #carrinho-itens {
   position: absolute;
   left: 72%;
@@ -199,17 +50,6 @@ input::placeholder {
   animation: descer 0.6s;
   box-shadow: 2px 5px 4px #3c25208d;
   top: 87px;
-}
-
-.item {
-  /* margin-top: 15px; */
-  font-family: 'Poppins-regular';
-  color: #fff;
-  font-weight: 200;
-}
-
-::marker {
-  color: #fff;
 }
 
 .remove {
@@ -273,6 +113,189 @@ input::placeholder {
     opacity: 100%;
     transform: translateY(0);
   }
+}
+
+.usuario-logado i {
+  padding-left: 20px;
+  font-size: 26px;
+  color: #522318;
+}
+
+.usuario-logado span {
+  font-size: 18px;
+  font-family: 'Poppins-medium';
+  color: #522318;
+  padding-left: 10px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  width: 109px;
+}
+
+.logo h2 {
+  color: #3C2520;
+  padding-left: 15px;
+  font-family: 'Young-serif';
+  font-size: 31.56px;
+  /* font: 500 'Young-serif' 31.56px; */
+}
+
+#header,
+#header-login {
+  background-color: #B99B8D;
+  height: 127px;
+
+}
+
+.container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 0 94px;
+  background-color: #B99B8D;
+  padding-top: 1%;
+}
+
+.container-fundo {
+  z-index: 999;
+  width: 100%;
+  position: fixed;
+  background-color: #B99B8D;
+  height: 126px;
+}
+
+#header nav {
+  top: 127px;
+  width: 100%;
+  position: relative;
+}
+
+
+
+
+a {
+  text-decoration: none;
+}
+
+.botoes {
+  display: flex;
+  background-color: #3C2520;
+  height: 52px;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.botoes a,
+.botoes button {
+  color: white;
+  font-family: 'Poppins-regular';
+  font-size: 17px;
+}
+
+.botoes button {
+  background-color: #3C2520;
+  cursor: pointer;
+}
+
+#buscar {
+  padding: 13px 15px;
+  background-color: #3C2520;
+  border-radius: 30px;
+  width: 581px;
+  color: white;
+  font-family: 'Poppins-regular';
+  font-size: 15px;
+  cursor: pointer;
+}
+
+#buscar:hover {
+  background-color: #6D5448;
+}
+
+input::placeholder {
+  color: #F8F1EE;
+  font-family: 'Poppins-regular';
+
+}
+
+.fa-regular {
+  font-size: 31px;
+  color: #3C2520;
+}
+
+.button {
+  text-decoration: none;
+  border: 3px #3C2520 solid;
+  padding: 10px 17px;
+  color: #3C2520;
+  border-radius: 11px;
+  font-family: 'Young-serif';
+  font-size: 15px;
+  position: relative;
+  overflow: hidden;
+}
+
+.button span {
+  position: relative;
+  z-index: 99999;
+}
+
+.button::before {
+  content: '';
+  background-color: #3C2520;
+  width: 0;
+  height: 0;
+  position: absolute;
+  top: var(--y);
+  left: var(--x);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width .5s, height .5s;
+}
+
+.button:hover::before {
+  width: 1000px;
+  height: 1000px;
+}
+
+.button:hover span {
+  color: #F8F1EE;
+}
+
+#favoritos {
+  cursor: pointer;
+  display: flex;
+  align-items: baseline;
+}
+
+.fa-heart:hover {
+font-weight: 900;
+}
+
+li::marker{
+  font-family: 'Poppins-regular';
+  color: white;
+}
+
+li span{
+  font-family: 'Poppins-regular';
+  color: white;
+}
+
+.item{
+  width: 289px;
+}
+
+
+#cont-favoritos {
+  text-align: center;
+  font-family: 'Poppins-regular';
+  color: #3C2520;
 }
 
 /* FIM HEADER */
@@ -367,7 +390,7 @@ input::placeholder {
 
 .irmaos {
   width: 330px;
-  height: 440px;
+  height: 455px;
   transition: transform 0.3s;
   margin-top: -120px;
   margin-right: 60px;
@@ -441,6 +464,15 @@ input::placeholder {
   font-size: 10px;
   cursor: pointer;
 }
+
+.icon-coracaoP {
+  width: 36px;
+  height: 31px;
+  font-size: 10px;
+  cursor: pointer;
+}
+
+
 
 .content {
   margin-left: 5px;
@@ -653,12 +685,11 @@ footer {
   background-color: #6D5448;
 }
 
-.fundoPre {
-  margin: 0 60px;
+.fundoPre1 {
+  margin: 39px 60px;
   display: flex;
   justify-content: space-evenly;
   background-color: #6D5448;
-  margin-top: 50px;
 }
 
 
@@ -731,6 +762,7 @@ footer {
 
 .buttonPreco h3 {
   padding-left: 7%;
+  font-family: 'Poppins-bold';
 }
 
 .buttonPreco:hover {
@@ -739,8 +771,7 @@ footer {
 
 .buttonPreco::before {
   content: "Ver Mais";
-  font-family: 'Poppins-regular';
-  font-size: 17px;
+  font-family: 'Poppins-bold';
   position: absolute;
   top: 0;
   left: 0;

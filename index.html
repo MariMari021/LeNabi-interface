@@ -33,7 +33,7 @@
 
                 <div id="favoritos" onclick="toggleFavoritos()">
                     <div class="imagem">
-                        <i class="fa-regular fa-heart" style="color: #522318;"></i>
+                        <i class="fa-regular fa-heart" style="color: #522318; "></i>
                     </div>
                     <span id="cont-favoritos">0</span>
                 </div>
@@ -43,10 +43,17 @@
                     <button class="car" onclick="limparCarrinho()">Limpar Carrinho</button>
                 </div>
                 <!-- Dentro da div do usuário logado -->
-                <div class="usuario-logado" id="userHeader">
-                    <i class="fa-solid fa-user" style="color: #522318;"></i>
+                <div class="usuario-logado" id="userHeader" onclick="mostrarPopup()">
+                    <i class="fa-solid fa-user" style="color: #522318;" ></i>
                     <span id="nomeUsuario"></span>
+                </div>
+                <div id="popup" style="display: none;">
+                    <div class="popup-conteudo">
+                    <img src="img-interface/Group 20.svg" alt="">
+                    <span id="nomeUsuario"></span>
+                </div>
                     <i id="logoutButton" class="fa-solid fa-arrow-right-from-bracket" onclick="logout()"></i>
+
                 </div>
 
 
@@ -395,6 +402,15 @@
         document.addEventListener('DOMContentLoaded', function () {
             renderizarCabecalho();
         });
+
+        function mostrarPopup() {
+            // Mostre o popup
+            document.getElementById('popup').style.display = 'grid';
+        }
+        function fecharPopup() {
+            // Feche o popup
+            document.getElementById('popup').style.display = 'none';
+        }
     </script>
 
 

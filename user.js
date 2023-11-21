@@ -35,7 +35,7 @@ function logout() {
 }
 
 
-//FAVORITOS
+
 function alternarContador() {
     var contadorElement = document.getElementById("contador-coracao");
     var coracaoVazio = document.getElementById("coracao-vazio");
@@ -107,13 +107,9 @@ function addCarrinho(itemNome, itemPreco) {
     // Atualiza o valor total
     document.getElementById("preco-total").innerHTML = "Valor Total: R$" + precoTotal.toFixed(2);
     updateCarrinho();
-    atualizarLocalStorage();
+
 }
 
-function atualizarLocalStorage() {
-    // Converte o objeto 'itensCarrinho' para uma string JSON e armazena no localStorage
-    localStorage.setItem('itensCarrinho', JSON.stringify(itensCarrinho));
-}
 
 function addMaisUm(itemNome, itemPreco) {
     const listaItens = document.getElementById("itens-lista");
@@ -203,21 +199,26 @@ function addMaisUm(itemNome, itemPreco) {
     updateCarrinho();
 }
 
-
-
 function removeCarrinho(itemNome, itemPreco) {
     if (itensCarrinho[itemNome]) {
-        if (itensCarrinho[itemNome].quantity > 1) {
-            itensCarrinho[itemNome].quantity--;
-            itensCarrinho[itemNome].precoTotal -= itemPreco;
-            itensCarrinho[itemNome].liItem.querySelector(".quantity").innerHTML = itensCarrinho[itemNome].quantity;
-            itensCarrinho[itemNome].liItem.querySelector(".preco-total").innerHTML = "R$" + itensCarrinho[itemNome].precoTotal.toFixed(2);
-        } else {
+        // Verifica se a quantidade é 1 antes de remover o item
+        if (itensCarrinho[itemNome].quantity === 1) {
             const listaItens = document.getElementById("itens-lista");
             const liItemToRemove = itensCarrinho[itemNome].liItem;
             listaItens.removeChild(liItemToRemove);
             delete itensCarrinho[itemNome];
+
+            // Atualiza a imagem do coração para "coracao-vazio"
+            document.getElementById("coracao-vazio").style.display = "inline-block";
+            document.getElementById("coracao-pintado").style.display = "none";
+        } else {
+            // Atualiza a quantidade e o preço total
+            itensCarrinho[itemNome].quantity--;
+            itensCarrinho[itemNome].precoTotal -= itemPreco;
+            itensCarrinho[itemNome].liItem.querySelector(".quantity").innerHTML = itensCarrinho[itemNome].quantity;
+            itensCarrinho[itemNome].liItem.querySelector(".preco-total").innerHTML = "R$" + itensCarrinho[itemNome].precoTotal.toFixed(2);
         }
+
         updateCarrinho();
     }
 
@@ -231,6 +232,8 @@ function removeCarrinho(itemNome, itemPreco) {
     document.getElementById("preco-total").innerHTML = "Valor Total R$" + precoTotal.toFixed(2);
 }
 
+
+
 function updateCarrinho() {
     let cont = 0;
     for (let item in itensCarrinho) {
@@ -240,11 +243,26 @@ function updateCarrinho() {
 }
 
 function limparCarrinho() {
-    document.getElementById("itens-lista").innerHTML = "";
+    const itensLista = document.getElementById("itens-lista");
+
+    // Verifica se o carrinho está vazio
+    if (itensLista.children.length === 0) {
+        // Carrinho vazio, a função não faz nada
+        return;
+    }
+
+    // Limpa os itens do carrinho
+    itensLista.innerHTML = "";
+
+    // Atualiza o valor total
     document.getElementById("preco-total").innerHTML = "Valor Total: R$0,00";
+
+    // Limpa o objeto de itens no carrinho
     for (let itemNome in itensCarrinho) {
         delete itensCarrinho[itemNome];
     }
+
+    // Atualiza o contador de itens no carrinho
     updateCarrinho();
 
     // Chama a função para reverter os corações para o estado vazio
@@ -261,20 +279,28 @@ function toggleFavoritos() {
     }
 }
 
-function buscarProdutos() {
-    const buscarInput = document.getElementById("buscar-input");
-    const produto = document.getElementsByClassName("produto");
+// function buscarProdutos() {
+//     const buscarInput = document.getElementById("buscar-input");
+//     const produto = document.getElementsByClassName("produto");
 
-    for (let i = 0; i < produto.length; i++) {
-        const produtoNome = produto[i].querySelector("h3").innerText.toLowerCase();
+//     for (let i = 0; i < produto.length; i++) {
+//         const produtoNome = produto[i].querySelector("h3").innerText.toLowerCase();
 
-        if (produtoNome.includes(buscarInput.value.toLowerCase())) {
-            produto[i].style.display = "block";
-        } else {
-            produto[i].style.display = "none";
-        }
-    }
-}
+//         if (produtoNome.includes(buscarInput.value.toLowerCase())) {
+//             produto[i].style.display = "block";
+//         } else {
+//             produto[i].style.display = "none";
+//         }
+//     }
+// }
+
+
+
+
+
+
+
+
 
 
 
