@@ -148,6 +148,7 @@ body {
 
 /* Estilo para a área de busca */
 .area-de-busca {
+  padding-top: 21px;
   display: flex;
   width: 80%;
   margin: 0 10%;
@@ -159,6 +160,7 @@ body {
   font-family: 'Poppins-Semi';
   color: #9a594b;
   border-radius: 17px;
+  min-height: 470px;
 }
 
 .area-de-busca .livros2 {
@@ -168,8 +170,28 @@ body {
 
 .area-de-busca .livros {
   margin: 3% 3%;
-
+  background-color:#3C2520 ;
+   color:#FFEFDF; 
 }
+
+.area-de-busca .livros h2{
+  color:#FFEFDF;
+}
+
+.area-de-busca .livros .buttonPreco{
+  background-color: #FFEFDF;
+  border: 1.5px #3c252075 solid;
+}
+
+.area-de-busca .livros h3{
+  color: #3C2520;
+}
+
+.area-de-busca .livros img{
+  box-shadow: 7px 7px #E3C7BA;
+}
+
+
 
 .livros2{
   margin: 0;

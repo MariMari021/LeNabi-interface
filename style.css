@@ -46,7 +46,7 @@ body {
 }
 
 .logo img {
-  width: 137px;
+  width: 109px;
 }
 
 .logo h2 {
@@ -70,6 +70,7 @@ body {
   align-items: center;
   margin: 0 94px;
   background-color: #B99B8D;
+  padding-top: 1%;
 }
 
 .container-fundo {
@@ -1198,6 +1199,8 @@ input::placeholder {
 footer {
   background-color: #3C2520;
 }
+
+
 
 .container-footer,
 .parte1,

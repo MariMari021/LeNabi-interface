@@ -10,7 +10,7 @@
     <script src="https://kit.fontawesome.com/a2288264db.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <style>
-        main#conteudo.original.area-de-busca{
+        main#conteudo.original.area-de-busca {
             margin-top: 72px;
         }
     </style>
@@ -36,7 +36,15 @@
                     </div>
                     <span id="cont-favoritos">0</span>
                 </div>
-                <a href="login.html" class="button"><span>Fazer login</span></a>
+                <!-- Dentro da div do usuário logado -->
+                <div class="usuario-logado" id="userHeader">
+                    <i class="fa-solid fa-user" style="color: #522318;"></i>
+                    <span id="nomeUsuario"></span>
+                    <i id="logoutButton" class="fa-solid fa-arrow-right-from-bracket" onclick="logout()"></i>
+                </div>
+
+
+                <a href="login.html" class="button" id="loginButton"><span>Fazer login</span></a>
             </div>
         </div>
         <nav>
@@ -104,7 +112,7 @@
                             <h2>Vol.2</h2>
                             <p>Stephanie G.</p>
                             <a href="">
-                                <img src="img-interface/felizes para nunca.webp" alt="felizes para nunca">
+                                <img src="img-interface/felizes para nunca.webp" alt="a balada dos felizes para nunca">
                                 <div class="buttonPreco">
                                     <h3>R$43,11</h3>
                                 </div>
@@ -116,7 +124,7 @@
                             <h2>Vol.3</h2>
                             <p>Stephanie G.</p>
                             <a href="">
-                                <img src="img-interface/maldição do amor.webp" alt="maldição do amor">
+                                <img src="img-interface/maldição do amor.webp" alt="a maldição do verdadeiro amor">
                                 <div class="buttonPreco">
                                     <h3>R$64,90</h3>
                                 </div>
@@ -282,13 +290,13 @@
         <div class="container-footer">
             <nav>
                 <div class="parte1">
-                    <a href="#">Produtos</a>
-                    <a href="#">Lançamentos</a>
-                    <a href="#">Pré-venda</a>
+                    <a href="index.html#but">Produtos</a>
+                    <a href="index.html#lancamentos">Lançamentos</a>
+                    <a href="index.html#header">Pré-venda</a>
                 </div>
                 <div class="parte2">
                     <a href="#">Favoritos</a>
-                    <a href="#">Sustentabilidade</a>
+                    <a href="sustentabilidade.html">Sustentabilidade</a>
                     <a href="sobre-nos.html">Sobre nós</a>
                 </div>
             </nav>
@@ -307,47 +315,51 @@
         </div>
     </footer>
     <script>
-       function buscarProduto() {
-    const termoDeBusca = document.getElementById("buscar").value.toLowerCase();
-    const main = document.getElementById("conteudo");
-    main.innerHTML = ""; // Limpa o conteúdo atual
+        function buscarProduto() {
+            const termoDeBusca = document.getElementById("buscar").value.toLowerCase();
+            const main = document.getElementById("conteudo");
+            main.innerHTML = ""; // Limpa o conteúdo atual
 
-    // Realiza a busca nos elementos com a classe "livros" no arquivo "produto.html"
-    fetch("produto copy.html")
-        .then(response => response.text())
-        .then(data => {
-            // Crie um elemento temporário para analisar o conteúdo do produto.html
-            const tempElement = document.createElement("div");
-            tempElement.innerHTML = data;
+            // Realiza a busca nos elementos com a classe "livros" no arquivo "produto.html"
+            fetch("produto copy.html")
+                .then(response => response.text())
+                .then(data => {
+                    // Crie um elemento temporário para analisar o conteúdo do produto.html
+                    const tempElement = document.createElement("div");
+                    tempElement.innerHTML = data;
 
-            // Encontra os elementos com a classe "livros" e verifica se o título contém o termo de busca
-            const livros = tempElement.querySelectorAll(".livros");
-            livros.forEach(livro => {
-                const titulo = livro.querySelector("img").alt.toLowerCase();
+                    // Encontra os elementos com a classe "livros" e verifica se o título contém o termo de busca
+                    const livros = tempElement.querySelectorAll(".livros");
+                    livros.forEach(livro => {
+                        const titulo = livro.querySelector("img").alt.toLowerCase();
 
-                if (titulo.includes(termoDeBusca)) {
-                    main.appendChild(livro.cloneNode(true));
-                }
-            });
+                        if (titulo.includes(termoDeBusca)) {
+                            main.appendChild(livro.cloneNode(true));
+                        }
+                    });
 
-            // Adicione a classe "area-de-busca" a main para aplicar os estilos
-            main.classList.add("area-de-busca");
+                    // Adicione a classe "area-de-busca" a main para aplicar os estilos
+                    main.classList.add("area-de-busca");
 
-            // Verifique se há filhos na área de busca
-            if (main.children.length === 0) {
-                main.innerHTML = "Nenhum resultado encontrado.";
-                main.style.marginBottom = "158px";
-                main.style.backgroundColor = "#F8F1EE"; // Cor de fundo quando nenhum resultado é encontrado
-            } else {
-                main.style.backgroundColor = "#6D5448"; // Cor de fundo padrão para a área de busca
-            }
-        })
-        .catch(error => {
-            console.error("Erro ao buscar produtos:", error);
+                    // Verifique se há filhos na área de busca
+                    if (main.children.length === 0) {
+                        main.innerHTML = 'Nenhum resultado encontrado.';
+                        main.style.display = "flex";
+                        main.style.alignItems = "center";
+                        main.style.backgroundColor = "#F8F1EE"; // Cor de fundo quando nenhum resultado é encontrado
+                    }
+                })
+                .catch(error => {
+                    console.error("Erro ao buscar produtos:", error);
+                });
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            renderizarCabecalho();
         });
-}
     </script>
 
+<script src="user.js"></script>
 
 
 

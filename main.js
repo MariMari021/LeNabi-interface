@@ -2,7 +2,7 @@
 
 var btn = document.querySelector(".button")
 
-btn.onmousemove = function(e) {
+btn.onmousemove = function (e) {
 	var x = e.pageX - btn.offsetLeft
 	var y = e.pageY - btn.offsetTop
 
@@ -93,44 +93,44 @@ function changeInfo(direction) {
 
 	gsap.timeline()
 		.to([buttons.prev, buttons.next], {
-		duration: 0.2,
-		opacity: 0.5,
-		pointerEvents: "none",
-	})
+			duration: 0.2,
+			opacity: 0.5,
+			pointerEvents: "none",
+		})
 		.to(
-		currentInfoEl.querySelectorAll(".text"),
-		{
-			duration: 0.4,
-			stagger: 0.1,
-			translateY: "-120px",
-			opacity: 0,
-		},
-		"-="
-	)
+			currentInfoEl.querySelectorAll(".text"),
+			{
+				duration: 0.4,
+				stagger: 0.1,
+				translateY: "-120px",
+				opacity: 0,
+			},
+			"-="
+		)
 		.call(() => {
-		swapInfosClass(direction);
-	})
+			swapInfosClass(direction);
+		})
 		.call(() => initCardEvents())
 		.fromTo(
-		direction === "right"
-		? nextInfoEl.querySelectorAll(".text")
-		: previousInfoEl.querySelectorAll(".text"),
-		{
-			opacity: 0,
-			translateY: "40px",
-		},
-		{
-			duration: 0.4,
-			stagger: 0.1,
-			translateY: "0px",
-			opacity: 1,
-		}
-	)
+			direction === "right"
+				? nextInfoEl.querySelectorAll(".text")
+				: previousInfoEl.querySelectorAll(".text"),
+			{
+				opacity: 0,
+				translateY: "40px",
+			},
+			{
+				duration: 0.4,
+				stagger: 0.1,
+				translateY: "0px",
+				opacity: 1,
+			}
+		)
 		.to([buttons.prev, buttons.next], {
-		duration: 0.2,
-		opacity: 1,
-		pointerEvents: "all",
-	});
+			duration: 0.2,
+			opacity: 1,
+			pointerEvents: "all",
+		});
 
 	function swapInfosClass() {
 		currentInfoEl.classList.remove("current--info");
@@ -206,21 +206,21 @@ function init() {
 		"--card-translateY-offset": "0%",
 	})
 		.to(cardInfosContainerEl.querySelector(".current--info").querySelectorAll(".text"), {
-		delay: 0.5,
-		duration: 0.4,
-		stagger: 0.1,
-		opacity: 1,
-		translateY: 0,
-	})
-		.to(
-		[buttons.prev, buttons.next],
-		{
+			delay: 0.5,
 			duration: 0.4,
+			stagger: 0.1,
 			opacity: 1,
-			pointerEvents: "all",
-		},
-		"-=0.4"
-	);
+			translateY: 0,
+		})
+		.to(
+			[buttons.prev, buttons.next],
+			{
+				duration: 0.4,
+				opacity: 1,
+				pointerEvents: "all",
+			},
+			"-=0.4"
+		);
 }
 
 const waitForImages = () => {
@@ -256,10 +256,10 @@ const waitForImages = () => {
 				if (totalImages == loadedImages) {
 					gsap.timeline()
 						.to(".loading__wrapper", {
-						duration: 0.8,
-						opacity: 0,
-						pointerEvents: "none",
-					})
+							duration: 0.8,
+							opacity: 0,
+							pointerEvents: "none",
+						})
 						.call(() => init());
 				}
 			}
@@ -273,13 +273,13 @@ waitForImages();
 
 // LANÇAMENTOS 
 
-document.getElementById('next').onclick = function(){
-    let lists = document.querySelectorAll('.item');
-    document.getElementById('slide').appendChild(lists[0]);
+document.getElementById('next').onclick = function () {
+	let lists = document.querySelectorAll('.item');
+	document.getElementById('slide').appendChild(lists[0]);
 }
-document.getElementById('prev').onclick = function(){
-    let lists = document.querySelectorAll('.item');
-    document.getElementById('slide').prepend(lists[lists.length - 1]);
+document.getElementById('prev').onclick = function () {
+	let lists = document.querySelectorAll('.item');
+	document.getElementById('slide').prepend(lists[lists.length - 1]);
 }
 
 //FIM LANÇAMENTOS
@@ -294,68 +294,67 @@ const spans = container.querySelectorAll('span');
 let currentIndex = 0;
 
 container.addEventListener('wheel', (e) => {
-  container.style.overflow = 'hidden';
+	container.style.overflow = 'hidden';
 
-  if (e.deltaY > 0) {
-    currentIndex = Math.min(currentIndex + 1, spans.length - 1);
-  } else {
-    currentIndex = Math.max(currentIndex - 1, 0);
-  }
+	if (e.deltaY > 0) {
+		currentIndex = Math.min(currentIndex + 1, spans.length - 1);
+	} else {
+		currentIndex = Math.max(currentIndex - 1, 0);
+	}
 
-  spans.forEach((span, index) => {
-    if (index === currentIndex) {
-      span.style.display = 'inline';
-    } else {
-      span.style.display = 'none';
-    }
-  });
+	spans.forEach((span, index) => {
+		if (index === currentIndex) {
+			span.style.display = 'inline';
+		} else {
+			span.style.display = 'none';
+		}
+	});
 });
 //fim ScrollTrigger
 
 
-    // Função para buscar produtos
+// Função para buscar produtos
 function buscarProduto() {
-    const termoDeBusca = document.getElementById("buscar").value.toLowerCase();
-    const main = document.getElementById("main");
-    main.innerHTML = ""; // Limpa o conteúdo atual
+	const termoDeBusca = document.getElementById("buscar").value.toLowerCase();
+	const main = document.getElementById("main");
+	main.innerHTML = ""; // Limpa o conteúdo atual
 
-    // Realiza a busca nos elementos com a classe "livros" no arquivo "produto.html"
-    fetch("produto.html")
-        .then(response => response.text())
-        .then(data => {
-            // Crie um elemento temporário para analisar o conteúdo do produto.html
-            const tempElement = document.createElement("div");
-            tempElement.innerHTML = data;
+	// Realiza a busca nos elementos com a classe "livros" no arquivo "produto.html"
+	fetch("produto.html")
+		.then(response => response.text())
+		.then(data => {
+			// Crie um elemento temporário para analisar o conteúdo do produto.html
+			const tempElement = document.createElement("div");
+			tempElement.innerHTML = data;
 
-            // Encontra os elementos com a classe "livros" e verifica se o título contém o termo de busca
-            const livros = tempElement.querySelectorAll(".livros");
-            livros.forEach(livro => {
-                const titulo = livro.querySelector("img").alt.toLowerCase();
+			// Encontra os elementos com a classe "livros" e verifica se o título contém o termo de busca
+			const livros = tempElement.querySelectorAll(".livros");
+			livros.forEach(livro => {
+				const titulo = livro.querySelector("img").alt.toLowerCase();
 
-                if (titulo.includes(termoDeBusca)) {
-                    main.appendChild(livro.cloneNode(true));
-                }
-            });
+				if (titulo.includes(termoDeBusca)) {
+					main.appendChild(livro.cloneNode(true));
+				}
+			});
 
-            // Adicione a classe "area-de-busca" a main para aplicar os estilos
-            main.classList.add("area-de-busca");
+			// Adicione a classe "area-de-busca" a main para aplicar os estilos
+			main.classList.add("area-de-busca");
 
-            // Verifique se há filhos na área de busca
-            if (main.children.length === 0) {
-                main.innerHTML = "Nenhum resultado encontrado.";
-                main.style.marginBottom = "30px";
-                main.style.backgroundColor = "#F8F1EE"; // Cor de fundo quando nenhum resultado é encontrado
-            } else {
-                main.style.backgroundColor = "#6D5448"; // Cor de fundo padrão para a área de busca
-            }
-        })
-        .catch(error => {
-            console.error("Erro ao buscar produtos:", error);
-        });
+			// Verifique se há filhos na área de busca
+			if (main.children.length === 0) {
+				main.innerHTML = 'Nenhum resultado encontrado.';
+				main.style.display = "flex";
+				main.style.alignItems = "center";
+				main.style.backgroundColor = "#F8F1EE"; // Cor de fundo quando nenhum resultado é encontrado
+			}
+		})
+		.catch(error => {
+			console.error("Erro ao buscar produtos:", error);
+		});
 }
 //FIM BARRA DE PESQUISA
 
-   
+
 
 
 
