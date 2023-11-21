@@ -78,6 +78,7 @@ body {
   width: 100%;
   position: fixed;
   background-color: #B99B8D;
+  height: 126px;
 }
 
 #header nav {
