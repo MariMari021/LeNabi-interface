@@ -28,7 +28,7 @@
 
                 <div id="favoritos" onclick="toggleFavoritos()">
                     <div class="imagem">
-                        <i class="fa-regular fa-heart" style="color: #522318;"></i>
+                        <i class="fa-regular fa-heart" style="color: #522318; "></i>
                     </div>
                     <span id="cont-favoritos">0</span>
                 </div>
@@ -38,16 +38,29 @@
                     <button class="car" onclick="limparCarrinho()">Limpar Carrinho</button>
                 </div>
                 <!-- Dentro da div do usuário logado -->
-                <div class="usuario-logado" id="userHeader">
+                <div class="usuario-logado" id="userHeader" onclick="mostrarOcultarPopup()">
                     <i class="fa-solid fa-user" style="color: #522318;"></i>
                     <span id="nomeUsuario"></span>
-                    <i id="logoutButton" class="fa-solid fa-arrow-right-from-bracket" onclick="logout()"></i>
                 </div>
+                <div id="popup" style="display: none;">
+                    <div class="popup-conteudo">
+                        <img src="img-interface/Group 20.svg" alt="">
+                        <span id="conteudoPopup"></span>
+                        <span id="emailUsuario"></span>
+                        <br>
+                        
+                    </div>
+                   <button class="botaoSair" onclick="logout()"> <p>Sair</p>
+                        <i id="logoutButton" class="fa-solid fa-arrow-right-from-bracket"
+                            ></i></button>
+                </div>
+
 
 
                 <a href="login.html" class="button" id="loginButton"><span>Fazer login</span></a>
             </div>
         </div>
+
         <nav>
             <div class="botoes">
                 <a href="produto.html#pre-venda">Pré-Venda</a>

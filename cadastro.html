@@ -7,6 +7,11 @@
     <title>LeNabi - Cadastro</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/a2288264db.js" crossorigin="anonymous"></script>
+    <style>
+        #favoritos{
+            padding-left: 717px;
+        }
+    </style>
 </head>
 
 <body id="cadastro-page">
@@ -19,11 +24,16 @@
                 </div>
             </a>
 
-            <div id="favoritos" class="favoritos-login" onclick="toggleFavoritos()">
+            <div id="favoritos" onclick="toggleFavoritos()">
                 <div class="imagem">
-                    <i class="fa-regular fa-heart" style="color: #522318;"></i>
+                    <i class="fa-regular fa-heart" style="color: #522318; "></i>
                 </div>
                 <span id="cont-favoritos">0</span>
+            </div>
+            <div id="carrinho-itens" style="display: none;">
+                <ul id="itens-lista"></ul>
+                <span id="preco-total">Valor Total: R$0,00</span>
+                <button class="car" onclick="limparCarrinho()">Limpar Carrinho</button>
             </div>
             <a href="login.html" class="button"><span>Fazer login</span></a>
         </div>
@@ -154,49 +164,118 @@
         // });
 
         document.addEventListener('DOMContentLoaded', function () {
-        const iconOlho = document.getElementById("iconOlho");
-        const senhaInput = document.getElementById("senhaInput");
-        const loginButton = document.getElementById("loginButton");
-        const userInput = document.getElementById("userInput");
+            const iconOlho = document.getElementById("iconOlho");
+            const senhaInput = document.getElementById("senhaInput");
+            const loginButton = document.getElementById("loginButton");
+            const userInput = document.getElementById("userInput");
 
-        iconOlho.addEventListener("click", () => {
-            if (senhaInput.type === "password") {
-                senhaInput.type = "text";
-                // Adicionar código para alterar o ícone do olho conforme necessário
-                iconOlho.classList.remove("fa-regular");
-                iconOlho.classList.remove("fa-eye-slash");
-                iconOlho.classList.add("fa-solid");
-                iconOlho.classList.add("fa-eye");
-            } else {
-                senhaInput.type = "password";
-                // Adicionar código para reverter o ícone do olho conforme necessário
-                iconOlho.classList.remove("fa-solid");
-                iconOlho.classList.remove("fa-eye");
-                iconOlho.classList.add("fa-regular");
-                iconOlho.classList.add("fa-eye-slash");
-            }
-        });
+            iconOlho.addEventListener("click", () => {
+                if (senhaInput.type === "password") {
+                    senhaInput.type = "text";
+                    // Adicionar código para alterar o ícone do olho conforme necessário
+                    iconOlho.classList.remove("fa-regular");
+                    iconOlho.classList.remove("fa-eye-slash");
+                    iconOlho.classList.add("fa-solid");
+                    iconOlho.classList.add("fa-eye");
+                } else {
+                    senhaInput.type = "password";
+                    // Adicionar código para reverter o ícone do olho conforme necessário
+                    iconOlho.classList.remove("fa-solid");
+                    iconOlho.classList.remove("fa-eye");
+                    iconOlho.classList.add("fa-regular");
+                    iconOlho.classList.add("fa-eye-slash");
+                }
+            });
 
-        registrarButton.addEventListener("click", () => {
-            const nome = document.querySelector('.nome input').value;
-            const email = document.querySelector('.email input').value;
-            const telefone = document.querySelector('.telefone input').value;
-            const usuario = document.querySelector('.usuario input').value;
-            const senha = document.querySelector('.senha input').value;
+            //     registrarButton.addEventListener("click", () => {
+            //         const nome = document.querySelector('.nome input').value;
+            //         const email = document.querySelector('.email input').value;
+            //         const telefone = document.querySelector('.telefone input').value;
+            //         const usuario = document.querySelector('.usuario input').value;
+            //         const senha = document.querySelector('.senha input').value;
 
-            const userData = {
-                nome: nome,
-                email: email,
-                telefone: telefone,
-                userInput: usuario,
-                senhaInput: senha
-            };
+            //         const userData = {
+            //             nome: nome,
+            //             email: email,
+            //             telefone: telefone,
+            //             userInput: usuario,
+            //             senhaInput: senha
+            //         };
 
-            localStorage.setItem('userData', JSON.stringify(userData));
-            alert("Cadastro bem-sucedido!");
-            window.location.href = "index.html";
-        });
-    });
+            //         localStorage.setItem('userData', JSON.stringify(userData));
+            //         alert("Cadastro bem-sucedido!");
+            //         window.location.href = "index.html";
+            //     });
+            // });
+            // registrarButton.addEventListener("click", () => {
+            //     const nome = document.querySelector('.nome input').value;
+            //     const email = document.querySelector('.email input').value;
+            //     const telefone = document.querySelector('.telefone input').value;
+            //     const usuario = document.querySelector('.usuario input').value;
+            //     const senha = document.querySelector('.senha input').value;
+
+            //     const userData = {
+            //         nome: nome,
+            //         email: email,
+            //         telefone: telefone,
+            //         userInput: usuario,
+            //         senhaInput: senha
+            //     };
+
+            //     localStorage.setItem('userData', JSON.stringify(userData));
+            //     localStorage.setItem('nomeUsuario', nome);  // Adicione esta linha
+            //     localStorage.setItem('emailUsuario', email); // Adicione esta linha
+
+            //     console.log("Nome do usuário cadastrado:", localStorage.getItem('nomeUsuario'));
+            //     console.log("Email do usuário cadastrado:", localStorage.getItem('emailUsuario'));
+
+            //     alert("Cadastro bem-sucedido!");
+            //     window.location.href = "index.html";
+            // });
+            registrarButton.addEventListener("click", () => {
+                const nome = document.querySelector('.nome input').value;
+                const email = document.querySelector('.email input').value;
+                const telefone = document.querySelector('.telefone input').value;
+                const usuario = document.querySelector('.usuario input').value;
+                const senha = document.querySelector('.senha input').value;
+
+                // Recupera todos os usuários existentes do localStorage
+                const usuariosCadastrados = JSON.parse(localStorage.getItem('usuarios')) || [];
+
+                // Verifica se o email já está cadastrado
+                const usuarioExistente = usuariosCadastrados.find(user => user.email === email);
+                if (usuarioExistente) {
+                    alert("Este email já está cadastrado. Por favor, use outro email.");
+                    return;
+                }
+
+                // Adiciona o novo usuário à lista de usuários
+                const novoUsuario = {
+                    nome: nome,
+                    email: email,
+                    telefone: telefone,
+                    userInput: usuario,
+                    senhaInput: senha
+                };
+
+                usuariosCadastrados.push(novoUsuario);
+
+                // Atualiza o localStorage com a lista atualizada de usuários
+                localStorage.setItem('usuarios', JSON.stringify(usuariosCadastrados));
+
+                // Armazena o nome de usuário e o email do usuário atual
+                localStorage.setItem('nomeUsuario', usuario);
+                localStorage.setItem('emailUsuario', email);
+
+                alert("Cadastro bem-sucedido!");
+                window.location.href = "index.html";
+            });
+
+
+
+
+        })
+
 
     </script>
 

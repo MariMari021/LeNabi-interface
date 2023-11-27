@@ -36,6 +36,85 @@ body {
 
 /* INICIO HEADER */
 
+#userHeader{
+  cursor: pointer;
+}
+
+#popup {
+  position: absolute;
+  top: 87px;
+  right: 83px;
+  background-color: #3C2520;
+  width: 344px;
+  height: 363px;
+  animation: none;
+  box-shadow: 2px 5px 4px #3c25208d;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+  #popup {
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(-30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  
+  #popup.show {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+
+.popup-conteudo {
+  margin: 20% 7%;
+  display: grid;
+  justify-items: center;
+}
+
+#emailUsuario {
+  font-family: 'Poppins-regular';
+  font-size: 15px;
+  color: #E3CFBC;
+}
+
+.popup-conteudo img {
+  width: 105px;
+}
+
+#conteudoPopup {
+  font-family: 'Young-serif';
+  padding-top: 7px;
+  font-size: 23px;
+  color: #E3CFBC;
+}
+
+.botaoSair {
+  cursor: pointer;
+  width: 315px;
+  background-color: #F8F1EE;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  bottom: 25px;
+  left: 15px;
+  border-radius: 17px;
+  justify-content: space-between;
+  padding: 0 37px;
+  font-family: 'Young-serif';
+  font-size: 17px;
+  color: #3C2520;
+
+}
+
+
+.botaoSair i {
+  color: #3C2520;
+  font-size: 20px;
+}
+
+
 #carrinho-itens {
   position: absolute;
   left: 72%;
@@ -434,6 +513,10 @@ li span{
   margin-top: 15px;
   text-align: justify;
   width: 470px;
+}
+
+.produtinhos{
+  height: 26px;
 }
 
 .image-card {

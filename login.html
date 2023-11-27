@@ -7,6 +7,11 @@
     <title>LeNabi - Login</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/a2288264db.js" crossorigin="anonymous"></script>
+    <style>
+        #favoritos{
+            padding-left: 717px;
+        }
+    </style>
 </head>
 
 <body>
@@ -19,7 +24,17 @@
                 </div>
             </a>
 
-            
+            <div id="favoritos" onclick="toggleFavoritos()">
+                <div class="imagem">
+                    <i class="fa-regular fa-heart" style="color: #522318; "></i>
+                </div>
+                <span id="cont-favoritos">0</span>
+            </div>
+            <div id="carrinho-itens" style="display: none;">
+                <ul id="itens-lista"></ul>
+                <span id="preco-total">Valor Total: R$0,00</span>
+                <button class="car" onclick="limparCarrinho()">Limpar Carrinho</button>
+            </div>
             <a href="login.html" class="button"><span>Fazer login</span></a>
         </div>
         <nav>
@@ -129,32 +144,40 @@
             }
 
             function realizarLogin() {
-                const storedUserData = JSON.parse(localStorage.getItem('userData'));
-                const emailUsuario = document.getElementById("nomeUsuario").value;
-                const senha = document.getElementById("senhaInput").value;
+    const usuariosCadastrados = JSON.parse(localStorage.getItem('usuarios')) || [];
+    const emailUsuario = document.getElementById("nomeUsuario").value;
+    const senha = document.getElementById("senhaInput").value;
 
-                if (storedUserData && (
-                    (emailUsuario === storedUserData.userInput || emailUsuario === storedUserData.email) &&
-                    senha === storedUserData.senhaInput
-                )) {
-                    // Obtém o nome do usuário do objeto storedUserData
-                    const nomeUsuario = storedUserData.nomeUsuario || storedUserData.nome || 'NomeRealDoUsuario';
+    const usuarioEncontrado = usuariosCadastrados.find(user => (
+        (emailUsuario === user.userInput || emailUsuario === user.email) &&
+        senha === user.senhaInput
+    ));
 
-                    // Adiciona o nome do usuário ao localStorage
-                    localStorage.setItem('nomeUsuario', nomeUsuario);
+    if (usuarioEncontrado) {
+        // Obtém o nome de usuário e o email do objeto encontrado
+        const nomeUsuario = usuarioEncontrado.userInput || 'NomeRealDoUsuario';
+        const emailUsuario = usuarioEncontrado.email || 'EmailDoUsuario';
 
-                    alert("Login bem-sucedido!");
-                    window.location.href = "index.html";
-                } else {
-                    alert("Credenciais incorretas. Por favor, tente novamente.");
-                }
-            }
-        });
+        // Armazena o nome e o email do usuário no localStorage
+        localStorage.setItem('nomeUsuario', nomeUsuario);
+        localStorage.setItem('emailUsuario', emailUsuario);
 
-//     
+        alert("Login bem-sucedido!");
+
+        // Redireciona para a página index.html
+        window.location.href = "index.html";
+    } else {
+        alert("Credenciais incorretas. Por favor, tente novamente.");
+    }
+}
+
+
+        })
+
+        //     
 
     </script>
-
+<script src="user.js"></script>
 </body>
 
 </html>

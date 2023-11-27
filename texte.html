@@ -1,53 +1,56 @@
+<!-- admin.html -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <title>Popup Example</title>
-    <style>
-        /* Estilize o seu popup conforme necessário */
-        #popup {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            padding: 20px;
-            background-color: #fff;
-            border: 1px solid #ccc;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            z-index: 1000;
-        }
-    </style>
+    <title>Painel de Controle - Admin</title>
 </head>
 <body>
+    <h1>Painel de Controle - Admin</h1>
 
-    <!-- Ícone do usuário -->
-    <i class="fa-solid fa-user" style="color: #522318; cursor: pointer;" onclick="mostrarPopup()"></i>
-    
-    <!-- Nome do usuário -->
-    <span id="nomeUsuario"></span>
-
-    <!-- Popup -->
-    <div id="popup">
-        <!-- Conteúdo do popup aqui -->
-        <p>Conteúdo do popup...</p>
-        <button onclick="fecharPopup()">Fechar</button>
-    </div>
+    <!-- Lista de Usuários -->
+    <ul id="listaUsuarios"></ul>
 
     <script>
-        function mostrarPopup() {
-            // Mostre o popup
-            document.getElementById('popup').style.display = 'block';
+        // Função para carregar e exibir a lista de usuários
+        function carregarUsuarios() {
+            const listaUsuariosElement = document.getElementById("listaUsuarios");
+            listaUsuariosElement.innerHTML = "";
+    
+            const usuariosCadastrados = JSON.parse(localStorage.getItem('usuarios')) || [];
+    
+            usuariosCadastrados.forEach((usuario, index) => {
+                const liElement = document.createElement("li");
+                liElement.textContent = `${usuario.nome} (${usuario.email})`;
+    
+                const botaoExcluir = document.createElement("button");
+                botaoExcluir.textContent = "Excluir";
+                botaoExcluir.addEventListener("click", () => excluirUsuario(index));
+    
+                liElement.appendChild(botaoExcluir);
+                listaUsuariosElement.appendChild(liElement);
+            }); // Remova o parêntese extra aqui
         }
-
-        function fecharPopup() {
-            // Feche o popup
-            document.getElementById('popup').style.display = 'none';
+    
+        // Função para excluir um usuário
+        function excluirUsuario(index) {
+            const usuariosCadastrados = JSON.parse(localStorage.getItem('usuarios')) || [];
+    
+            // Remove o usuário da lista
+            usuariosCadastrados.splice(index, 1);
+    
+            // Atualiza o localStorage com a lista atualizada de usuários
+            localStorage.setItem('usuarios', JSON.stringify(usuariosCadastrados));
+    
+            // Recarrega a lista de usuários na interface
+            carregarUsuarios();
         }
+    
+        // Chama a função para carregar a lista de usuários ao carregar a página
+        carregarUsuarios();
     </script>
-
+    
 </body>
 </html>
