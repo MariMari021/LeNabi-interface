@@ -69,256 +69,181 @@ function mostrarOcultarPopup() {
 }
 
 
-const itensCarrinho = {};
+  // Função para adicionar um item ao carrinho
+  function addCarrinho(itemNome, itemPreco) {
+    // Verifica se o coração está pintado
+    const coracaoPintado = document.getElementById('coracao-pintado');
+    if (coracaoPintado.style.display === 'inline-block') {
+        // Adiciona apenas se o coração estiver pintado
+        const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+        const itemExistente = carrinho.find(item => item.nome === itemNome);
+
+        if (itemExistente) {
+            // Se o item já estiver no carrinho, aumenta a quantidade
+            itemExistente.quantidade += 1;
+        } else {
+            // Se o item não estiver no carrinho, adiciona ao carrinho
+            carrinho.push({ nome: itemNome, preco: itemPreco, quantidade: 1 });
+        }
+
+        // Atualiza o localStorage e o DOM
+        localStorage.setItem('carrinho', JSON.stringify(carrinho));
+        atualizarCarrinhoDOM();
+    } else {
+        // Se o coração estiver vazio, limpa o carrinho
+        limparCarrinho();
+    }
+}
+
+// Função para alternar entre coração vazio e coração pintado
+function toggleCarrinho(itemNome, itemPreco) {
+    const coracaoVazio = document.getElementById('coracao-vazio');
+    const coracaoPintado = document.getElementById('coracao-pintado');
+
+    // Verifica se o coração está pintado
+    const coracaoPintadoVisivel = window.getComputedStyle(coracaoPintado).getPropertyValue('display') === 'inline-block';
+
+    // Alterna entre coração vazio e coração pintado
+    coracaoVazio.style.display = coracaoPintadoVisivel ? 'inline-block' : 'none';
+    coracaoPintado.style.display = coracaoPintadoVisivel ? 'none' : 'inline-block';
+
+    // Atualiza o contador
+    const contadorCoracao = document.getElementById('contador-coracao');
+    contadorCoracao.textContent = coracaoPintadoVisivel ? parseInt(contadorCoracao.textContent) - 1 : parseInt(contadorCoracao.textContent) + 1;
+
+    // Adiciona ou remove o item ao carrinho com base no estado do coração
+    if (coracaoPintadoVisivel) {
+        removeCarrinho(itemNome);
+    } else {
+        addCarrinho(itemNome, itemPreco);
+    }
+}
+
+
+
+
+
+
+function toggleCoracao() {
+    const coracaoVazio = document.getElementById('coracao-vazio');
+    const coracaoPintado = document.getElementById('coracao-pintado');
+
+    // Alterna entre coração vazio e coração pintado
+    if (coracaoPintado.style.display === 'inline-block') {
+        coracaoVazio.style.display = 'inline-block';
+        coracaoPintado.style.display = 'none';
+    } else {
+        coracaoVazio.style.display = 'none';
+        coracaoPintado.style.display = 'inline-block';
+    }
+}
+
+
+// Função para abrir/fechar a lista de favoritos
+function toggleFavoritos() {
+    const carrinhoItens = document.getElementById('carrinho-itens');
+    carrinhoItens.style.display = carrinhoItens.style.display === 'none' ? 'block' : 'none';
+}
+
+// Função para limpar o carrinho
+function limparCarrinho() {
+    localStorage.removeItem('carrinho');
+    atualizarCarrinhoDOM();
+    alternarContador();
+    toggleCarrinho();
+}
+
+// Função para adicionar mais uma unidade do produto
+function addMaisUm(itemNome) {
+    const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+    const itemExistente = carrinho.find(item => item.nome === itemNome);
+
+    if (itemExistente) {
+        itemExistente.quantidade += 1;
+        localStorage.setItem('carrinho', JSON.stringify(carrinho));
+        atualizarCarrinhoDOM();
+    }
+}
+
+// Função para remover uma unidade do produto
+function removeCarrinho(itemNome) {
+    const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+    const itemExistente = carrinho.find(item => item.nome === itemNome);
+
+    if (itemExistente) {
+        itemExistente.quantidade -= 1;
+
+        if (itemExistente.quantidade === 0) {
+            // Remove o item do carrinho se a quantidade for zero
+            const index = carrinho.indexOf(itemExistente);
+            carrinho.splice(index, 1);
+        }
+
+        localStorage.setItem('carrinho', JSON.stringify(carrinho));
+        atualizarCarrinhoDOM();
+    }
+}
 
 function alternarContador() {
-    var contadorElement = document.getElementById("contador-coracao");
-    var coracaoVazio = document.getElementById("coracao-vazio");
-    var coracaoPintado = document.getElementById("coracao-pintado");
+    const coracaoVazio = document.getElementById('coracao-vazio');
+    const coracaoPintado = document.getElementById('coracao-pintado');
 
-    if (contadorElement && coracaoVazio && coracaoPintado) {
-        var valorInicial = parseInt(contadorElement.getAttribute("data-valor-inicial")) || 0;
+    coracaoVazio.style.display = coracaoVazio.style.display === 'none' ? 'inline-block' : 'none';
+    coracaoPintado.style.display = coracaoPintado.style.display === 'none' ? 'inline-block' : 'none';
+}
 
-        // Verifica se há itens no carrinho
-        if (temItensNoCarrinho()) {
-            // Se houver itens, mostra o coração pintado
-            localStorage.setItem('coracaoEstado', 'pintado');
-            coracaoVazio.style.display = "none";
-            coracaoPintado.style.display = "inline-block";
-        } else {
-            // Se não houver itens, mostra o coração vazio
-            localStorage.setItem('coracaoEstado', 'vazio');
-            coracaoVazio.style.display = "inline-block";
-            coracaoPintado.style.display = "none";
-        }
+// Função para atualizar o DOM com os itens do carrinho
+function atualizarCarrinhoDOM() {
+    const carrinhoItens = document.getElementById('carrinho-itens');
+    const itensLista = document.getElementById('itens-lista');
+    const precoTotal = document.getElementById('preco-total');
+    const contFavoritos = document.getElementById('cont-favoritos');
+    const coracaoVazio = document.getElementById('coracao-vazio');
+    const coracaoPintado = document.getElementById('coracao-pintado');
 
-        // Armazena o estado do coração no perfil do usuário
-        const coracaoEstadoPerfil = localStorage.getItem('coracaoEstado');
-        localStorage.setItem('coracaoEstadoPerfil', coracaoEstadoPerfil);
+    // Limpa a lista de itens
+    itensLista.innerHTML = '';
 
-        // Alterna o estado ativo
-        contadorElement.setAttribute("data-ativo", contadorElement.getAttribute("data-ativo") === "true" ? "false" : "true");
+    // Recupera os itens do localStorage
+    const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+
+    // Atualiza a quantidade de favoritos
+    contFavoritos.textContent = carrinho.reduce((total, item) => total + item.quantidade, 0);
+
+    // Atualiza a lista de itens no carrinho
+    carrinho.forEach(item => {
+        const li = document.createElement('li');
+        li.innerHTML = `
+            <div class="item">
+                <span>${item.nome}</span>
+                <button class="remove" onclick="removeCarrinho('${item.nome}')">-</button>
+                <span class="quantity">${item.quantidade}</span>
+                <button class="add" onclick="addMaisUm('${item.nome}')">+</button>
+                <span class="preco-total">R$${(item.preco * item.quantidade).toFixed(2)}</span>
+            </div>
+        `;
+        itensLista.appendChild(li);
+    });
+
+    // Calcula o preço total
+    const total = carrinho.reduce((total, item) => total + item.preco * item.quantidade, 0);
+    precoTotal.textContent = `Valor Total: R$${total.toFixed(2)}`;
+
+    // Exibe ou oculta o carrinho dependendo se há itens no carrinho
+    carrinhoItens.style.display = carrinho.length > 0 ? 'block' : 'none';
+
+    // Atualiza o estado do coração
+    if (carrinho.length > 0) {
+        coracaoVazio.style.display = 'none';
+        coracaoPintado.style.display = 'inline-block';
+    } else {
+        coracaoVazio.style.display = 'inline-block';
+        coracaoPintado.style.display = 'none';
     }
 }
 
+// Atualiza o DOM ao carregar a página
 window.onload = function () {
-    const coracaoVazio = document.getElementById("coracao-vazio");
-    const coracaoPintado = document.getElementById("coracao-pintado");
-
-    coracaoVazio.addEventListener("click", function () {
-        atualizarEstadoCoração('pintado');
-    });
-
-    coracaoPintado.addEventListener("click", function () {
-        atualizarEstadoCoração('vazio');
-    });
-
-    // Restante do código...
-    restaurarEstadoCoração();
-    restaurarItensCarrinho();
+    atualizarCarrinhoDOM();
 };
 
-function atualizarEstadoCoração(estado) {
-    localStorage.setItem('coracaoEstadoPerfil', estado);
-    atualizarVisualizacaoCoracao();
-}
-
-function restaurarEstadoCoração() {
-    const coracaoEstadoPerfil = localStorage.getItem('coracaoEstadoPerfil');
-
-    if (coracaoEstadoPerfil) {
-        atualizarVisualizacaoCoracao();
-    } else {
-        localStorage.setItem('coracaoEstadoPerfil', 'vazio');
-        exibirCoraçãoVazio();
-    }
-}
-
-
-function atualizarVisualizacaoCoracao() {
-    const coracaoEstadoPerfil = localStorage.getItem('coracaoEstadoPerfil');
-
-    if (coracaoEstadoPerfil === 'pintado') {
-        exibirCoraçãoPintado();
-    } else {
-        exibirCoraçãoVazio();
-    }
-}
-
-function exibirCoraçãoPintado() {
-    document.getElementById("coracao-vazio").style.display = "none";
-    document.getElementById("coracao-pintado").style.display = "inline-block";
-}
-
-function exibirCoraçãoVazio() {
-    document.getElementById("coracao-vazio").style.display = "inline-block";
-    document.getElementById("coracao-pintado").style.display = "none";
-}
-
-function addCarrinho(itemNome, itemPreco) {
-    if (!itensCarrinho[itemNome]) {
-        // Se o item não estiver no carrinho, adiciona
-        itensCarrinho[itemNome] = {
-            quantity: 0,
-            precoTotal: 0
-        };
-    }
-
-    // Atualiza a quantidade e o preço total
-    itensCarrinho[itemNome].quantity++;
-    itensCarrinho[itemNome].precoTotal += itemPreco;
-
-    // Atualiza o carrinho na interface do usuário
-    updateCarrinho();
-
-    // Atualiza o localStorage
-    atualizarLocalStorage();
-}
-
-
-
-
-function criarLIItem(itemNome, quantidade, precoTotal) {
-    const liItem = document.createElement("li");
-    liItem.innerHTML = `
-        <div class="item">
-            <span>${itemNome}</span>
-            <button class="remove" onclick="removeCarrinho('${itemNome}')">-</button>
-            <span class="quantity">${quantidade}</span>
-            <button class="add" onclick="addMaisUm('${itemNome}')">+</button>
-            <span class="preco-total">R$${precoTotal.toFixed(2)}</span>
-        </div>
-    `;
-    return liItem;
-}
-
-function restaurarItensCarrinho() {
-    const usuarioAtual = localStorage.getItem('nomeUsuario');
-    const carrinhoUsuario = JSON.parse(localStorage.getItem(usuarioAtual));
-
-    if (carrinhoUsuario && carrinhoUsuario.itensCarrinho) {
-        itensCarrinho = carrinhoUsuario.itensCarrinho;
-        updateCarrinho();
-    }
-}
-
-function calcularPrecoTotal() {
-    let precoTotal = 0;
-    for (let item in itensCarrinho) {
-        precoTotal += itensCarrinho[item].itemPreco * itensCarrinho[item].quantity;
-    }
-    return precoTotal;
-}
-
-restaurarItensCarrinho();
-
-function addMaisUm(itemNome) {
-    // Adiciona mais um item ao carrinho
-    addCarrinho(itemNome, itensCarrinho[itemNome].precoTotal / itensCarrinho[itemNome].quantity);
-}
-
-
-function atualizarItemCarrinho(itemNome) {
-    itensCarrinho[itemNome].liItem.querySelector(".quantity").innerHTML = itensCarrinho[itemNome].quantity;
-    itensCarrinho[itemNome].liItem.querySelector(".preco-total").innerHTML = "R$" + (itensCarrinho[itemNome].itemPreco * itensCarrinho[itemNome].quantity).toFixed(2);
-
-    atualizarLocalStorage();
-}
-
-
-function atualizarLocalStorage() {
-    const usuarioAtual = localStorage.getItem('nomeUsuario');
-    const carrinhoUsuario = JSON.parse(localStorage.getItem(usuarioAtual)) || {};
-    carrinhoUsuario.itensCarrinho = itensCarrinho;
-    localStorage.setItem(usuarioAtual, JSON.stringify(carrinhoUsuario));
-}
-
-// Restaura os itens do carrinho ao carregar a página
-restaurarItensCarrinho();
-
-
-function updateCarrinho() {
-    const listaItens = document.getElementById("itens-lista");
-    listaItens.innerHTML = "";
-
-    let cont = 0;
-
-    // Itera sobre os itens no carrinho e atualiza a interface do usuário
-    for (let itemNome in itensCarrinho) {
-        const item = itensCarrinho[itemNome];
-        cont += item.quantity;
-
-        const liItem = criarLIItem(itemNome, item.quantity, item.precoTotal);
-        listaItens.appendChild(liItem);
-    }
-
-    // Atualiza o contador de itens no coração
-    document.getElementById("cont-favoritos").innerHTML = cont;
-
-    // Calcula o valor total
-    let precoTotal = Object.values(itensCarrinho).reduce((total, item) => total + item.precoTotal, 0);
-
-    // Atualiza o valor total na interface do usuário
-    document.getElementById("preco-total").innerHTML = "Valor Total: R$" + precoTotal.toFixed(2);
-}
-
-
-
-
-function removeCarrinho(itemNome) {
-    if (itensCarrinho[itemNome]) {
-        // Verifica se a quantidade é 1 antes de remover o item
-        if (itensCarrinho[itemNome].quantity === 1) {
-            delete itensCarrinho[itemNome];
-        } else {
-            // Atualiza a quantidade e o preço total
-            itensCarrinho[itemNome].quantity--;
-            itensCarrinho[itemNome].precoTotal -= itensCarrinho[itemNome].precoTotal / itensCarrinho[itemNome].quantity;
-        }
-
-        // Atualiza o carrinho na interface do usuário
-        updateCarrinho();
-
-        // Atualiza o localStorage
-        atualizarLocalStorage();
-    }
-}
-
-
-
-function limparCarrinho() {
-    const itensLista = document.getElementById("itens-lista");
-
-    if (itensLista.children.length === 0) {
-        return;
-    }
-
-    itensLista.innerHTML = "";
-    document.getElementById("preco-total").innerHTML = "Valor Total: R$0,00";
-
-    for (let itemNome in itensCarrinho) {
-        delete itensCarrinho[itemNome];
-    }
-
-    updateCarrinho();
-    alternarContador();
-    atualizarVisualizacaoCoracao();
-
-    const usuarioAtual = localStorage.getItem('nomeUsuario');
-    const carrinhoUsuario = JSON.parse(localStorage.getItem(usuarioAtual)) || {};
-    carrinhoUsuario.itensCarrinho = {};
-    localStorage.setItem(usuarioAtual, JSON.stringify(carrinhoUsuario));
-
-    localStorage.removeItem('itensCarrinho');
-}
-
-function toggleFavoritos() {
-    const itensCarrinhoDiv = document.getElementById("carrinho-itens");
-    if (itensCarrinhoDiv.style.display === "none") {
-        itensCarrinhoDiv.style.display = "block";
-    } else {
-        itensCarrinhoDiv.style.display = "none";
-    }
-}
-
-restaurarItensCarrinho();
