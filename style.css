@@ -41,7 +41,7 @@ body {
 
 /* INICIO HEADER */
 
-#userHeader{
+#userHeader {
   cursor: pointer;
 }
 
@@ -57,18 +57,19 @@ body {
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
 }
-  #popup {
-    visibility: hidden;
-    opacity: 0;
-    transform: translateY(-30px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
-  }
-  
-  #popup.show {
-    visibility: visible;
-    opacity: 1;
-    transform: translateY(0);
-  }
+
+#popup {
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(-30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+#popup.show {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+}
 
 
 .popup-conteudo {
@@ -1469,7 +1470,13 @@ footer {
   font-size: 46px;
   color: #522318;
   font-family: 'Young-serif';
+  display: table-caption;
+  width: 283px;
 
+}
+
+#tituCadastro {
+  width: 359px;
 }
 
 .box h3 span {
@@ -1695,25 +1702,7 @@ footer {
   z-index: 0;
 }
 
-.line-icons {
-  background: #522318;
-  height: 1.9px;
-  width: 25px;
-  position: absolute;
-  left: 389px;
-  top: 838px;
-  z-index: 0;
-}
 
-.line-icons2 {
-  background: #522318;
-  height: 1.5px;
-  width: 25px;
-  position: relative;
-  left: 234px;
-  top: 40px;
-  z-index: 0;
-}
 
 /* fim login.html */
 
@@ -2150,3 +2139,234 @@ input::-webkit-inner-spin-button {
 }
 
 /* FIM SUSTENTABILIDADE */
+
+
+@media (max-width: 400px) {
+
+  /* inicio login */
+  #favoritos,
+  .button,
+  .img-login {
+    display: none;
+  }
+
+  .box {
+    justify-content: center;
+  }
+
+  .container-footer {
+    display: grid;
+
+  }
+
+  .campo input {
+    font-size: 16px;
+  }
+
+  .usuario input,
+  .senha input, .nome input, .email input, .telefone input {
+    width: 321px;
+    padding: 16px 84px;
+  }
+
+  .outros-registros button {
+    width: 319px;
+    height: 50px;
+    font-size: 18px;
+  }
+
+  .outros-registros p {
+    text-align: center;
+  }
+
+  .senha .fa-regular,
+  .senha .fa-eye {
+    left: 273px;
+    font-size: 20px;
+  }
+
+  .email i{
+    font-size: 24px;
+  }
+
+.pencil i {
+  font-size: 24px;
+}
+
+.telefone i{
+  font-size: 24px;
+}
+
+
+  .titulo {
+    display: grid;
+    justify-items: center;
+    text-align: center;
+  }
+
+
+  .box h3,
+  .box h3 span {
+    font-size: 33px;
+    width: 189px;
+  }
+
+  .linha-titulo {
+    width: 339px;
+  }
+
+  .usuario input::placeholder {
+    font-size: 14px;
+
+  }
+
+  .senha input::placeholder {
+    font-size: 14px;
+  }
+
+  .nome input::placeholder{
+    font-size: 14px;
+  }
+
+  .email input {
+    font-size: 14px;
+  }
+  
+  .telefone input{
+    font-size: 14px;
+  }
+
+
+
+
+
+
+
+
+  .outros-registros p {
+    font-size: 13.8px;
+  }
+
+  .usuario i {
+    font-size: 24px;
+  }
+
+  .senha .fa-key {
+    font-size: 23px;
+  }
+
+  .login-sociais p {
+    font-size: 19px;
+  }
+
+  .linha-sociais {
+    width: 313px;
+  }
+
+  .icons img {
+    width: 31px;
+  }
+
+  .login-sociais p {
+    left: 41.7%;
+  }
+
+  .conteudo-login {
+    display: grid;
+    margin: 0;
+    justify-items: center;
+  }
+
+  /* fim login */
+
+  /* inicio cadastro */
+
+
+  /* fim cadastro */
+
+  .img-cadastro {
+    display: none;
+  }
+
+  /* footer */
+  .container-footer {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .footer-desktop {
+    display: none;
+  }
+
+  .container-footer nav a {
+    font-size: 19px;
+    margin: 8px 0;
+  }
+
+  .parte1 {
+    margin-top: 15px;
+  }
+
+  .parte2 {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-branca,
+  .footer-branco {
+    background: white;
+    height: 4px;
+    width: 310px;
+    margin: 20px;
+    border-radius: 10px;
+  }
+
+  .redes-sociais {
+    display: flex;
+  }
+
+  .redes-sociais a {
+    padding: 0 15px;
+  }
+
+  .email-footer {
+    width: 45px;
+    height: 45px;
+    padding-top: -3px;
+  }
+
+  .insta-footer {
+    width: 40px;
+    height: 40px;
+    position: relative;
+    top: 2px;
+  }
+
+  .x-footer {
+    width: 32px;
+    height: auto;
+    position: relative;
+    top: 6px;
+  }
+
+  .logo-footer {
+    margin: 10px 10px;
+  }
+
+  .logo-footer img {
+    width: 80px;
+  }
+
+  .logo-footer h2 {
+    font-size: 22px;
+  }
+
+  .box {
+    margin-top: 56.3px;
+  }
+
+
+
+  /* fim footer */
+}
