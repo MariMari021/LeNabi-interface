@@ -7,8 +7,9 @@
     <title>LeNabi - Login</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/a2288264db.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
     <style>
-        #favoritos{
+        #favoritos {
             padding-left: 717px;
         }
     </style>
@@ -36,16 +37,33 @@
                 <button class="car" onclick="limparCarrinho()">Limpar Carrinho</button>
             </div>
             <a href="login.html" class="button"><span>Fazer login</span></a>
+
+            <div class="botaoMenu">
+                <button onclick="toggleMenu()" class="burger material-symbols-outlined">
+                    menu
+                </button>
+            </div>
         </div>
-        <nav>
-            <div class="botoes botoes-login"></div>
+        <nav class="navbar">
+            <div class="buscar">
+                <input type="text" spellcheck="false" class="buscar" id="buscar" placeholder="Buscar livro">
+            </div>
+            <nav>
+                <div class=" botoes-login">
+                    <a href="produto.html#pre-venda">Pré-Venda</a>
+                    <a href="produto.html#lancamentos-page">Lançamentos</a>
+                    <a href="produto.html">Produtos</a>
+                    <a href="sustentabilidade.html">Sustentabilidade</a>
+                    <a href="sustentabilidade.html">Favoritos</a>
+                </div>
+            </nav>
         </nav>
     </header>
     <main>
         <div class="box">
             <div class="conteudo-login">
                 <div class="titulo">
-                    <h3 ><span>Bem-vindo </span>de volta!</h3>
+                    <h3><span>Bem-vindo </span>de volta!</h3>
                     <div class="linha-titulo"></div>
                 </div>
                 <div class="campo">
@@ -82,18 +100,20 @@
     </main>
     <footer>
         <div class="container-footer">
-            <nav>
-                <div class="parte1">
-                    <a href="index.html#but">Produtos</a>
-                    <a href="index.html#lancamentos" class="footer-desktop">Lançamentos</a>
-                    <a href="index.html#header" class="footer-desktop">Pré-venda</a>
-                </div>
-                <div class="parte2">
-                    <a href="#" class="footer-desktop">Favoritos</a>
-                    <a href="sustentabilidade.html">Sustentabilidade</a>
-                    <a href="sobre-nos.html">Sobre nós</a>
-                </div>
-            </nav>
+            <div class="tablet">
+                <nav>
+                    <div class="parte1">
+                        <a href="index.html#but">Produtos</a>
+                        <a href="index.html#lancamentos" class="footer-desktop">Lançamentos</a>
+                        <a href="index.html#header" class="footer-desktop">Pré-venda</a>
+                    </div>
+                    <div class="parte2">
+                        <a href="#" class="footer-desktop">Favoritos</a>
+                        <a href="sustentabilidade.html">Sustentabilidade</a>
+                        <a href="sobre-nos.html">Sobre nós</a>
+                    </div>
+                </nav>
+            </div>
             <div class="footer-branca"></div>
             <div class="redes-sociais">
                 <a href="mailto:editoralenabi@gmail.com" target="_blank"><img class="email-footer"
@@ -110,7 +130,7 @@
             </div>
         </div>
     </footer>
-    <script>
+    <script type="text/javascript">
 
 
         document.addEventListener('DOMContentLoaded', function () {
@@ -148,40 +168,41 @@
             }
 
             function realizarLogin() {
-    const usuariosCadastrados = JSON.parse(localStorage.getItem('usuarios')) || [];
-    const emailUsuario = document.getElementById("nomeUsuario").value;
-    const senha = document.getElementById("senhaInput").value;
+                const usuariosCadastrados = JSON.parse(localStorage.getItem('usuarios')) || [];
+                const emailUsuario = document.getElementById("nomeUsuario").value;
+                const senha = document.getElementById("senhaInput").value;
 
-    const usuarioEncontrado = usuariosCadastrados.find(user => (
-        (emailUsuario === user.userInput || emailUsuario === user.email) &&
-        senha === user.senhaInput
-    ));
+                const usuarioEncontrado = usuariosCadastrados.find(user => (
+                    (emailUsuario === user.userInput || emailUsuario === user.email) &&
+                    senha === user.senhaInput
+                ));
 
-    if (usuarioEncontrado) {
-        // Obtém o nome de usuário e o email do objeto encontrado
-        const nomeUsuario = usuarioEncontrado.userInput || 'NomeRealDoUsuario';
-        const emailUsuario = usuarioEncontrado.email || 'EmailDoUsuario';
+                if (usuarioEncontrado) {
+                    // Obtém o nome de usuário e o email do objeto encontrado
+                    const nomeUsuario = usuarioEncontrado.userInput || 'NomeRealDoUsuario';
+                    const emailUsuario = usuarioEncontrado.email || 'EmailDoUsuario';
 
-        // Armazena o nome e o email do usuário no localStorage
-        localStorage.setItem('nomeUsuario', nomeUsuario);
-        localStorage.setItem('emailUsuario', emailUsuario);
+                    // Armazena o nome e o email do usuário no localStorage
+                    localStorage.setItem('nomeUsuario', nomeUsuario);
+                    localStorage.setItem('emailUsuario', emailUsuario);
 
-        alert("Login bem-sucedido!");
+                    alert("Login bem-sucedido!");
 
-        // Redireciona para a página index.html
-        window.location.href = "index.html";
-    } else {
-        alert("Credenciais incorretas. Por favor, tente novamente.");
-    }
-}
+                    // Redireciona para a página index.html
+                    window.location.href = "index.html";
+                } else {
+                    alert("Credenciais incorretas. Por favor, tente novamente.");
+                }
+            }
 
 
         })
 
-        //     
+        const toggleMenu = () => document.body.classList.toggle("open");
 
     </script>
-<script src="user.js"></script>
+    <script src="user.js"></script>
+    <script src="headerMobile.js"></script>
 </body>
 
 </html>

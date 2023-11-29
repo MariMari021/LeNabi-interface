@@ -41,6 +41,11 @@ body {
 
 /* INICIO HEADER */
 
+.navbar, .burguer{
+  display: none;
+}
+
+
 #userHeader {
   cursor: pointer;
 }
@@ -94,6 +99,7 @@ body {
   font-size: 23px;
   color: #E3CFBC;
 }
+
 
 .botaoSair {
   cursor: pointer;
@@ -1461,10 +1467,11 @@ footer {
 }
 
 .box {
-  margin-top: 34.3px;
+  margin-top: 34px;
   display: flex;
   justify-content: space-between;
 }
+
 
 .box h3 {
   font-size: 46px;
@@ -1491,7 +1498,7 @@ footer {
 }
 
 .conteudo-login {
-  margin: 98px 232px 0;
+  margin: 98px 169px 0;
 }
 
 .linha-titulo {
@@ -2140,15 +2147,121 @@ input::-webkit-inner-spin-button {
 
 /* FIM SUSTENTABILIDADE */
 
+.logo-tablet {
+  display: none;
+}
 
-@media (max-width: 400px) {
+
+@media screen and (max-width: 767px) {
 
   /* inicio login */
   #favoritos,
   .button,
-  .img-login {
+  .img-login{
     display: none;
-  }
+  } 
+  
+  /* header - mobile */
+.burger {
+  display: flex;
+  position: fixed;
+  z-index:10000 ;
+  top: 0;
+  left: 0;
+  width: 72px;
+}
+
+.navbar a, .material-symbols-outlined{
+    text-decoration: none;
+    display: grid;
+    place-items: center;
+    width: 126px;
+    height: 55px;
+    border: 0;
+    padding: 0;
+    background: transparent;
+    color: #585c62;
+    cursor: pointer;
+    font-family: inherit;
+    justify-content: start;
+    justify-items: stretch;
+}
+
+.navbar{
+  display: flex;
+}
+
+.botaoMenu button{
+  height: 35px;
+  width: 40px;
+  margin: 19px 10px 12px 23px;
+  font-size: 28px;
+  color: #3C2520;
+}
+
+
+.navbar {
+  font-family: 'Poppins-regular';
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  height: 100%;
+  padding: 35px 30px 0;
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  background: #fff;
+  box-shadow: 0 10px 50px rgba(0, 0, 0, 0.1);
+  transition-property: translate, opacity, visibility;
+  transition-duration: 0.5s;
+  translate: -100% 0;
+  visibility: hidden;
+  opacity: 0;
+  align-items: flex-start;
+}
+
+body.open .navbar {
+  opacity: 1;
+  visibility: visible;
+  translate: 0 0;
+}
+
+.buscar {
+  margin: 16px 0 0 auto;
+  position: relative;
+}
+
+.buscar input {
+  width: 100%;
+  height: 44px;
+  padding-left: 46px;
+  font-size: 16px;
+  border: 0;
+  border-radius: 8px;
+  background: #eff1f2;
+  color: inherit;
+  font-family: inherit;
+  outline: none;
+}
+
+.navbar nav {
+  display: flex;
+  align-items: center;
+  padding-right: 20px;
+}
+
+#buscar{
+  padding: 13px 15px;
+    background-color: #3C2520;
+    border-radius: 30px;
+    width: 226px;
+}
+
+
+/* fim header mobile */
 
   .box {
     justify-content: center;
@@ -2163,8 +2276,13 @@ input::-webkit-inner-spin-button {
     font-size: 16px;
   }
 
+ 
+
   .usuario input,
-  .senha input, .nome input, .email input, .telefone input {
+  .senha input,
+  .nome input,
+  .email input,
+  .telefone input {
     width: 321px;
     padding: 16px 84px;
   }
@@ -2185,17 +2303,17 @@ input::-webkit-inner-spin-button {
     font-size: 20px;
   }
 
-  .email i{
+  .email i {
     font-size: 24px;
   }
 
-.pencil i {
-  font-size: 24px;
-}
+  .pencil i {
+    font-size: 24px;
+  }
 
-.telefone i{
-  font-size: 24px;
-}
+  .telefone i {
+    font-size: 24px;
+  }
 
 
   .titulo {
@@ -2224,15 +2342,15 @@ input::-webkit-inner-spin-button {
     font-size: 14px;
   }
 
-  .nome input::placeholder{
+  .nome input::placeholder {
     font-size: 14px;
   }
 
   .email input {
     font-size: 14px;
   }
-  
-  .telefone input{
+
+  .telefone input {
     font-size: 14px;
   }
 
@@ -2366,7 +2484,99 @@ input::-webkit-inner-spin-button {
     margin-top: 56.3px;
   }
 
+  .logo-tablet {
+    display: none;
+  }
+
 
 
   /* fim footer */
 }
+
+
+@media screen and (min-width:768px) and (max-width:974px) {
+
+  #favoritos,
+  .button,
+  .img-login, .img-cadastro {
+    display: none;
+  }
+
+  .box {
+    justify-content: center;
+  }
+
+  .parte1,
+  .parte2 {
+    display: grid;
+    font-size: 18px;
+  }
+
+  .container-footer nav {
+    display: grid;
+    justify-items: start;
+
+  }
+
+  .footer-desktop {
+    display: none;
+  }
+
+  .container-footer nav a {
+    font-size: 19px;
+    margin: 8px 0;
+  }
+
+  .parte1 {
+    margin-top: 15px;
+  }
+
+  .parte2 {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .redes-sociais img {
+    margin: 7px 0;
+  }
+
+  .email-footer {
+    width: 39px;
+    height: 43px;
+  }
+
+  .insta-footer {
+    width: 40px;
+    height: 40px;
+    position: relative;
+    top: 2px;
+  }
+
+  .x-footer {
+    width: 32px;
+    height: 30px;
+    position: relative;
+    top: 6px;
+  }
+
+  .logo-footer img {
+    width: 103px;
+  }
+
+  .logo-footer h2 {
+    font-size: 29.56px;
+  }
+
+  .conteudo-login {
+    margin: 50px 232px 0;
+  }
+
+  .logo-footer {
+    display: flex;
+  }
+
+  .container-footer {
+    display: flex;
+  }
+}
+

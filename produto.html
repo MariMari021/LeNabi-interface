@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/a2288264db.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
     <style>
         main#conteudo.original.area-de-busca {
             margin-top: 72px;
@@ -32,21 +33,41 @@
 
                 <div id="favoritos" onclick="toggleFavoritos()">
                     <div class="imagem">
-                        <i class="fa-regular fa-heart" style="color: #522318;"></i>
+                        <i class="fa-regular fa-heart" style="color: #522318; "></i>
                     </div>
                     <span id="cont-favoritos">0</span>
                 </div>
+                <div id="carrinho-itens" style="display: none;">
+                    <ul id="itens-lista"></ul>
+                    <span id="preco-total">Valor Total: R$0,00</span>
+                    <button class="car" onclick="limparCarrinho()">Limpar Carrinho</button>
+                </div>
                 <!-- Dentro da div do usuário logado -->
-                <div class="usuario-logado" id="userHeader">
+                <div class="usuario-logado" id="userHeader" onclick="mostrarOcultarPopup()">
                     <i class="fa-solid fa-user" style="color: #522318;"></i>
                     <span id="nomeUsuario"></span>
-                    <i id="logoutButton" class="fa-solid fa-arrow-right-from-bracket" onclick="logout()"></i>
                 </div>
+
+
+                <div id="popup" style="display: none;">
+                    <div class="popup-conteudo">
+                        <img src="img-interface/Group 20.svg" alt="">
+                        <span id="conteudoPopup"></span>
+                        <span id="emailUsuario"></span>
+                        <br>
+                        
+                    </div>
+                   <button class="botaoSair" onclick="logout()"> <p>Sair</p>
+                        <i id="logoutButton" class="fa-solid fa-arrow-right-from-bracket"
+                            ></i></button>
+                </div>
+
 
 
                 <a href="login.html" class="button" id="loginButton"><span>Fazer login</span></a>
             </div>
         </div>
+
         <nav>
             <div class="botoes">
                 <a href="produto.html#pre-venda">Pré-Venda</a>
