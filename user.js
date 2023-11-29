@@ -20,20 +20,20 @@ function renderizarCabecalho() {
         if (nomeUsuario) {
             // Usuário logado
             console.log("Usuário logado:", nomeUsuario);
-            headerLogin.style.display = "block";
+            headerLogin.style.display = "grid";
             nomeUsuarioElement.textContent = nomeUsuario;  // Exibe o nome do usuário
             loginButton.style.display = "none";
         } else {
             // Usuário não logado
             console.log("Usuário não logado");
             headerLogin.style.display = "none";
-            loginButton.style.display = "block";
+            loginButton.style.display = "grid";
         }
 
         // Adiciona um evento de clique ao headerLogin
         headerLogin.addEventListener("click", function () {
             // Exibe o popup
-            popup.style.display = "block";
+            popup.style.display = "grid";
 
             // Preenche o conteúdo do popup com o nome e email do usuário
             conteudoPopup.textContent = nomeUsuario;

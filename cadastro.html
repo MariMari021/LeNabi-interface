@@ -7,6 +7,8 @@
     <title>LeNabi - Cadastro</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/a2288264db.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <link rel="stylesheet" href="areadebusca.css">
     <style>
         #favoritos{
             padding-left: 717px;
@@ -36,12 +38,33 @@
                 <button class="car" onclick="limparCarrinho()">Limpar Carrinho</button>
             </div>
             <a href="login.html" class="button"><span>Fazer login</span></a>
+
+            <div class="botaoMenu">
+                <button onclick="toggleMenu()" class="burger material-symbols-outlined">
+                    menu
+                </button>
+            </div>
         </div>
-        <nav>
-            <div class="botoes botoes-login"></div>
+        <nav class="navbar">
+            <div class="buscar">
+                <input type="text" spellcheck="false" class="buscar" id="buscar" placeholder="Buscar livro"
+                    oninput="buscarProduto()">
+            </div>
+            <nav>
+                <div class=" botoes-login">
+                    <a href="produto.html#pre-venda">Pré-Venda</a>
+                    <a href="produto.html#lancamentos-page">Lançamentos</a>
+                    <a href="produto.html">Produtos</a>
+                    <a href="sustentabilidade.html">Sustentabilidade</a>
+                    <a href="sustentabilidade.html">Favoritos</a>
+                    <a href="sobre-nos.html">Sobre nós</a>
+                    <a  href="login.html">Login</a>
+                    <a href="cadastro.html">Cadastro</a>
+                </div>
+            </nav>
         </nav>
     </header>
-    <main>
+    <main id="main-cadastro">
         <div class="box">
             <div class="conteudo-login">
                 <div class="titulo">
@@ -126,45 +149,7 @@
             </div>
         </div>
     </footer>
-    <script>
-        // const iconOlho = document.getElementById("iconOlho");
-        // const senhaInput = document.getElementById("senhaInput");
-        // const inputs = document.querySelectorAll('input[required]');
-
-        // // Adicionar um ouvinte de evento ao ícone de olho
-        // iconOlho.addEventListener("click", () => {
-        //     if (senhaInput.type === "password") {
-        //         // Alterar o ícone e o tipo de entrada para "text"
-        //         senhaInput.type = "text";
-        //         iconOlho.classList.remove("fa-regular");
-        //         iconOlho.classList.remove("fa-eye-slash");
-        //         iconOlho.classList.add("fa-solid");
-        //         iconOlho.classList.add("fa-eye");
-        //     } else {// Reverter o ícone e o tipo de entrada para "password"
-        //         senhaInput.type = "password";
-        //         iconOlho.classList.remove("fa-solid");
-        //         iconOlho.classList.remove("fa-eye");
-        //         iconOlho.classList.add("fa-regular");
-        //         iconOlho.classList.add("fa-eye-slash");
-        //     }
-        // });
-
-        // // Adicionar um ouvinte de evento ao botão de registro
-        // registrarButton.addEventListener("click", () => {
-        //     let camposVazios = false;
-
-        //     inputs.forEach(input => {
-        //         if (input.value.trim() === '') {
-        //             camposVazios = true;
-        //         }
-        //     }); if (camposVazios) {
-        //         alert("Preencha todos os campos obrigatórios.");
-        //     } else {
-        //         alert("Cadastro bem-sucedido!");
-        //         window.location.href = "index.html";
-        //     }
-        // });
-
+    <script  type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             const iconOlho = document.getElementById("iconOlho");
             const senhaInput = document.getElementById("senhaInput");
@@ -189,51 +174,7 @@
                 }
             });
 
-            //     registrarButton.addEventListener("click", () => {
-            //         const nome = document.querySelector('.nome input').value;
-            //         const email = document.querySelector('.email input').value;
-            //         const telefone = document.querySelector('.telefone input').value;
-            //         const usuario = document.querySelector('.usuario input').value;
-            //         const senha = document.querySelector('.senha input').value;
 
-            //         const userData = {
-            //             nome: nome,
-            //             email: email,
-            //             telefone: telefone,
-            //             userInput: usuario,
-            //             senhaInput: senha
-            //         };
-
-            //         localStorage.setItem('userData', JSON.stringify(userData));
-            //         alert("Cadastro bem-sucedido!");
-            //         window.location.href = "index.html";
-            //     });
-            // });
-            // registrarButton.addEventListener("click", () => {
-            //     const nome = document.querySelector('.nome input').value;
-            //     const email = document.querySelector('.email input').value;
-            //     const telefone = document.querySelector('.telefone input').value;
-            //     const usuario = document.querySelector('.usuario input').value;
-            //     const senha = document.querySelector('.senha input').value;
-
-            //     const userData = {
-            //         nome: nome,
-            //         email: email,
-            //         telefone: telefone,
-            //         userInput: usuario,
-            //         senhaInput: senha
-            //     };
-
-            //     localStorage.setItem('userData', JSON.stringify(userData));
-            //     localStorage.setItem('nomeUsuario', nome);  // Adicione esta linha
-            //     localStorage.setItem('emailUsuario', email); // Adicione esta linha
-
-            //     console.log("Nome do usuário cadastrado:", localStorage.getItem('nomeUsuario'));
-            //     console.log("Email do usuário cadastrado:", localStorage.getItem('emailUsuario'));
-
-            //     alert("Cadastro bem-sucedido!");
-            //     window.location.href = "index.html";
-            // });
             registrarButton.addEventListener("click", () => {
                 const nome = document.querySelector('.nome input').value;
                 const email = document.querySelector('.email input').value;
@@ -277,6 +218,47 @@
 
 
         })
+
+        const toggleMenu = () => document.body.classList.toggle("open");
+
+function buscarProduto() {
+    const termoDeBusca = document.getElementById("buscar").value.toLowerCase();
+    const main = document.getElementById("main-cadastro");
+    main.innerHTML = ""; // Limpa o conteúdo atual
+
+    // Realiza a busca nos elementos com a classe "livros" no arquivo "produto.html"
+    fetch("produto.html")
+        .then(response => response.text())
+        .then(data => {
+            // Crie um elemento temporário para analisar o conteúdo do produto.html
+            const tempElement = document.createElement("div");
+            tempElement.innerHTML = data;
+
+            // Encontra os elementos com a classe "livros" e verifica se o título contém o termo de busca
+            const livros = tempElement.querySelectorAll(".livros");
+            livros.forEach(livro => {
+                const titulo = livro.querySelector("img").alt.toLowerCase();
+
+                if (titulo.includes(termoDeBusca)) {
+                    main.appendChild(livro.cloneNode(true));
+                }
+            });
+
+            // Adicione a classe "area-de-busca" a main para aplicar os estilos
+            main.classList.add("area-de-busca");
+
+            // Verifique se há filhos na área de busca
+            if (main.children.length === 0) {
+                main.innerHTML = 'Nenhum resultado encontrado.';
+                main.style.display = "flex";
+                main.style.alignItems = "center";
+                main.style.backgroundColor = "#F8F1EE"; // Cor de fundo quando nenhum resultado é encontrado
+            }
+        })
+        .catch(error => {
+            console.error("Erro ao buscar produtos:", error);
+        });
+}
 
 
     </script>
