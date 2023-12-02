@@ -4,8 +4,7 @@
     /* banner */
     #sustentabilidade,
     #ScrollTrigger,
-    #Produtos,
-    #lancamentos {
+    #Produtos {
         display: none;
     }
 
@@ -44,6 +43,110 @@
     /* fim banner */
 
 
+    /* inicio novidades */
+    .circulos {
+        display: none;
+    }
+
+    .novidade h1 {
+        display: flex;
+        position: static;
+        justify-content: center;
+        font-size: 45px;
+    }
+
+    .divsaoUm,
+    .divsaoDois {
+        position: relative;
+        left: 0;
+        top: 0;
+        display: none;
+    }
+
+    .container-lancamento {
+        display: none;
+    }
+
+    .container-lancamento-mobile {
+        height: 41%;
+        overflow: hidden;
+        display: flex;
+        padding: 0 49px;
+        width: 100%;
+    }
+
+    #slide-mobile {
+        display: flex;
+        width: 300%;
+        /* Um slide à esquerda e um à direita para garantir espaço suficiente */
+        transition: transform 0.5s ease-in-out;
+    }
+
+    .content-mobile {
+        border: none;
+        text-align: center;
+        display: grid;
+        width: 80vw;
+    }
+
+    .item-mobile {
+        width: 100%;
+        height: 80%;
+        box-sizing: border-box;
+    }
+
+    .item-mobile .content-mobile .name-mobile {
+        font-family: 'Poppins-Semi';
+        font-size: 25px;
+        color: #522318;
+    }
+
+    .item-mobile .content-mobile .data-mobile {
+        font-family: 'Poppins-medium';
+        font-size: 16px;
+        color: #522318;
+    }
+
+    .item-mobile .content-mobile .des-mobile {
+        font-family: 'Poppins-regular';
+        font-size: 18px;
+        color: #522318;
+        text-align: center;
+    }
+
+
+    .item-mobile .content-mobile a {
+        background: #522318;
+        color: white;
+        padding: 8px 27px;
+        border-radius: 14px;
+        font-size: 16px;
+        margin: 0;
+        box-shadow: 4px 4px 5px #3C2520;
+        margin-bottom: 28px;
+    }
+
+    #but-mobile {
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        padding: 0 140px;
+    }
+
+    .buttons-mobile {
+        position: static;
+        text-align: center;
+    }
+
+    #lancamentos{
+        height: auto;
+    }
+
+
+
+    /* fim novidades */
+
+
 
 }
 
@@ -54,8 +157,7 @@
     /* banner */
     #sustentabilidade,
     #ScrollTrigger,
-    #Produtos,
-    #lancamentos {
+    #Produtos {
         display: none;
     }
 
@@ -100,9 +202,10 @@
     }
 
     .novidade h1 {
-        position: relative;
-        left: 0;
-        top: 0;
+        display: flex;
+        position: static;
+        justify-content: center;
+        font-size: 45px;
     }
 
     .divsaoUm,
@@ -110,7 +213,89 @@
         position: relative;
         left: 0;
         top: 0;
+        display: none;
     }
+
+    .container-lancamento {
+        display: none;
+    }
+
+    .container-lancamento-mobile {
+        height: 41%;
+        overflow: hidden;
+        display: flex;
+        padding: 0 49px;
+        width: 100%;
+    }
+
+    #slide-mobile {
+        display: flex;
+        width: 300%;
+        /* Um slide à esquerda e um à direita para garantir espaço suficiente */
+        transition: transform 0.5s ease-in-out;
+    }
+
+    .content-mobile {
+        border: none;
+        text-align: center;
+        display: grid;
+        width: 80vw;
+    }
+
+    .item-mobile {
+        width: 100%;
+        height: 80%;
+        box-sizing: border-box;
+    }
+
+    .item-mobile .content-mobile .name-mobile {
+        font-family: 'Poppins-Semi';
+        font-size: 25px;
+        color: #522318;
+    }
+
+    .item-mobile .content-mobile .data-mobile {
+        font-family: 'Poppins-medium';
+        font-size: 16px;
+        color: #522318;
+    }
+
+    .item-mobile .content-mobile .des-mobile {
+        font-family: 'Poppins-regular';
+        font-size: 18px;
+        color: #522318;
+        text-align: center;
+    }
+
+
+    .item-mobile .content-mobile a {
+        background: #522318;
+        color: white;
+        padding: 8px 27px;
+        border-radius: 14px;
+        font-size: 16px;
+        margin: 0;
+        box-shadow: 4px 4px 5px #3C2520;
+        margin-bottom: 28px;
+    }
+
+    #but-mobile {
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        padding: 0 140px;
+    }
+
+    .buttons-mobile {
+        position: static;
+        text-align: center;
+    }
+
+    #lancamentos{
+        height: auto;
+    }
+
+    /* fim novidades */
 }
 
 
@@ -121,8 +306,7 @@
     /* banner */
     #sustentabilidade,
     #ScrollTrigger,
-    #Produtos,
-    #lancamentos {
+    #Produtos {
         display: none;
     }
 
@@ -167,9 +351,10 @@
     }
 
     .novidade h1 {
-        position: relative;
-        left: 0;
-        top: 0;
+        display: flex;
+        position: static;
+        justify-content: center;
+        font-size: 45px;
     }
 
     .divsaoUm,
@@ -177,8 +362,87 @@
         position: relative;
         left: 0;
         top: 0;
+        display: none;
     }
 
+    .container-lancamento {
+        display: none;
+    }
+
+    .container-lancamento-mobile {
+        height: 41%;
+        overflow: hidden;
+        display: flex;
+        padding: 0 49px;
+        width: 100%;
+    }
+
+    #slide-mobile {
+        display: flex;
+        width: 300%;
+        /* Um slide à esquerda e um à direita para garantir espaço suficiente */
+        transition: transform 0.5s ease-in-out;
+    }
+
+    .content-mobile {
+        border: none;
+        text-align: center;
+        display: grid;
+        width: 80vw;
+    }
+
+    .item-mobile {
+        width: 100%;
+        height: 80%;
+        box-sizing: border-box;
+    }
+
+    .item-mobile .content-mobile .name-mobile {
+        font-family: 'Poppins-Semi';
+        font-size: 25px;
+        color: #522318;
+    }
+
+    .item-mobile .content-mobile .data-mobile {
+        font-family: 'Poppins-medium';
+        font-size: 16px;
+        color: #522318;
+    }
+
+    .item-mobile .content-mobile .des-mobile {
+        font-family: 'Poppins-regular';
+        font-size: 18px;
+        color: #522318;
+        text-align: center;
+    }
+
+
+    .item-mobile .content-mobile a {
+        background: #522318;
+        color: white;
+        padding: 8px 27px;
+        border-radius: 14px;
+        font-size: 16px;
+        margin: 0;
+        box-shadow: 4px 4px 5px #3C2520;
+        margin-bottom: 28px;
+    }
+
+    #but-mobile {
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        padding: 0 140px;
+    }
+
+    .buttons-mobile {
+        position: static;
+        text-align: center;
+    }
+
+    #lancamentos{
+        height: auto;
+    }
 
     /* main interface fim */
 
@@ -190,8 +454,7 @@
     /* banner */
     #sustentabilidade,
     #ScrollTrigger,
-    #Produtos,
-    #lancamentos {
+    #Produtos {
         display: none;
     }
 
@@ -236,9 +499,10 @@
     }
 
     .novidade h1 {
-        position: relative;
-        left: 0;
-        top: 0;
+        display: flex;
+        position: static;
+        justify-content: center;
+        font-size: 45px;
     }
 
     .divsaoUm,
@@ -246,6 +510,88 @@
         position: relative;
         left: 0;
         top: 0;
+        display: none;
     }
+
+    .container-lancamento {
+        display: none;
+    }
+
+    .container-lancamento-mobile {
+        height: 41%;
+        overflow: hidden;
+        display: flex;
+        padding: 0 38px;
+        width: 100%;
+    }
+
+    #slide-mobile {
+        display: flex;
+        width: 300%;
+        /* Um slide à esquerda e um à direita para garantir espaço suficiente */
+        transition: transform 0.5s ease-in-out;
+    }
+
+    .content-mobile {
+        border: none;
+        text-align: center;
+        display: grid;
+        width: 80vw;
+    }
+
+    .item-mobile {
+        width: 100%;
+        height: 80%;
+        box-sizing: border-box;
+    }
+
+    .item-mobile .content-mobile .name-mobile {
+        font-family: 'Poppins-Semi';
+        font-size: 25px;
+        color: #522318;
+    }
+
+    .item-mobile .content-mobile .data-mobile {
+        font-family: 'Poppins-medium';
+        font-size: 16px;
+        color: #522318;
+    }
+
+    .item-mobile .content-mobile .des-mobile {
+        font-family: 'Poppins-regular';
+        font-size: 18px;
+        color: #522318;
+        text-align: center;
+    }
+
+
+    .item-mobile .content-mobile a {
+        background: #522318;
+        color: white;
+        padding: 8px 27px;
+        border-radius: 14px;
+        font-size: 16px;
+        margin: 0;
+        box-shadow: 4px 4px 5px #3C2520;
+        margin-bottom: 28px;
+    }
+
+    #but-mobile {
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        padding: 0 140px;
+    }
+
+    .buttons-mobile {
+        position: static;
+        text-align: center;
+    }
+
+    #lancamentos{
+        height: auto;
+    }
+
+    /* fim novidades */
 
 }
