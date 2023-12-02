@@ -59,6 +59,12 @@ function renderizarCabecalho() {
     const popup = document.getElementById("popup");
     const conteudoPopup = document.getElementById("conteudoPopup");
     const emailUsuarioPopup = document.getElementById("emailUsuario");
+    const userHeaderMobile  = document.getElementById("userHeaderMobile");
+    const sideUser = document.getElementById("sideUser");
+    const nomeMobile = document.getElementById("userMobile");
+    const conteudoMobile = document.getElementById("conteudoMobile");
+    const emailMobile = document.getElementById("emailMobile");
+
 
     // Obtenha o nome e email do usuário armazenados no localStorage
     const nomeUsuario = localStorage.getItem('nomeUsuario');
@@ -96,7 +102,21 @@ function renderizarCabecalho() {
         } if (window.innerWidth <= 975) {
             loginButton.style.display = "none";
             headerLogin.style.display = "none";
+            if (nomeUsuario) {
+                // Usuário logado
+                console.log("Usuário logado:", nomeUsuario);
+                userHeaderMobile.style.display = "flex";
+                nomeMobile.textContent = nomeUsuario;  // Exibe o nome do usuário
+                sideUser.style.display = "none";
+                conteudoMobile.textContent = nomeUsuario;
+                emailMobile.textContent = emailUsuario;
 
+            } else {
+                // Usuário não logado
+                console.log("Usuário não logado");
+                userHeaderMobile.style.display = "none";
+                sideUser.style.display = "flex";
+            }
         } else {
             console.error("A largura da tela é maior que 975 pixels.");
         }
@@ -109,8 +129,8 @@ function renderizarCabecalho() {
 renderizarCabecalho();
 
 
-
-
+const toggleMenu = () => document.body.classList.toggle("open");
+const toggleMobile = () => document.body.classList.toggle("openMobile");
 
 
 

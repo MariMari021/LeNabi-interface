@@ -14,7 +14,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <link rel="shortcut icon" href="img-interface/lenabi 1.png" type="image/x-icon">
     <link rel="stylesheet" href="produto.css">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <link rel="stylesheet" href="stylemobile.css">
     <script src="user.js"></script>
+
 </head>
 
 <body>
@@ -53,20 +56,65 @@
                         <span id="conteudoPopup"></span>
                         <span id="emailUsuario"></span>
                         <br>
-                        
+
                     </div>
-                   <button class="botaoSair" onclick="logout()"> <p>Sair</p>
-                        <i id="logoutButton" class="fa-solid fa-arrow-right-from-bracket"
-                            ></i></button>
+                    <button class="botaoSair" onclick="logout()">
+                        <p>Sair</p>
+                        <i id="logoutButton" class="fa-solid fa-arrow-right-from-bracket"></i>
+                    </button>
                 </div>
-
-
-
                 <a href="login.html" class="button" id="loginButton"><span>Fazer login</span></a>
+                <div class="botaoMenu">
+                    <button onclick="toggleMenu()" class="burger material-symbols-outlined">
+                        menu
+                    </button>
+                </div>
             </div>
+            <nav class="navbar" >
+                <div class="buscarMobile">
+                    <input type="text" spellcheck="false" class="buscarMobile" id="buscarMobile"
+                        placeholder="Buscar livro" oninput="buscarMobile()">
+                </div>
+                <nav>
+                    <div class=" botoes-login">
+                        <a href="produto.html#pre-venda">Pré-Venda</a>
+                        <a href="produto.html#lancamentos-page">Lançamentos</a>
+                        <a href="produto.html">Produtos</a>
+                        <a href="sustentabilidade.html">Sustentabilidade</a>
+                        <a href="sustentabilidade.html">Favoritos</a>
+                        <a href="sobre-nos.html">Sobre nós</a>
+                        <a id="sideUser" href="login.html">Login</a>
+                        <div class="logado-mobile" id="userHeaderMobile" onclick="toggleMobile()">
+                            <i class="fa-solid fa-user" style="color: #522318;"></i>
+                            <span id="userMobile"></span>
+                        </div>
+                    </div>
+                </nav>
+            </nav>
+            <nav class="navbarUser">
+                <nav>
+                    <div id="popupMobile">
+                        <div class="popupMobileAll">
+                            <img src="img-interface/Group 20.svg" alt="">
+                            <span id="conteudoMobile"></span>
+                            <span id="emailMobile"></span>
+                            <br>
+                            
+                        </div>
+                       <button class="botaoSairMobile" onclick="logout()"> <p>Sair</p>
+                            <i id="logoutButtonMobile" class="fa-solid fa-arrow-right-from-bracket"
+                                ></i></button>
+                    </div>
+                    
+                </nav>
+            </nav>
+        </div>
+       
+
+        </div>
         </div>
 
-        <nav>
+        <nav class="navDesktop">
             <div class="botoes">
                 <a href="produto.html#pre-venda">Pré-Venda</a>
                 <a href="produto.html#lancamentos-page">Lançamentos</a>
@@ -255,6 +303,48 @@
                     <button id="next"><i class="fa-solid fa-angles-right"></i></button>
                 </div>
             </div>
+            <div class="container-lancamento-mobile">
+                <div id="slide-mobile">
+                    <div class="item-mobile">
+                        <div class="content-mobile">
+                            <div class="name-mobile">Hoje, depois, amanhã</div>
+                            <div class="data-mobile">17/04/23</div>
+                            <div class="des-mobile">Comédia romântica entre dois nerds que descobrem que podem não se
+                                odiar.
+                                <br>
+                            </div>
+                            <a href="">Ver Mais</a>
+                        </div>
+                    </div>
+                    <div class="item-mobile">
+                        <div class="content-mobile">
+                            <div class="name-mobile">Os irmãos Hawthorne</div>
+                            <div class="data-mobile">05/09/23</div>
+                            <div class="des-mobile">Herdeiro bilionário ensinado a priorizar a família age para proteger
+                                meias-irmãs.
+                                <br>
+                            </div>
+                            <a href="">Ver Mais</a>
+                        </div>
+                    </div>
+                    <div class="item-mobile">
+                        <div class="content-mobile">
+                            <div class="name-mobile">O morro dos ventos uivantes</div>
+                            <div class="data-mobile">14/07/16</div>
+                            <div class="des-mobile">Trágica história de amor e obsessão entre Catherine Earnshaw e
+                                Heathcliff.
+                                <br>
+                            </div>
+                            <a href="">Ver Mais</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="but-mobile" class="buttons-mobile">
+                <button onclick="prevSlide()" class="next-mobile"><i class="fa-solid fa-angles-left"></i></button>
+                <button onclick="nextSlide()" class="prev-mobile"><i class="fa-solid fa-angles-right"></i></button>
+            </div>
             </div>
 
         </section>
@@ -276,6 +366,9 @@
                                 <p>Livros com folhas recicladas promovem uma leitura sustentável, reduzindo conservando
                                     recursos naturais. </p>
                             </div>
+                            <div class="detalhes-mobile">
+                                <p>Livros com folhas recicladas promovem uma leitura sustentável. </p>
+                            </div>
 
                         </div>
                         <div class="texto">
@@ -285,6 +378,9 @@
                                 <p>Descubra as novas coleções de livros, com histórias envolventes, que cativarão
                                     leitores de todas as idades. </p>
                             </div>
+                            <div class="library-mobile colecao-mobile">
+                                <p>Descubra as novas coleções de livros, com histórias envolventes. </p>
+                            </div>
 
                         </div>
                         <div class="texto">
@@ -293,6 +389,9 @@
                                 <h3>Best-Sellers</h3>
                                 <p>A LeNabi oferece livros de qualidade, como "Jogo Fatal", "A Cabana" e "O Ceifador",
                                     que cativam leitores os com reflexões profundas.</p>
+                            </div>
+                            <div class="detalhes-mobile">
+                                <p>Livros de qualidade que cativam leitores com reflexões profundas.</p>
                             </div>
                         </div>
                         <div class="botao-linha">
@@ -326,21 +425,48 @@
 
             <div class="divisoria"></div>
 
-            <div class="container-scroll" id="scroll-container">
-                <h1><span class="primeiro">Quer ficar por dentro das
-                        <h1 class="young">novidades?</h1>
-                    </span></h1>
-                <h1><span class="segundo">Participe do nosso
-                        <h1 class="young">NEWSLETTER</h1>
-                    </span></h1>
-                <h3><span class="terceiro">Receba as novidades
-                        <h1 class="young">na palma da mão.</h1>
-                        <form><input type="text" placeholder="Escreva aqui">
-                            <button>Enviar</button>
-                        </form>
-                    </span></h3>
+            
+                <div class="area-parada">
+                    <div class="container-scroll">
+                        <div class="trocas" id="trocas">
+                            <div class="troca active">
+                                <div class="sub">
+                                    <h1><span class="primeiro">Quer ficar por dentro das
+                                            <h1 class="young">novidades?</h1>
+                                </div>
+                            </div>
+                            <div class="troca">
+                                <div class="sub">
+                                    <h1><span class="segundo">Participe do nosso
+                                            <h1 class="young">NEWSLETTER</h1>
+                                </div>
+                            </div>
+                            <div class="troca">
+                                <div class="sub">
+                                    <h3><span class="terceiro">Receba as novidades
+                                            <h1 class="young">na palma da mão.</h1>
+                                            <form><input type="text" placeholder="Escreva aqui">
+                                                <button type="submit">Enviar</button>
+                                            </form>
+                                        </span></h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
 
+            <div class="mobile-scroll">
+                <div class="mobile-newslatter">
+                    <h3><span class="terceiro-mobile">Receba as novidades
+                            <h1 class="young-mobile">na palma da mão.</h1>
+                            <form><input type="text-mobile" placeholder="Escreva aqui">
+                                <button type="submit">Enviar</button>
+                            </form>
+                        </span></h3>
+                </div>
             </div>
+
         </section>
         <section id="sustentabilidade">
             <div class="sustentabilidade">
@@ -369,23 +495,25 @@
             <nav>
                 <div class="parte1">
                     <a href="index.html#but">Produtos</a>
-                    <a href="index.html#lancamentos">Lançamentos</a>
-                    <a href="index.html#header">Pré-venda</a>
+                    <a href="index.html#lancamentos" class="footer-desktop">Lançamentos</a>
+                    <a href="index.html#header" class="footer-desktop">Pré-venda</a>
                 </div>
                 <div class="parte2">
-                    <a href="#">Favoritos</a>
+                    <a href="#" class="footer-desktop">Favoritos</a>
                     <a href="sustentabilidade.html">Sustentabilidade</a>
                     <a href="sobre-nos.html">Sobre nós</a>
                 </div>
             </nav>
+            <div class="footer-branca"></div>
             <div class="redes-sociais">
-                <a href="mailto:editoralenabi@gmail.com" target="_blank"><img src="img-interface/carbon_email.svg"
-                        alt=""></a>
+                <a href="mailto:editoralenabi@gmail.com" target="_blank"><img class="email-footer"
+                        src="img-interface/carbon_email.svg" alt=""></a>
                 <a href="https://www.instagram.com/editoralenabi/?igshid=YTQwZjQ0NmI0OA%3D%3D" target="_blank"><img
-                        src="img-interface/uil_instagram.svg" alt=""></a>
+                        class="insta-footer" src="img-interface/uil_instagram.svg" alt=""></a>
                 <a href="https://x.com/LeNabiEditora?t=-ry8Op0ZSihvYuzXTeuZ8w&s=09" target="_blank"><img
-                        src="img-interface/simple-icons_x.svg" alt=""></a>
+                        class="x-footer" src="img-interface/simple-icons_x.svg" alt=""></a>
             </div>
+            <div class="footer-branco"></div>
             <div class="logo-footer">
                 <img src="img-interface/lenabi 1.png" alt="">
                 <h2>LeNabi</h2>
@@ -402,6 +530,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.0.3/swiper-bundle.min.js"></script>
     <script src="main.js"></script>
+
 
 
     <script>

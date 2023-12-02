@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="produto.css">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
     <link rel="stylesheet" href="areadebusca.css">
+    <script src="user.js"></script>
 </head>
 
 <body>
@@ -49,11 +50,12 @@
                         <span id="conteudoPopup"></span>
                         <span id="emailUsuario"></span>
                         <br>
-                        
+
                     </div>
-                   <button class="botaoSair" onclick="logout()"> <p>Sair</p>
-                        <i id="logoutButton" class="fa-solid fa-arrow-right-from-bracket"
-                            ></i></button>
+                    <button class="botaoSair" onclick="logout()">
+                        <p>Sair</p>
+                        <i id="logoutButton" class="fa-solid fa-arrow-right-from-bracket"></i>
+                    </button>
                 </div>
                 <a href="login.html" class="button" id="loginButton"><span>Fazer login</span></a>
                 <div class="botaoMenu">
@@ -62,10 +64,10 @@
                     </button>
                 </div>
             </div>
-            <nav class="navbar">
+            <nav class="navbar" >
                 <div class="buscarMobile">
-                    <input type="text" spellcheck="false" class="buscarMobile" id="buscarMobile" placeholder="Buscar livro"
-                        oninput="buscarMobile()">
+                    <input type="text" spellcheck="false" class="buscarMobile" id="buscarMobile"
+                        placeholder="Buscar livro" oninput="buscarMobile()">
                 </div>
                 <nav>
                     <div class=" botoes-login">
@@ -76,16 +78,34 @@
                         <a href="sustentabilidade.html">Favoritos</a>
                         <a href="sobre-nos.html">Sobre nós</a>
                         <a id="sideUser" href="login.html">Login</a>
-                        <div class="logado-mobile" id="userHeaderMobile" onclick="mostrarUserMobile()">
+                        <div class="logado-mobile" id="userHeaderMobile" onclick="toggleMobile()">
                             <i class="fa-solid fa-user" style="color: #522318;"></i>
                             <span id="userMobile"></span>
                         </div>
                     </div>
                 </nav>
             </nav>
+            <nav class="navbarUser">
+                <nav>
+                    <div id="popupMobile">
+                        <div class="popupMobileAll">
+                            <img src="img-interface/Group 20.svg" alt="">
+                            <span id="conteudoMobile"></span>
+                            <span id="emailMobile"></span>
+                            <br>
+                            
+                        </div>
+                       <button class="botaoSairMobile" onclick="logout()"> <p>Sair</p>
+                            <i id="logoutButtonMobile" class="fa-solid fa-arrow-right-from-bracket"
+                                ></i></button>
+                    </div>
+                    
+                </nav>
+            </nav>
+        </div>
+       
 
-                
-            </div>
+        </div>
         </div>
 
         <nav class="navDesktop">
@@ -134,19 +154,19 @@
     <footer>
         <div class="container-footer">
             <div class="tablet">
-            <nav>
-                <div class="parte1">
-                    <a href="index.html#but">Produtos</a>
-                    <a href="index.html#lancamentos" class="footer-desktop">Lançamentos</a>
-                    <a href="index.html#header" class="footer-desktop">Pré-venda</a>
-                </div>
-                <div class="parte2">
-                    <a href="#" class="footer-desktop">Favoritos</a>
-                    <a href="sustentabilidade.html">Sustentabilidade</a>
-                    <a href="sobre-nos.html">Sobre nós</a>
-                </div>
-            </nav>
-        </div>
+                <nav>
+                    <div class="parte1">
+                        <a href="index.html#but">Produtos</a>
+                        <a href="index.html#lancamentos" class="footer-desktop">Lançamentos</a>
+                        <a href="index.html#header" class="footer-desktop">Pré-venda</a>
+                    </div>
+                    <div class="parte2">
+                        <a href="#" class="footer-desktop">Favoritos</a>
+                        <a href="sustentabilidade.html">Sustentabilidade</a>
+                        <a href="sobre-nos.html">Sobre nós</a>
+                    </div>
+                </nav>
+            </div>
             <div class="footer-branca"></div>
             <div class="redes-sociais">
                 <a href="mailto:editoralenabi@gmail.com" target="_blank"><img class="email-footer"
@@ -164,7 +184,7 @@
         </div>
     </footer>
 
-    <script  type="text/javascript">
+    <script type="text/javascript">
         function buscarProduto() {
             const termoDeBusca = document.getElementById("buscar").value.toLowerCase();
             const main = document.getElementById("sobre-nos");
@@ -247,8 +267,7 @@
             renderizarCabecalho();
         });
 
-        
-        const toggleMenu = () => document.body.classList.toggle("open");
+
 
         //FIM BARRA DE PESQUISA
     </script>

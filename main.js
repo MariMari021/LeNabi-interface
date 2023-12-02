@@ -284,33 +284,77 @@ document.getElementById('prev').onclick = function () {
 
 //FIM LANÇAMENTOS
 
+
+//LANÇAMENTOS MOBILE
+let mobileIndex = 0;
+  const slides = document.querySelectorAll('.content-mobile');
+  const slideContainer = document.getElementById('slide-mobile');
+
+  function showSlide(index) {
+    slides.forEach((slide, i) => {
+      if (i === index) {
+        slide.style.opacity = 1;
+      } else {
+        slide.style.opacity = 0;
+      }
+    });
+  }
+
+  function nextSlide() {
+    const totalSlides = slides.length;
+    mobileIndex = (mobileIndex + 1) % totalSlides;
+    showSlide(mobileIndex);
+    updateTransform();
+  }
+
+  function prevSlide() {
+    const totalSlides = slides.length;
+    mobileIndex = (mobileIndex - 1 + totalSlides) % totalSlides;
+    showSlide(mobileIndex);
+    updateTransform();
+  }
+
+  function updateTransform() {
+    const slideWidth = 100 / slides.length;
+    const transformValue = -mobileIndex * slideWidth;
+    slideContainer.style.transform = `translateX(${transformValue}%)`;
+  }
+
+  // Exibir o primeiro slide ao carregar a página
+  showSlide(mobileIndex);
+//FIM LANÇAMENTOS MOBILE
+
+
 //produtos
 AOS.init();
 //fim produtos
 
-// original ScrollTrigger
-const container = document.getElementById('scroll-container');
-const spans = container.querySelectorAll('span');
-let currentIndex = 0;
+// ScrollTrigger
+const trocas = document.getElementById('trocas');
+        const trocaList = trocas.querySelectorAll('.troca');
+        let currentIndex = 0;
 
-container.addEventListener('wheel', (e) => {
-	container.style.overflow = 'hidden';
+        window.addEventListener('wheel', (event) => {
+            if (event.deltaY > 0) {
+                currentIndex = (currentIndex + 1) % trocaList.length;
+            } else {
+                currentIndex = (currentIndex - 1 + trocaList.length) % trocaList.length;
+            }
 
-	if (e.deltaY > 0) {
-		currentIndex = Math.min(currentIndex + 1, spans.length - 1);
-	} else {
-		currentIndex = Math.max(currentIndex - 1, 0);
-	}
+            updateVisibleTroca();
+        });
 
-	spans.forEach((span, index) => {
-		if (index === currentIndex) {
-			span.style.display = 'inline';
-		} else {
-			span.style.display = 'none';
-		}
-	});
-});
+        function updateVisibleTroca() {
+            trocaList.forEach((troca, index) => {
+                if (index === currentIndex) {
+                    troca.classList.add('active');
+                } else {
+                    troca.classList.remove('active');
+                }
+            });
+        }
 //fim ScrollTrigger
+
 
 
 // Função para buscar produtos
